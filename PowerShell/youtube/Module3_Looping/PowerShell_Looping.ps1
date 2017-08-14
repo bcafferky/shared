@@ -33,18 +33,16 @@ $val = 0
 Do { 
   $val++ 
   Write-Host $val
-} While($val -ne 10) 
+} While($val -lt 5) #  Condition applied after block is executed!
 
 # Do Util Loop...
 $val = 0
 Do { 
   $val++ 
   Write-Host $val
-} Until($val -eq 5)
-
+} Until($val -gt 5)
 
 # Impicit Loop, the pipe...
-
 Get-Process | Select-Object -Property "Id", "ProcessName", "CPU(s)"
 
 # Do Until Loop...
