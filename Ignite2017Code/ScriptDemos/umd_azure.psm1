@@ -298,7 +298,7 @@ function New-udfAzureServicePrincipal
 
     # Save-UdfEncryptedCredentialToFile  # Get the Service Principal Password
 
-    $credspath = $PSScriptRoot + "\creds\"
+    $credspath = $PSScriptRoot + "\"
 
     # Save the password...
  
@@ -379,7 +379,7 @@ function New-udfAzureRmVMLoginServicePrincipal
           )
 
 #    Add-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $tenantid
-    $credpath = Join-Path -Path $PSScriptRoot -ChildPath "\creds\"
+    $credpath = $PSScriptRoot + "\"
 
     Write-Verbose "Credential Path: $credpath"
 
@@ -396,6 +396,5 @@ function New-udfAzureRmVMLoginServicePrincipal
 
     Write-Verbose "Logging on to Azure..."
     Add-AzureRmAccount -Credential $credential -ServicePrincipal -TenantId $tenantid
-
 
 }
