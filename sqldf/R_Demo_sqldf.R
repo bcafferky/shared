@@ -34,7 +34,7 @@ library(babynames)
 head(babynames)
 str(babynames)
 
-sqldf("select * from babynames where year > 2000 limit 25")
+mydata <- sqldf("select * from babynames where year > 2000 limit 25")
 
 # Aggregation...
 
@@ -81,7 +81,7 @@ con <- odbcDriverConnect(connection=paste0("server=",'(local)',
 #  Get column list...
 sqlColumns(con, "Sales.CreditCard")
 
-# Doa query...
+# Do a query...
 salesSQL <- sqlQuery(con, "select * from Sales.CreditCard", errors = TRUE)
 
 sqldf("select ExpMonth, ExpYear from salesSQL 
