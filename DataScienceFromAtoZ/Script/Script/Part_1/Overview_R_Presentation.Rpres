@@ -1,0 +1,189 @@
+<style type="text/css">
+.reveal section del {
+  color: red;
+  font-size: 60px;
+}
+.reveal .state-background {
+  background: midnightblue;
+} 
+.reveal section p, .reveal h1, .reveal h2, .reveal h4, .reveal il, .reveal li, .reveal a, .reveal aref {
+  color: white;
+}
+.reveal reveal h2, h1,
+.reveal h4, 
+.reveal il, 
+.reveal li, 
+.reveal a, 
+.reveal aref {
+  color: white;
+}
+.reveal h3 { 
+  font-size: 80px;
+  color: white;
+}
+.reveal li { 
+  font-size: 55px;
+  color: white;
+}
+.footer {
+    color: black; background: #E8E8E8;
+    position: fixed; top: 90%;
+    text-align:center; width:100%;
+}
+.reveal table th {
+  border-width: 1px;
+  padding-left: 10px;
+  padding-right: 25px;
+  font-weight: bold;
+  border-style: dotted;
+  border-color: gray;
+  background: lightgray;
+  color: black;
+}
+.reveal table td {
+  border-width: 1px;
+  padding-left: 10px;
+  padding-right: 25px;
+  border-style: dotted;
+  border-color: gray;
+  background: white;
+  color: black;
+}
+</style> 
+
+R: Data Wrangling
+========================================================
+width: 1343 
+height: 900
+transition: rotate
+
+<div style="text-align:left"><img src="data_highway.jpg" alt="alt text" title="Title" height="550" width="900" align="middle"></div> 
+
+R: Using Data
+========================================================
+
+- Missing Values (NA and NULL)
+
+- More on the Data Frame
+
+- sqldf - using SQL to query data
+
+- Data Table
+
+- dplyr Package 
+
+R: Missing Values: NA - Testing
+========================================================
+
+```{r, eval=TRUE}
+x = 1
+is.na(x) # returns TRUE of x is missing
+
+x = NA
+is.na(x) # returns TRUE of x is missing
+
+y <- c(1,2,3,NA) 
+is.na(y) # returns a vector (F F F T) 
+
+```
+
+R: Missing Values: NA - Filtering Out
+========================================================
+
+```{r, eval=TRUE} 
+x <- c(1,2,NA,3)
+mean(x) # returns NA
+mean(x, na.rm=TRUE) # returns 2 
+```
+
+http://www.statmethods.net/input/missingdata.html
+
+R: Missing Values: NA - Filtering Out
+========================================================
+
+```{r, eval=TRUE} 
+
+n = c(2, 3, NA) 
+s = c("aa", "bb", "cc") 
+b = c(TRUE, FALSE, TRUE) 
+df = data.frame(n, s, b)  
+
+# The function na.omit() returns the object with listwise deletion of missing values.
+
+# create new dataset without missing data
+newdata <- na.omit(df) 
+newdata
+```
+
+http://www.statmethods.net/input/missingdata.html
+
+R: Missing Values: NULL - Testing
+========================================================
+
+```{r, eval=TRUE}
+x = 1
+is.null(x) # returns TRUE of x is missing
+
+x = NA
+is.null(x) # returns TRUE of x is NULL
+is.na(x) # returns TRUE of x is missing
+
+y <- c(1,2,3,NA) 
+is.null(y) # returns a vector (F F F T) 
+
+```
+
+R: Missing Values: NULL - Filtering Out
+========================================================
+
+### NULLs are ignored as not existing so no need to remove.
+
+```{r, eval=TRUE} 
+x <- c(1,2,NULL,3)
+mean(x) # returns the average, i.e. 2 - NULL skipped
+
+boxplot(x, col = 'green')
+```
+
+http://www.statmethods.net/input/missingdata.html
+
+R: Missing Values: NULL
+========================================================
+
+### Hard to get a NULL value into a data.frame.
+### Databases translate NULL into NA. ODBC driver determines.
+
+```{r, eval=FALSE} 
+n = c(2, 3, 4) 
+s = c("aa", "bb", "cc") 
+b = c(TRUE, FALSE, TRUE) 
+df = data.frame(n, s, b)  
+
+df[4,3] = NULL  # Error - Not allowed!
+```
+
+  http://www.statmethods.net/input/missingdata.html
+
+
+
+R: dplyr Example 2 - Or
+========================================================
+
+```{r, eval=FALSE}
+library(nycflights13)
+library(dplyr)
+
+filter(flights, year==2013, month == 1 | month == 2, day == 1, carrier=="UA")
+```
+
+```{r, echo=FALSE}
+library(nycflights13)
+library(dplyr)
+ 
+knitr::kable(head(filter(flights, year==2013, month == 1 | month == 2, day == 1, carrier=="UA")) )
+```
+
+
+
+
+

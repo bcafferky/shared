@@ -1,0 +1,3 @@
+#  Create a transformation...
+dataset$tax_rate <- dataset$TaxAmt / dataset$SalesAmount
+output <- dataset

@@ -1,0 +1,6 @@
+SalesPersonID,FirstName,LastName,TotalSales,AsOfDate,SentDate
+6,Krystal,Clear,15900,3/27/2014,7/8/2014
+7,Hal,Lucination,NA,3/27/2014,7/8/2014
+8,Benny,Fits,,3/27/2014,7/8/2014
+9,Gerry,Attricks,2500,3/27/2014,7/8/2014
+10,Holly,Day,NULL,3/27/2014,7/8/2014
