@@ -48,16 +48,16 @@ param (
 
 # New-udfAzureBlob -R "BryanRG" "bryanstoragex2" "eastus" "b3799fcd-83f4-4e79-95b2-1c4a21f2d67e" "bryancontainerx2" "Standard_LRS"
 
-# New-udfAzureBlob -SkuName  
+# New-udfAzureBlob -SkuName Standard_GRS   
 
 <#
 
 
 New-udfAzureBlob -ResourceGroupName    "rgbryan" `
-                 -StorageAccountName   "bcafferkystorage2" `
+                 -StorageAccountName   "bcafferkystorage3" `
                  -Location             "eastus" `
                  -SubscriptionName     "Microsoft Azure Internal Consumption" `
-                 -ContainerName        "bcafferkycontainter2" `
+                 -ContainerName        "bcafferkycontainter3" `
                  -SkuName              Standard_LRS -Verbose
 #>
                  

@@ -4,10 +4,12 @@
    Script that uses function New-udfCompleteVMDemo in module umd_azure
    to create an Azure VM with all required related resources.
 
-   Code is for demonstration purposes only and should only be used for demo
-   puposes, not on production systems. 
+   Code is for demonstration purposes only and should only be used for demonstration
+   purposes, not on production systems. 
 
 #>
+
+# $env:PSModulePath
 
 Import-Module umd_azure -Force -Verbose
 
