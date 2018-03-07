@@ -46,7 +46,7 @@ library(rpart)
 birthwtTree <- rpart(low ~ . - bwt, data = birthwt[train, ], 
                      method = 'class')
 
-library("rpart.plot")
+# library("rpart.plot")
 
 
 # Nicer diagram...
