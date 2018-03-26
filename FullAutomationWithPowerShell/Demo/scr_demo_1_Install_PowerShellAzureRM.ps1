@@ -29,7 +29,7 @@ Install-Module AzureRM -Force
 Import-Module AzureRM -Force -Verbose 
 
 # Verify the Azure Module Installation...
-Get-Module -FullyQualifiedName AzureRM 
+Get-Module -FullyQualifiedName AzureRM.* 
 
 # Get list of Azure cmdlets...
 Get-Command -Module AzureRM.*  | Out-GridView

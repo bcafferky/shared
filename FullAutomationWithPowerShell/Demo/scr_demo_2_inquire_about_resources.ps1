@@ -1,5 +1,4 @@
 ﻿
-
 Import-Module AzureRM
 
 Add-AzureRmAccount | Select-Object Environment  # Log In
@@ -21,5 +20,3 @@ Get-AzureRmVM | Format-Table Name,ResourceGroupName,Location -AutoSize
 Get-AzureRmResource -ResourceName MLExpbpc1 -ResourceGroupName rg_ml | SELECT-OBJECT -Property * -ExcludeProperty "SubscriptionId"
 
 Find-AzureRmResource -ResourceNameContains mlex
-
-
