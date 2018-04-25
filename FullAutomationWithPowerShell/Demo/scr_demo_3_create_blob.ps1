@@ -53,8 +53,8 @@ param (
 <#
 
 
-New-udfAzureBlob -ResourceGroupName    "rgbryan" `
-                 -StorageAccountName   "bcafferkystorage3" `
+New-udfAzureBlob -ResourceGroupName    "rgbryan1" `
+                 -StorageAccountName   "bcafferkystorage1" `
                  -Location             "eastus" `
                  -SubscriptionName     "Microsoft Azure Internal Consumption" `
                  -ContainerName        "bcafferkycontainter3" `
