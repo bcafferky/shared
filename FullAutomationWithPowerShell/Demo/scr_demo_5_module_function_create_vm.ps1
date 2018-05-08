@@ -11,6 +11,13 @@
 
 # $env:PSModulePath
 
+Import-Module umd_azureautomationdemo -Force -Verbose
+
+Invoke-Helloworld
+
+
+#  More Advanced demo code... Do not run on production...
+
 Import-Module umd_azure -Force -Verbose
 
 # New-udfCompleteVMDemo -resourceprefix "bcafferkypref1" -Verbose
