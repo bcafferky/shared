@@ -3,6 +3,10 @@ Import-Module AzureRM
 
 Add-AzureRmAccount | Select-Object Environment  # Log In
 
+Get-AzureRMVM | Select -ExpandProperty NetworkAdapters | Select VMName, IPAddresses, Status
+
+Get-VM | ?{$_.ReplicationMode -ne “Replica”} | Select -ExpandProperty NetworkAdapters | Select VMName, IPAddresses, Status
+
 # Logout-AzureRmAccount
 
 Get-AzureRmBillingInvoice
