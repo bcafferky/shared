@@ -1,7 +1,7 @@
 library(MASS)
 library(rpart)
 
-setwd("D:/Users/Bryan/Documents/GitHub/Professional/Documents/Presentations/PowerBIwithR/Script")
+setwd("D:/Users/Bryan/Documents/GitHub/shared/shared/PowerBIwithR/Script")
 
 # Let's convert birthwt string columns to factors...
 cols <- c('low', 'race', 'smoke', 'ht', 'ui')
@@ -28,6 +28,11 @@ inbw <- subset(birthwt, select = c(age,lwt,race,smoke,ptl,ht,ui,ftv) )
 birthwt_pred <- knn(train = inbw[train, ], test = newbwdata, cl = trainLabels, k=2)
 
 newbwdata$low <- birthwt_pred
+
+rm(birthwt_pred)
+rm(inbw)
+
+
 
 
 
