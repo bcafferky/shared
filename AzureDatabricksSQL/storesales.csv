@@ -1,0 +1,5 @@
+StoreID,City,State,Year,Sales
+1,"Providence","RI",2015,1200000.00
+2,"Boston","MA",2015,4000000.00
+3,"Bangor","ME",2015,2300000.00
+4,"Portsmouth","NH",2015,1200000.00
