@@ -1,0 +1,1611 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/20/2018 3:08:25 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MININT-RK3NVSG"
+  DTS:CreatorName="NORTHAMERICA\brcaffer"
+  DTS:DTSID="{883A9D3F-69D5-4AC5-BD0C-E17DCD7F2502}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0800.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ParallellDemo"
+  DTS:PackageType="5"
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{B127544E-AEA8-4DBA-9135-862F1E762C61}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Development]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0643DDFE-FEE7-4A72-B879-9FD6C112AC7E}"
+      DTS:ObjectName="Development">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Development;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-MailerLogStreamProcessingStartingPoint-{0643DDFE-FEE7-4A72-B879-9FD6C112AC7E}BCAFFERKY-780.TimeSquare;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B66C374F-209E-4901-8EDE-D0736841FD89}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\brcaffer\Documents\GitHub\Professional\Documents\GitHub-Presentations\SSIS2012BeyondRevolution\SSISDemo\NewEmployees.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID"
+              DTS:DTSID="{00FA4028-9BB1-4BAA-A448-928F767C8E1E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{02A9FBD5-AB32-4DC4-BFC6-AED88FEB9BD5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{FC011A6A-FD9B-46D5-8A0A-602BBB0DC490}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MI"
+              DTS:DTSID="{0D54180F-5F4A-42B6-BC64-7C4426900C84}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StartDate"
+              DTS:DTSID="{3C34B807-4833-4CC1-B0F7-2CFF832A520A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EndDate"
+              DTS:DTSID="{0EB8671B-A3B1-4549-B6E8-F6C40AF96BDF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Hours"
+              DTS:DTSID="{BBCDF0B7-0B55-4078-BA46-16987C5199DF}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 2]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7F124267-50E8-4646-B9CF-E07D8493723D}"
+      DTS:ObjectName="Flat File Connection Manager 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\brcaffer\Documents\GitHub\Professional\Documents\GitHub-Presentations\SSIS2012BeyondRevolution\SSISDemo\NewEmployees.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID"
+              DTS:DTSID="{34AD4802-74C7-4540-9C32-9996C60A2B26}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{D87101CD-FEA8-4439-9B44-FE3A5B51EFA3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{A4B0EEEC-38F7-45F7-AFEA-60646738BBD1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MI"
+              DTS:DTSID="{7F0CC58A-40B7-409F-BA15-EA9EEA43BFA4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StartDate"
+              DTS:DTSID="{7B05A0C5-09A2-433E-B3E6-7C1CF62E6E41}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EndDate"
+              DTS:DTSID="{3541F4DB-D284-4C1F-89F7-98EF76C1EBAC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Hours"
+              DTS:DTSID="{55C7A2C4-BE06-43D1-B36E-FADD610601FD}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat_File_In]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="BraintreeSettlement"
+      DTS:DTSID="{C90F448C-F021-4FB7-B93C-4E6E54F9294E}"
+      DTS:ObjectName="Flat_File_In">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::uncompressed_file]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowsToSkip="1"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\flatfiles\mydata\sample\">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLData"
+              DTS:DTSID="{462DE1E0-C2EE-45A3-B03D-0B141560B539}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D2DC0908-9FA9-42E1-8D1A-35DBEEFAD4E1}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::CompanyCode]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MyCompany">
+      <DTS:VariableValue
+        DTS:DataType="8">ABC</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CreateStagingTableIfNotExisbpctEmployeeBackup1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{897a6ce1-df8b-4ca0-b629-0cc4e442e27a}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CreateStagingTableIfNotExisbpctEmployeeBackup1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('[dbo].[bpcEmployeeBackup1]', 'U') IS NULL &#xA;BEGIN&#xA;  CREATE TABLE [dbo].[bpcEmployeeBackup1](&#xA; [ID] [varchar](50) NULL,&#xA; [FirstName] [varchar](50) NULL,&#xA; [LastName] [varchar](50) NULL,&#xA; [MI] [varchar](50) NULL,&#xA; [StartDate] [varchar](50) NULL,&#xA; [Hours] [varchar](50) NULL,&#xA; [WeeklySalary] varchar(50) NULL,&#xA;  ) ON [PRIMARY]&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CreateStagingTableIfNotExistbpcEmployeeBackup2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f87b31f2-15b5-4ab5-a0f0-9a95c509ec2a}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CreateStagingTableIfNotExistbpcEmployeeBackup2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('[dbo].[bpcEmployeeBackup2]', 'U') IS NULL &#xA;BEGIN&#xA;  CREATE TABLE [dbo].[bpcEmployeeBackup2](&#xA; [ID] [varchar](50) NULL,&#xA; [FirstName] [varchar](50) NULL,&#xA; [LastName] [varchar](50) NULL,&#xA; [MI] [varchar](50) NULL,&#xA; [StartDate] [varchar](50) NULL,&#xA; [Hours] [varchar](50) NULL,&#xA; [WeeklySalary] varchar(50) NULL,&#xA;  ) ON [PRIMARY]&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF_ThingOne"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2E72B630-733B-4AAA-97F7-2BC229F531F0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF_ThingOne"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF_ThingOne\SQL_EmployeeBackup1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="SQL_EmployeeBackup1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[bpcEmployeeBackup1]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Connections[OleDbConnection]"
+                  connectionManagerID="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].Columns[MI]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MI"
+                      externalMetadataColumnId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].ExternalColumns[MI]"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[MI]" />
+                    <inputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].Columns[Hours]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Hours"
+                      externalMetadataColumnId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].ExternalColumns[Hours]"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[Hours]" />
+                    <inputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].Columns[WeeklySalary]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="WeeklySalary"
+                      externalMetadataColumnId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].ExternalColumns[WeeklySalary]"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[WeeklySalary]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].ExternalColumns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MI" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].ExternalColumns[Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Hours" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input].ExternalColumns[WeeklySalary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WeeklySalary" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeBackup1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeBackup1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeBackup1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_ThingOne\SQL_EmployeeOld"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SQL_EmployeeOld"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[bpcEmployee]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_ThingOne\SQL_EmployeeOld.Connections[OleDbConnection]"
+                  connectionManagerID="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      length="50"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].ExternalColumns[MI]"
+                      length="50"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[MI]"
+                      name="MI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      length="50"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].ExternalColumns[Hours]"
+                      length="50"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[Hours]"
+                      name="Hours"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[WeeklySalary]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].ExternalColumns[WeeklySalary]"
+                      length="50"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].Columns[WeeklySalary]"
+                      name="WeeklySalary"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].ExternalColumns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MI" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].ExternalColumns[Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Hours" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output].ExternalColumns[WeeklySalary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WeeklySalary" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[MI]"
+                      name="MI" />
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      name="StartDate" />
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[Hours]"
+                      name="Hours" />
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[WeeklySalary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[WeeklySalary]"
+                      name="WeeklySalary" />
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF_ThingOne.Paths[OLE DB Source Output]"
+              endId="Package\DF_ThingOne\SQL_EmployeeBackup1.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF_ThingOne\SQL_EmployeeOld.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF_ThingTwo"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2ea70351-2bb2-4dd6-9e82-b136bdd6409a}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF_ThingTwo"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF_ThingTwo\bpcEmployee"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="bpcEmployee"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[bpcEmployee]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_ThingTwo\bpcEmployee.Connections[OleDbConnection]"
+                  connectionManagerID="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      length="50"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].ExternalColumns[MI]"
+                      length="50"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[MI]"
+                      name="MI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      length="50"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].ExternalColumns[Hours]"
+                      length="50"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[Hours]"
+                      name="Hours"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[WeeklySalary]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].ExternalColumns[WeeklySalary]"
+                      length="50"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[WeeklySalary]"
+                      name="WeeklySalary"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].ExternalColumns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MI" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].ExternalColumns[Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Hours" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].ExternalColumns[WeeklySalary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WeeklySalary" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[MI]"
+                      name="MI" />
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      name="StartDate" />
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[Hours]"
+                      name="Hours" />
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[WeeklySalary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[WeeklySalary]"
+                      name="WeeklySalary" />
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_ThingTwo\bpcEmployeeBackup2"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="bpcEmployeeBackup2"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[bpcEmployeeBackup2]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Connections[OleDbConnection]"
+                  connectionManagerID="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].Columns[MI]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MI"
+                      externalMetadataColumnId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].ExternalColumns[MI]"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[MI]" />
+                    <inputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].Columns[Hours]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Hours"
+                      externalMetadataColumnId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].ExternalColumns[Hours]"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[Hours]" />
+                    <inputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].Columns[WeeklySalary]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="WeeklySalary"
+                      externalMetadataColumnId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].ExternalColumns[WeeklySalary]"
+                      lineageId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output].Columns[WeeklySalary]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].ExternalColumns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MI" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].ExternalColumns[Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Hours" />
+                    <externalMetadataColumn
+                      refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input].ExternalColumns[WeeklySalary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WeeklySalary" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_ThingTwo\bpcEmployeeBackup2.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_ThingTwo\bpcEmployeeBackup2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_ThingTwo\bpcEmployeeBackup2.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF_ThingTwo.Paths[OLE DB Source Output]"
+              endId="Package\DF_ThingTwo\bpcEmployeeBackup2.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF_ThingTwo\bpcEmployee.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_TruncateTable"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BAF726D6-77CF-4BFF-A1D6-B3CF8EFB8598}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_TruncateTable"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}"
+          SQLTask:SqlStatementSource="truncate table dbo.bpcEmployeeBackup1;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_TruncateTable 2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{33a5c7e6-84b0-430f-9d3e-782328e912f6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_TruncateTable 2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}"
+          SQLTask:SqlStatementSource="truncate table dbo.bpcEmployeeBackup2;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{DB9B9725-4A20-4986-88A8-55B90E74FFB9}"
+      DTS:From="Package\SQL_TruncateTable"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DF_ThingOne" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{803a14fb-5687-4c30-8098-e38cd4dc08f0}"
+      DTS:From="Package\SQL_TruncateTable 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DF_ThingTwo" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{3E84EC32-0BFE-435A-ABF4-A0B9BE9C9C74}"
+      DTS:From="Package\CreateStagingTableIfNotExisbpctEmployeeBackup1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SQL_TruncateTable" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{87FAE72A-4288-42BA-874F-D0BBB863B141}"
+      DTS:From="Package\CreateStagingTableIfNotExistbpcEmployeeBackup2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQL_TruncateTable 2" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="142,42"
+          Id="Package\DF_ThingOne"
+          TopLeft="252.571431850901,319.870590912182" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\DF_ThingTwo"
+          TopLeft="624.571435597479,322.647061483258" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\SQL_TruncateTable"
+          TopLeft="240.285717321902,205.294118590833" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\SQL_TruncateTable 2"
+          TopLeft="613.142863974279,194.070589161909" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="324.678574586402,247.294118590833">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,72.5764723213486"
+              Start="0,0"
+              End="0,65.0764723213486">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.0764723213486" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="699.607149785879,236.070589161909">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,86.5764723213488"
+              Start="0,0"
+              End="0,79.0764723213488">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.0764723213488" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Tasks Can Run in Parallel"
+          ParentId="Package"
+          Size="209,41"
+          Id="31f23718-f6b1-4717-8716-3f10d8a9d089"
+          TopLeft="404.85714787853,15.5529411421515">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="13.800000190734863"
+              Color="#FF0000FF">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <NodeLayout
+          Size="319,42"
+          Id="Package\CreateStagingTableIfNotExisbpctEmployeeBackup1"
+          TopLeft="166,83" />
+        <NodeLayout
+          Size="319,42"
+          Id="Package\CreateStagingTableIfNotExistbpcEmployeeBackup2"
+          TopLeft="544,84.870590912182" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="325.642858660951,125">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,80.2941185908334"
+              Start="0,0"
+              End="0,72.7941185908334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.7941185908334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="703.321431987139,126.870590912182">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,67.1999982497272"
+              Start="0,0"
+              End="0,59.6999982497272">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.6999982497272" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DF_ThingOne">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\DF_ThingOne\SQL_EmployeeOld"
+          TopLeft="202.28571773062,62.4000008751364" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\DF_ThingOne\SQL_EmployeeBackup1"
+          TopLeft="199.42857482482,171.294120049394" />
+        <EdgeLayout
+          Id="Package\DF_ThingOne.Paths[OLE DB Source Output]"
+          TopLeft="284.78571773062,104.400000875136">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="9.14285709419994,66.8941191742576"
+              Start="0,0"
+              End="9.14285709419994,59.3941191742576">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.4470595871288" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.4470595871288"
+                    Point2="0,33.4470595871288"
+                    Point3="4,33.4470595871288" />
+                  <mssgle:LineSegment
+                    End="5.14285709419994,33.4470595871288" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.14285709419994,33.4470595871288"
+                    Point2="9.14285709419994,33.4470595871288"
+                    Point3="9.14285709419994,37.4470595871288" />
+                  <mssgle:LineSegment
+                    End="9.14285709419994,59.3941191742576" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_ThingOne\SQL_EmployeeBackup1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_ThingOne\SQL_EmployeeOld">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DF_ThingTwo">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="181,42"
+          Id="Package\DF_ThingTwo\bpcEmployeeBackup2"
+          TopLeft="189.571432055259,188.494120486962" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\DF_ThingTwo\bpcEmployee"
+          TopLeft="202,62" />
+        <EdgeLayout
+          Id="Package\DF_ThingTwo.Paths[OLE DB Source Output]"
+          TopLeft="276.28571602763,104">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,84.494120486962"
+              Start="0,0"
+              End="0,76.994120486962">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,76.994120486962" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Backup the table."
+          ParentId="Package\DF_ThingTwo"
+          Size="150,60"
+          Id="4e15f84b-1329-4536-8eee-26c1413300cc"
+          TopLeft="456,84">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="15.75"
+              Color="#FF000000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_ThingTwo\bpcEmployeeBackup2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_ThingTwo\bpcEmployee">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

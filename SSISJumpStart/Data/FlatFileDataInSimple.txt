@@ -1,0 +1,7 @@
+KeyID	FirstName	LastName	TotalSales
+1	Tom 	Toms	100000	
+2	Hal 	Lucination	120.00	
+3	Benny 	Fits	110.00	
+4	Gerry	Attricks	2500.00	
+5	Sonny 	Day	1300.00	
+
