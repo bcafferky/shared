@@ -1,14 +1,13 @@
 ﻿<#
     Highlights...
 
-    1) Show-GridView
-    2) Providers (Drives, Functions, Variables, etc...
+    1) Providers (Drives, Functions, Variables, etc... Get-PSProvider
+    2) Show-GridView
     3) Cool function stuff
         - WhatIf and Confirm
         - Common Parameters Support
     4) Parameter validation
     4) Transcription 
-
 
 #>
 
@@ -73,8 +72,6 @@ function Invoke-udfSomethingCool
     {
        Stop-Transcript
     }
-    
-    
 }
 
 function Invoke-udfDateCheck ([DateTime] $p_date)
@@ -92,7 +89,6 @@ function Invoke-udfDateCheck ([DateTime] $p_date)
    ELSE {
      Return $true
    }
-
 }
 
 
