@@ -1,0 +1,3356 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/20/2018 3:08:25 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MININT-RK3NVSG"
+  DTS:CreatorName="NORTHAMERICA\brcaffer"
+  DTS:DTSID="{341F5091-AD97-4F8F-B254-7DB0FC68B3A7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0800.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LoadStagingEmployee"
+  DTS:PackageType="5"
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{59A8ADBA-3C8D-49F0-9B7D-297B3C0DF597}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FFEmployeeData]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7F124267-50E8-4646-B9CF-E07D8493723D}"
+      DTS:ObjectName="FFEmployeeData">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::FlatFileFolder] +  @[$Project::FileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Users\Bryan\Documents\GitHub\Professional\Documents\GitHub-Presentations\SSISJumpStart\Data\NewEmployees.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID"
+              DTS:DTSID="{8266519C-E794-4A0F-86DB-6FB4E4CC10D9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{21A99F20-B852-4AE5-B196-5E151F2A432F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{875D29A3-DD86-40B5-B094-029F54C72625}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MI"
+              DTS:DTSID="{3C539BE6-DB94-4882-A673-6B71B1C1BC41}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StartDate"
+              DTS:DTSID="{0B07BC66-8915-4AE1-BB09-A3C37E640DBE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Hours"
+              DTS:DTSID="{80D244FB-E4EC-40AE-89F0-2763E9C6C032}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WeeklyPay"
+              DTS:DTSID="{49C49C8F-2EAA-43BB-B937-21945F88D558}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CreateEDWEmployeeNotExist"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{fa2d08e0-4ba5-4d78-bc42-d10653b16d14}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CreateEDWEmployeeNotExist"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('[dbo].[bpcEmployeeMaster]', 'U') IS NULL &#xA;BEGIN&#xA;  CREATE TABLE [dbo].[bpcEmployeeMaster](&#xA; [ID] [varchar](50) NULL,&#xA; [FirstName] [varchar](50) NULL,&#xA; [LastName] [varchar](50) NULL,&#xA; [MI] [varchar](50) NULL,&#xA; [FullName] varchar(500) NULL,&#xA; [StartDate] date NULL,&#xA; [TenureInMonths] int,&#xA; [Hours] int NULL,&#xA; [WeeklySalary] decimal(10,2),&#xA; [FullTimeInd] char(1) ,&#xA; [CreatedDate] smalldatetime NOT NULL Default(GetDate())&#xA;  ) ON [PRIMARY]&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CreateStagingTableIfNotExist"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6D2005F5-92C8-4619-8F0C-165BC9A4E27F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CreateStagingTableIfNotExist"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('[dbo].[bpcEmployee]', 'U') IS NULL &#xA;BEGIN&#xA;  CREATE TABLE [dbo].[bpcEmployee](&#xA;&#x9;[ID] [varchar](50) NULL,&#xA;&#x9;[FirstName] [varchar](50) NULL,&#xA;&#x9;[LastName] [varchar](50) NULL,&#xA;&#x9;[MI] [varchar](50) NULL,&#xA;&#x9;[StartDate] [varchar](50) NULL,&#xA;&#x9;[Hours] [varchar](50) NULL,&#xA;&#x9;[WeeklySalary] varchar(50) NULL,&#xA;  ) ON [PRIMARY]&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CreateStagingTableITansformedfNotExist"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ad638052-2b84-49b3-a85e-dc4695639630}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CreateStagingTableITansformedfNotExist"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('[dbo].[bpcEmployeeTransformed]', 'U') IS NULL &#xA;BEGIN&#xA;  CREATE TABLE [dbo].[bpcEmployeeTransformed](&#xA;&#x9;[ID] [varchar](50) NULL,&#xA;&#x9;[FirstName] [varchar](50) NULL,&#xA;&#x9;[LastName] [varchar](50) NULL,&#xA;&#x9;[MI] [varchar](50) NULL,&#xA;&#x9;[FullName] varchar(500) NULL,&#xA;&#x9;[StartDate] date NULL,&#xA;&#x9;[TenureInMonths] int,&#xA;&#x9;[Hours] int NULL,&#xA;&#x9;[WeeklySalary] decimal(10,2),&#xA;&#x9;[FullTimeInd] char(1) &#xA;  ) ON [PRIMARY]&#xA;END &#xA;else&#xA;truncate table dbo.bpcEmployeeTransformed;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFEDWEmployeeLoad"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{261D2500-940D-44F5-B3EE-A8B560D6E634}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFEDWEmployeeLoad"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFEDWEmployeeLoad\EDWEmployee"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="EDWEmployee"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[bpcEmployeeMaster]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFEDWEmployeeLoad\EDWEmployee.Connections[OleDbConnection]"
+                  connectionManagerID="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].Columns[MI]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MI"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[MI]"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[MI]" />
+                    <inputColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].Columns[FullName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="FullName"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[FullName]" />
+                    <inputColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedDataType="dbDate"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].Columns[TenureInMonths]"
+                      cachedDataType="i4"
+                      cachedName="TenureInMonths"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[TenureInMonths]"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[TenureInMonths]" />
+                    <inputColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].Columns[Hours]"
+                      cachedDataType="i4"
+                      cachedName="Hours"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[Hours]"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[Hours]" />
+                    <inputColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].Columns[WeeklySalary]"
+                      cachedDataType="numeric"
+                      cachedName="WeeklySalary"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[WeeklySalary]"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[WeeklySalary]" />
+                    <inputColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].Columns[FullTimeInd]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="FullTimeInd"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[FullTimeInd]"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[FullTimeInd]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MI" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      dataType="dbDate"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[TenureInMonths]"
+                      dataType="i4"
+                      name="TenureInMonths" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[Hours]"
+                      dataType="i4"
+                      name="Hours" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[WeeklySalary]"
+                      dataType="numeric"
+                      name="WeeklySalary"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[FullTimeInd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="FullTimeInd" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFEDWEmployeeLoad\EDWEmployee.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFEDWEmployeeLoad\EDWEmployee.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\EDWEmployee.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFEDWEmployeeLoad\EDWEmployee.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="StagingEmployeeTransformed"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[bpcEmployeeTransformed]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Connections[OleDbConnection]"
+                  connectionManagerID="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      length="50"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[MI]"
+                      length="50"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[MI]"
+                      name="MI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[FullName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[FullName]"
+                      length="500"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[FullName]"
+                      name="FullName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[TenureInMonths]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[TenureInMonths]"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[TenureInMonths]"
+                      name="TenureInMonths"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[Hours]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[Hours]"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[Hours]"
+                      name="Hours"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[WeeklySalary]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[WeeklySalary]"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[WeeklySalary]"
+                      name="WeeklySalary"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[FullTimeInd]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[FullTimeInd]"
+                      length="1"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].Columns[FullTimeInd]"
+                      name="FullTimeInd"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MI" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[FullName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      dataType="dbDate"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[TenureInMonths]"
+                      dataType="i4"
+                      name="TenureInMonths" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[Hours]"
+                      dataType="i4"
+                      name="Hours" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[WeeklySalary]"
+                      dataType="numeric"
+                      name="WeeklySalary"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output].ExternalColumns[FullTimeInd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="FullTimeInd" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[MI]"
+                      name="MI" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[FullName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[FullName]"
+                      name="FullName" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      dataType="dbDate"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      name="StartDate" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[TenureInMonths]"
+                      dataType="i4"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[TenureInMonths]"
+                      name="TenureInMonths" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[Hours]"
+                      dataType="i4"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[Hours]"
+                      name="Hours" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[WeeklySalary]"
+                      dataType="numeric"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[WeeklySalary]"
+                      name="WeeklySalary"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[FullTimeInd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[FullTimeInd]"
+                      name="FullTimeInd" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFEDWEmployeeLoad.Paths[OLE DB Source Output]"
+              endId="Package\DFEDWEmployeeLoad\EDWEmployee.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF_EmployeeStagingLoad"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BADC6981-B094-4A7A-87CE-462B8824EA25}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF_EmployeeStagingLoad"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="FF_Employee_Adds"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FFEmployeeData]"
+                  connectionManagerRefId="Package.ConnectionManagers[FFEmployeeData]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].ExternalColumns[ID]"
+                      length="50"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].ExternalColumns[MI]"
+                      length="50"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[MI]"
+                      name="MI"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].ExternalColumns[StartDate]"
+                      length="50"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].ExternalColumns[Hours]"
+                      length="50"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[Hours]"
+                      name="Hours"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[WeeklyPay]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].ExternalColumns[WeeklyPay]"
+                      length="50"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[WeeklyPay]"
+                      name="WeeklyPay"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].ExternalColumns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MI" />
+                    <externalMetadataColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].ExternalColumns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].ExternalColumns[Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Hours" />
+                    <externalMetadataColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].ExternalColumns[WeeklyPay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WeeklyPay" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_EmployeeStagingLoad\SQL_Employee"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="SQL_Employee"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[bpcEmployee]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Connections[OleDbConnection]"
+                  connectionManagerID="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].Columns[MI]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MI"
+                      externalMetadataColumnId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].ExternalColumns[MI]"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[MI]" />
+                    <inputColumn
+                      refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].Columns[Hours]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Hours"
+                      externalMetadataColumnId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].ExternalColumns[Hours]"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[Hours]" />
+                    <inputColumn
+                      refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].Columns[WeeklyPay]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="WeeklyPay"
+                      externalMetadataColumnId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].ExternalColumns[WeeklySalary]"
+                      lineageId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output].Columns[WeeklyPay]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].ExternalColumns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MI" />
+                    <externalMetadataColumn
+                      refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].ExternalColumns[Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Hours" />
+                    <externalMetadataColumn
+                      refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input].ExternalColumns[WeeklySalary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WeeklySalary" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_EmployeeStagingLoad\SQL_Employee.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_EmployeeStagingLoad\SQL_Employee.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_EmployeeStagingLoad\SQL_Employee.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF_EmployeeStagingLoad.Paths[Flat File Source Output]"
+              endId="Package\DF_EmployeeStagingLoad\SQL_Employee.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\DF_EmployeeStagingLoad\FF_Employee_Adds.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF_TransformEmployee"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B91EAB05-1689-4ED5-896F-F0C6FC152339}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF_TransformEmployee"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF_TransformEmployee\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DF_TransformEmployee\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\Derived Column.Inputs[Derived Column Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\Derived Column.Inputs[Derived Column Input].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\Derived Column.Inputs[Derived Column Input].Columns[MI]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MI"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[MI]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\Derived Column.Inputs[Derived Column Input].Columns[StartDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StartDate"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\Derived Column.Inputs[Derived Column Input].Columns[Hours]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Hours"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[Hours]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DF_TransformEmployee\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Output].Columns[DCFullName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="250"
+                      lineageId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Output].Columns[DCFullName]"
+                      name="DCFullName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,250,1252)(#{Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[FirstName]} + " " + #{Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[MI]} + " " + #{Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[LastName]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,250,1252)(FirstName + " " + MI + " " + LastName)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Output].Columns[DCDuration]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Output].Columns[DCDuration]"
+                      name="DCDuration"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEDIFF]("mm",(DT_DBDATE)#{Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[StartDate]},[GETDATE]())</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEDIFF("mm",(DT_DBDATE)StartDate,GETDATE())</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Output].Columns[DCFullTimeInd]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Output].Columns[DCFullTimeInd]"
+                      name="DCFullTimeInd"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,1,1252)((DT_I2)#{Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[Hours]} &gt; 31 ? "Y" : "N")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,1,1252)((DT_I2)Hours &gt; 31 ? "Y" : "N")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DF_TransformEmployee\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_TransformEmployee\ErrorOutput"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="ErrorOutput"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[bpcErrorOutput]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">1000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_TransformEmployee\ErrorOutput.Connections[OleDbConnection]"
+                  connectionManagerID="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].Columns[MI]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MI"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[MI]"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[MI]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].Columns[Hours]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Hours"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[Hours]"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[Hours]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].Columns[WeeklySalary]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="WeeklySalary"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[WeeklySalary]"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[WeeklySalary]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MI" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Hours" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[WeeklySalary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WeeklySalary" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_TransformEmployee\ErrorOutput.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_TransformEmployee\ErrorOutput.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\ErrorOutput.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_TransformEmployee\ErrorOutput.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_TransformEmployee\StagingEmployee"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="StagingEmployee"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[bpcEmployee]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_TransformEmployee\StagingEmployee.Connections[OleDbConnection]"
+                  connectionManagerID="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      length="50"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[MI]"
+                      length="50"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[MI]"
+                      name="MI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      length="50"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[Hours]"
+                      length="50"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[Hours]"
+                      name="Hours"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[WeeklySalary]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[WeeklySalary]"
+                      length="50"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[WeeklySalary]"
+                      name="WeeklySalary"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MI" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Hours" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[WeeklySalary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="WeeklySalary" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[MI]"
+                      name="MI" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      name="StartDate" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[Hours]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[Hours]"
+                      name="Hours" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[WeeklySalary]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[WeeklySalary]"
+                      name="WeeklySalary" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_TransformEmployee\StagingEmployeeTransformed"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="StagingEmployeeTransformed"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[bpcEmployeeTransformed]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Connections[OleDbConnection]"
+                  connectionManagerID="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].Columns[MI]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MI"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[MI]"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[MI]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].Columns[Hours]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Hours"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[Hours]"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[Hours]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].Columns[DCFullName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="DCFullName"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      lineageId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Output].Columns[DCFullName]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].Columns[WeeklySalary]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="WeeklySalary"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[WeeklySalary]"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output].Columns[WeeklySalary]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].Columns[DCDuration]"
+                      cachedDataType="i4"
+                      cachedName="DCDuration"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[TenureInMonths]"
+                      lineageId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Output].Columns[DCDuration]" />
+                    <inputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].Columns[DCFullTimeInd]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="DCFullTimeInd"
+                      externalMetadataColumnId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[FullTimeInd]"
+                      lineageId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Output].Columns[DCFullTimeInd]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[MI]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MI" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      dataType="dbDate"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[TenureInMonths]"
+                      dataType="i4"
+                      name="TenureInMonths" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[Hours]"
+                      dataType="i4"
+                      name="Hours" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[FullTimeInd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="FullTimeInd" />
+                    <externalMetadataColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input].ExternalColumns[WeeklySalary]"
+                      dataType="numeric"
+                      name="WeeklySalary"
+                      precision="10"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF_TransformEmployee.Paths[Derived Column Error Output]"
+              endId="Package\DF_TransformEmployee\ErrorOutput.Inputs[OLE DB Destination Input]"
+              name="Derived Column Error Output"
+              startId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Error Output]" />
+            <path
+              refId="Package\DF_TransformEmployee.Paths[Derived Column Output]"
+              endId="Package\DF_TransformEmployee\StagingEmployeeTransformed.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DF_TransformEmployee\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DF_TransformEmployee.Paths[OLE DB Source Output]"
+              endId="Package\DF_TransformEmployee\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF_TransformEmployee\StagingEmployee.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Script Task"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Script Task"
+      DTS:DTSID="{C1FC9DC5-B989-4CDF-B895-8860FAD58269}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Script Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_b6449641eda640ccb604bd680b59abc6"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="CSharp">
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="ST_b6449641eda640ccb604bd680b59abc6.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2c5b9df0-ba42-4cb7-ac89-8560d6e31af8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_b6449641eda640ccb604bd680b59abc6</RootNamespace>
+    <AssemblyName>ST_b6449641eda640ccb604bd680b59abc6</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST130</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+#endregion
+
+namespace ST_b6449641eda640ccb604bd680b59abc6
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+		/// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+		public void Main()
+		{
+            // TODO: Add your code here
+
+            MessageBox.Show("Test");
+
+// Dts.Events.FireInformation(-1, "Log message written", "Ok I did it", String.Empty, -1);
+
+            Dts.TaskResult = (int)ScriptResults.Success;
+		}
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:CodeName>ST_b6449641eda640ccb604bd680b59abc6</msb:CodeName>
+		<msb:Language>msBuild</msb:Language>
+		<msb:DisplayName>ST_b6449641eda640ccb604bd680b59abc6</msb:DisplayName>
+		<msb:ProjectId>{678BDE1B-B130-4099-A819-D034C1BA7D91}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="ST_b6449641eda640ccb604bd680b59abc6.csproj"/>
+		<msb:File Include="Properties\Settings.settings"/>
+		<msb:File Include="Properties\AssemblyInfo.cs"/>
+		<msb:File Include="Properties\Resources.resx"/>
+		<msb:File Include="Properties\Resources.Designer.cs"/>
+		<msb:File Include="Properties\Settings.Designer.cs"/>
+		<msb:File Include="ScriptMain.cs"/>
+	</msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b6449641eda640ccb604bd680b59abc6.Properties.Settings.get_Default():ST_b6449641eda640ccb604bd680b59abc6.Properties.Sett" +
+    "ings")]
+
+namespace ST_b6449641eda640ccb604bd680b59abc6.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_b6449641eda640ccb604bd680b59abc6")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("HP Inc.")]
+[assembly: AssemblyProduct("ST_b6449641eda640ccb604bd680b59abc6")]
+[assembly: AssemblyCopyright("Copyright @ HP Inc. 2018")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b6449641eda640ccb604bd680b59abc6.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b6449641eda640ccb604bd680b59abc6.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b6449641eda640ccb604bd680b59abc6.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_b6449641eda640ccb604bd680b59abc6.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_b6449641eda640ccb604bd680b59abc6.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_b6449641eda640ccb604bd680b59abc6.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDANY3U1sAAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAANi4A
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAOQtAABPAAAAAEAAAJQEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAACsLAAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAPA4AAAAgAAAAEAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAJQEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAY
+LgAAAAAAAEgAAAACAAUA0CAAACQLAAABAAAAAAAAAPQrAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAGJyAQAAcCgQAAAKJgIoEQAAChZvEgAACioeAigTAAAKKh4C
+KBQAAAoqrn4BAAAELR5yCwAAcNADAAACKBUAAApvFgAACnMXAAAKgAEAAAR+AQAABCoafgIAAAQq
+HgKAAgAABCoafgMAAAQqHgIoGAAACioucwgAAAaAAwAABCoAQlNKQgEAAQAAAAAADAAAAHY0LjAu
+MzAzMTkAAAAABQBsAAAApAMAACN+AAAQBAAAHAUAACNTdHJpbmdzAAAAACwJAACAAAAAI1VTAKwJ
+AAAQAAAAI0dVSUQAAAC8CQAAaAEAACNCbG9iAAAAAAAAAAIAAAFXHaABCQMAAAD6ATMAFgAAAQAA
+AB0AAAAFAAAABgAAAAkAAAABAAAAGAAAAAIAAAAQAAAAAgAAAAMAAAAEAAAAAQAAAAQAAAABAAAA
+AQAAAAAAGgMBAAAAAAAGAN0B4QMGAGwC4QMGACkBzgMPAFUEAAAGAFYBjwMGAMABjwMGAKEBjwMG
+AFMCjwMGAP0BjwMGABYCjwMGAG0BjwMGAIgBkAIKADECyQIKAKgAyQIGAEkDQgMGAAwBzgMGAM8E
+QgMGALEDAQQGAKEDegMOANwABAMOAD0BBAMOAMQAZQMGAPEA4QMSAAMFnAQSAOIEnAQKAPICyQIG
+AHMAQgMGAE8AQgMGABIFjwMAAAAAJQAAAAAAAQABAAEAEABaAwEAOQABAAEAAAAQAAgEZARFAAEA
+AwAAARAAkwRkBFkAAwAHAAMBAADBBAAAPQAEAAoAEQBOA1UAEQCYAFkAEQA/AF0ABgYuAGEAVoCx
+BGQAVoB4AGQAUCAAAAAAhgBgAwYAAQBpIAAAAACGGMEDBgABAHEgAAAAAIMYwQMGAAEAeSAAAAAA
+kwitA2gAAQClIAAAAACTCIAAbQABAKwgAAAAAJMIjAByAAEAtCAAAAAAlgjWBHgAAgC7IAAAAACG
+GMEDBgACAMMgAAAAAJEYxwN9AAIAAAABAIoCCQDBAwEAEQDBAwYAGQDBAwoAKQDBAxAAMQDBAxAA
+OQDBAxAAQQDBAxAASQDBAxAAUQDBAxAAWQDBAxAAYQDBAxAAaQDBAwYAgQDBAwYAqQDBAxUAuQDB
+AwYAwQD+BBsAcQC5BCEA0QDvBAEAcQDBAwYAiQDBAwYA2QBhACYA2QAOBS0AkQDBAzIAsQDBAwYA
+CAAUAEsACAAYAFAAKQBzALgALgALAJAALgATAJkALgAbALgALgAjAMEALgArAOoALgAzAOoALgA7
+APAALgBDAMEALgBLAP0ALgBTAOoALgBbABsBQwBjAFAASQBzALgAYQB7AFAAYwBrAFAAAwABAAQA
+AwAAALEDgQAAAKAAhgAAANoEiwACAAQAAwACAAUABQABAAYABQACAAcABwAEgAAAAQAAAHgaCkQA
+AAAAAAABAAAABAAAAAAAAAAAAAAAOQA2AAAAAAAOAAAAAAAAAAAAAABCAKoCAAAAAAQAAAAAAAAA
+AAAAADkAQgMAAAAABAAAAAAAAAAAAAAAOQCcBAAAAAAAAAAAAQAAABIEAAAFAAIAAAAAU1RfYjY0
+NDk2NDFlZGE2NDBjY2I2MDRiZDY4MGI1OWFiYzYAPE1vZHVsZT4AdmFsdWVfXwBtc2NvcmxpYgBk
+ZWZhdWx0SW5zdGFuY2UAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUAVHlwZQBG
+YWlsdXJlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJlAHJlc291cmNlQ3VsdHVyZQBWU1RBUlRTY3Jp
+cHRPYmplY3RNb2RlbEJhc2UAQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UARWRpdG9yQnJvd3NhYmxl
+U3RhdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUARGVidWdnZXJOb25Vc2VyQ29kZUF0dHJp
+YnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0dHJpYnV0ZQBBc3NlbWJs
+eVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRlAFRhcmdldEZyYW1ld29y
+a0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlEZXNjcmlw
+dGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmlidXRlAEFzc2VtYmx5UHJv
+ZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBTU0lTU2NyaXB0VGFza0Vu
+dHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAFJ1bnRpbWVDb21wYXRp
+YmlsaXR5QXR0cmlidXRlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcATWljcm9zb2Z0
+LlNxbFNlcnZlci5TY3JpcHRUYXNrAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlRhc2tzLlNjcmlw
+dFRhc2sAU2NyaXB0T2JqZWN0TW9kZWwAU3lzdGVtLkNvbXBvbmVudE1vZGVsAFNUX2I2NDQ5NjQx
+ZWRhNjQwY2NiNjA0YmQ2ODBiNTlhYmM2LmRsbABTeXN0ZW0ARW51bQByZXNvdXJjZU1hbgBTY3Jp
+cHRNYWluAFN5c3RlbS5Db25maWd1cmF0aW9uAFN5c3RlbS5HbG9iYWxpemF0aW9uAFN5c3RlbS5S
+ZWZsZWN0aW9uAEN1bHR1cmVJbmZvAGdldF9SZXNvdXJjZU1hbmFnZXIALmN0b3IALmNjdG9yAFN5
+c3RlbS5EaWFnbm9zdGljcwBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2VzAFN5c3RlbS5S
+ZXNvdXJjZXMAU1RfYjY0NDk2NDFlZGE2NDBjY2I2MDRiZDY4MGI1OWFiYzYuUHJvcGVydGllcy5S
+ZXNvdXJjZXMucmVzb3VyY2VzAERlYnVnZ2luZ01vZGVzAFNUX2I2NDQ5NjQxZWRhNjQwY2NiNjA0
+YmQ2ODBiNTlhYmM2LlByb3BlcnRpZXMAU2V0dGluZ3MAU3lzdGVtLldpbmRvd3MuRm9ybXMAU3Vj
+Y2VzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMAT2JqZWN0AGdldF9EZWZhdWx0AERpYWxvZ1Jlc3Vs
+dABzZXRfVGFza1Jlc3VsdABTaG93AE1lc3NhZ2VCb3gAZ2V0X0Fzc2VtYmx5AAAACVQAZQBzAHQA
+AHFTAFQAXwBiADYANAA0ADkANgA0ADEAZQBkAGEANgA0ADAAYwBjAGIANgAwADQAYgBkADYAOAAw
+AGIANQA5AGEAYgBjADYALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMA
+AAAAAKspbN2gmvxPhfRkj/oAbU4ABCABAQgDIAABBSABARERBCABAQ4FIAEBEVEFAAERZQ4EIAAS
+aQYAARJtEXEEIAASdQYgAgEOEnUIt3pcVhk04IkIiYRdzYCAzJEEAAAAAAQBAAAAAwYSSQMGEk0D
+BhIQAgYIAwYRFAQAABJJBAAAEk0FAAEBEk0EAAASEAMAAAEECAASSQQIABJNBAgAEhAIAQAIAAAA
+AAAeAQABAFQCFldyYXBOb25FeGNlcHRpb25UaHJvd3MBCAEAAgAAAAAAKAEAI1NUX2I2NDQ5NjQx
+ZWRhNjQwY2NiNjA0YmQ2ODBiNTlhYmM2AAAFAQAAAAAMAQAHSFAgSW5jLgAAHQEAGENvcHlyaWdo
+dCBAIEhQIEluYy4gMjAxOAAASQEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC41AQBUDhRGcmFt
+ZXdvcmtEaXNwbGF5TmFtZRIuTkVUIEZyYW1ld29yayA0LjUAAAC0AAAAzsrvvgEAAACRAAAAbFN5
+c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAs
+IEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0u
+UmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAAAAAAAAAA
+AAAAAAAAAgAAABwBAADILAAAyA4AAFJTRFMAAAAAAAAAAAAAAAAAAAAAAQAAAEM6XFVzZXJzXEJy
+eWFuXEFwcERhdGFcTG9jYWxcVGVtcFx2c3RhXGY5NDQ3Yzk2ZDIyZDQzNTI5OTZkZGJhNGQ2Njhk
+NTBkXG9ialxSZWxlYXNlXFNUX2I2NDQ5NjQxZWRhNjQwY2NiNjA0YmQ2ODBiNTlhYmM2LnBkYgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAADC4AAAAAAAAAAAAAJi4AAAAgAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAABguAAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAAEAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
+AABIAAAAWEAAADYEAAAAAAAAAAAAADYENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
+AAAAAAC9BO/+AAABAAAAAQAKRHgaAAABAApEeBo/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
+AG4AAAAAAAAAsASWAwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAAByAwAAAQAwADAA
+MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAMAAIAAEAQwBvAG0AcABh
+AG4AeQBOAGEAbQBlAAAAAABIAFAAIABJAG4AYwAuAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIA
+aQBwAHQAaQBvAG4AAAAAAFMAVABfAGIANgA0ADQAOQA2ADQAMQBlAGQAYQA2ADQAMABjAGMAYgA2
+ADAANABiAGQANgA4ADAAYgA1ADkAYQBiAGMANgAAAD4ADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8A
+bgAAAAAAMQAuADAALgA2ADcANwA2AC4AMQA3ADQAMQA4AAAAAABwACgAAQBJAG4AdABlAHIAbgBh
+AGwATgBhAG0AZQAAAFMAVABfAGIANgA0ADQAOQA2ADQAMQBlAGQAYQA2ADQAMABjAGMAYgA2ADAA
+NABiAGQANgA4ADAAYgA1ADkAYQBiAGMANgAuAGQAbABsAAAAVgAZAAEATABlAGcAYQBsAEMAbwBw
+AHkAcgBpAGcAaAB0AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAASABQACAASQBuAGMALgAgADIA
+MAAxADgAAAAAACoAAQABAEwAZQBnAGEAbABUAHIAYQBkAGUAbQBhAHIAawBzAAAAAAAAAAAAeAAo
+AAEATwByAGkAZwBpAG4AYQBsAEYAaQBsAGUAbgBhAG0AZQAAAFMAVABfAGIANgA0ADQAOQA2ADQA
+MQBlAGQAYQA2ADQAMABjAGMAYgA2ADAANABiAGQANgA4ADAAYgA1ADkAYQBiAGMANgAuAGQAbABs
+AAAAaAAkAAEAUAByAG8AZAB1AGMAdABOAGEAbQBlAAAAAABTAFQAXwBiADYANAA0ADkANgA0ADEA
+ZQBkAGEANgA0ADAAYwBjAGIANgAwADQAYgBkADYAOAAwAGIANQA5AGEAYgBjADYAAABCAA8AAQBQ
+AHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADYANwA3ADYALgAxADcANAAxADgA
+AAAAAEYADwABAEEAcwBzAGUAbQBiAGwAeQAgAFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADYANwA3
+ADYALgAxADcANAAxADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAA4PgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_TruncateTable"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{887F8D85-42C5-4A4D-A445-576701A193DC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_TruncateTable"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}"
+          SQLTask:SqlStatementSource="truncate table dbo.bpcEmployee;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D56DE844-4FF5-40D9-8F0B-865296A548D0}"
+      DTS:From="Package\SQL_TruncateTable"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\CreateStagingTableITansformedfNotExist" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{011F0B2C-40D7-40EA-9F5A-E4422B5A18F5}"
+      DTS:From="Package\CreateStagingTableIfNotExist"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQL_TruncateTable" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{3E2C5755-540B-42A6-8B60-4F0CD747BC3A}"
+      DTS:From="Package\DF_EmployeeStagingLoad"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DF_TransformEmployee" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{36505A14-E4FE-4748-BFAD-1B6F88CA2C43}"
+      DTS:From="Package\CreateStagingTableITansformedfNotExist"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Script Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{636227DD-FF1E-42A1-BE1C-3FB8DF9D2A48}"
+      DTS:From="Package\DF_TransformEmployee"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\CreateEDWEmployeeNotExist" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{22DEBB45-A0DF-43FF-B068-307640C7E1A4}"
+      DTS:From="Package\CreateEDWEmployeeNotExist"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\DFEDWEmployeeLoad" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{44B3C333-5BF3-4C02-9F9C-BFBE86426E86}"
+      DTS:From="Package\Script Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\DF_EmployeeStagingLoad" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="217,42"
+          Id="Package\CreateEDWEmployeeNotExist"
+          TopLeft="177,523" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\CreateStagingTableIfNotExist"
+          TopLeft="187,33" />
+        <NodeLayout
+          Size="273,42"
+          Id="Package\CreateStagingTableITansformedfNotExist"
+          TopLeft="161,210" />
+        <NodeLayout
+          Size="201,42"
+          Id="Package\DF_EmployeeStagingLoad"
+          TopLeft="194.571431850901,365.870590912182" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\DF_TransformEmployee"
+          TopLeft="199,435" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\DFEDWEmployeeLoad"
+          TopLeft="207,624" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Script Task"
+          TopLeft="226,285" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\SQL_TruncateTable"
+          TopLeft="202.285717321902,109.294118590833" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="298.142858660951,151.294118590833">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,58.7058814091666"
+              Start="0,0"
+              End="0,51.2058814091666">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.2058814091666" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="297.142858660951,75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34.2941185908334"
+              Start="0,0"
+              End="0,26.7941185908334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.7941185908334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="295.035715925451,407.870590912182">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,27.129409087818"
+              Start="0,0"
+              End="0,19.629409087818">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.629409087818" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="294.5,252">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="295,477">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-9.5,46"
+              Start="0,0"
+              End="-9.5,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="-4,23" />
+                  <mssgle:LineSegment
+                    End="-5.5,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.5,23"
+                    Point2="-9.5,23"
+                    Point3="-9.5,27" />
+                  <mssgle:LineSegment
+                    End="-9.5,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="285.5,565">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="13,59"
+              Start="0,0"
+              End="13,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="4,29.5" />
+                  <mssgle:LineSegment
+                    End="9,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9,29.5"
+                    Point2="13,29.5"
+                    Point3="13,33.5" />
+                  <mssgle:LineSegment
+                    End="13,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="293.285715925451,327">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,38.870590912182"
+              Start="0,0"
+              End="0,31.370590912182">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.370590912182" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Load Employee Flat file into Warehouse.&#xA;&#xA;Author: Bryan Cafferky 2018-07-04&#xA;&#xA;Use Annotations - they are awesome to document things!!!!"
+          ParentId="Package"
+          Size="446,119"
+          Id="802acfe0-9f48-44db-8774-548a59a77569"
+          TopLeft="529,104">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="15.75"
+              Color="#FF800000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="If the staging table is not there, create it!"
+          ParentId="Package"
+          Size="263,38"
+          Id="72257930-4662-4a75-a7cb-f8dbc2f2c3af"
+          TopLeft="415,48">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11.25"
+              Color="#FFFF0000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="You would not normally do this for the data warehouse final table."
+          ParentId="Package"
+          FontInfo="{x:Null}"
+          Size="378,40"
+          Id="9826ea18-cdf4-4ba5-97fb-c264d3821ed4"
+          TopLeft="424,518" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DF_EmployeeStagingLoad">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="149,42"
+          Id="Package\DF_EmployeeStagingLoad\SQL_Employee"
+          TopLeft="199.571432055259,218.494120486962" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\DF_EmployeeStagingLoad\FF_Employee_Adds"
+          TopLeft="188.000003201621,81.9764717379243" />
+        <EdgeLayout
+          Id="Package\DF_EmployeeStagingLoad.Paths[Flat File Source Output]"
+          TopLeft="273.53571762844,123.976471737924">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,94.5176487490377"
+              Start="0,0"
+              End="0,87.0176487490377">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,87.0176487490377" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Load Empoyees from Flat File"
+          ParentId="Package\DF_EmployeeStagingLoad"
+          Size="185,38"
+          Id="c9c70506-3fa7-41a9-a7ad-cd266170ee9e"
+          TopLeft="172.571431510303,15.0705884326288">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="12"
+              Color="#FF0000FF">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_EmployeeStagingLoad\SQL_Employee">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DF_TransformEmployee">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="220,42"
+          Id="Package\DF_TransformEmployee\StagingEmployeeTransformed"
+          TopLeft="134,309" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\DF_TransformEmployee\Derived Column"
+          TopLeft="167,188" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\DF_TransformEmployee\StagingEmployee"
+          TopLeft="163,81" />
+        <EdgeLayout
+          Id="Package\DF_TransformEmployee.Paths[OLE DB Source Output]"
+          TopLeft="243.5,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_TransformEmployee.Paths[Derived Column Output]"
+          TopLeft="244,230">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,79"
+              Start="0,0"
+              End="0,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="135,42"
+          Id="Package\DF_TransformEmployee\ErrorOutput"
+          TopLeft="465,307" />
+        <EdgeLayout
+          Id="Package\DF_TransformEmployee.Paths[Derived Column Error Output]"
+          TopLeft="268.333333333333,230">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="264.166666666667,77"
+              Start="0,0"
+              End="264.166666666667,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.2750642673522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.2750642673522"
+                    Point2="0,31.2750642673522"
+                    Point3="4,31.2750642673522" />
+                  <mssgle:LineSegment
+                    End="260.166666666667,31.2750642673522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="260.166666666667,31.2750642673522"
+                    Point2="264.166666666667,31.2750642673522"
+                    Point3="264.166666666667,35.2750642673522" />
+                  <mssgle:LineSegment
+                    End="264.166666666667,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="67.1219466145834,36.2750642673522,129.9227734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_TransformEmployee\StagingEmployeeTransformed">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_TransformEmployee\StagingEmployee">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFEDWEmployeeLoad">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="220,42"
+          Id="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed"
+          TopLeft="205,49" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\DFEDWEmployeeLoad\EDWEmployee"
+          TopLeft="241,194" />
+        <EdgeLayout
+          Id="Package\DFEDWEmployeeLoad.Paths[OLE DB Source Output]"
+          TopLeft="314.75,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,103"
+              Start="0,0"
+              End="0,95.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,95.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFEDWEmployeeLoad\EDWEmployee">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFEDWEmployeeLoad\StagingEmployeeTransformed">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_TransformEmployee\ErrorOutput">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

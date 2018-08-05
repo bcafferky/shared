@@ -1,0 +1,2666 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/21/2018 9:24:23 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-TG2VLSU"
+  DTS:CreatorName="DESKTOP-TG2VLSU\Bryan"
+  DTS:DTSID="{1A8F32D3-8C84-42F2-9916-785DF29F9F10}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0800.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="AdvancedScriptComponent"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{DA992DC1-5227-48C1-B196-2D803C457A56}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat_File_In]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="BraintreeSettlement"
+      DTS:DTSID="{C90F448C-F021-4FB7-B93C-4E6E54F9294E}"
+      DTS:ObjectName="Flat_File_In">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::FlatFileFolder] + "FlatFileIn.txt"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowsToSkip="1"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Users\Bryan\Documents\GitHub\Professional\Documents\GitHub-Presentations\SSISJumpStart\Data\FlatFileIn.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLData"
+              DTS:DTSID="{9CE3EEE9-0792-497F-98D7-D58D2AC39A7C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CreateStagingTableIfNotExist"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{218ac860-6d2c-431e-b9de-57a41044e858}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CreateStagingTableIfNotExist"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('[dbo].[bpcSales_Data]', 'U') IS NULL &#xA;BEGIN&#xA; CREATE TABLE [dbo].[bpcSales_Data](&#xA;&#x9;[Salespersonid] [varchar](30) NULL,&#xA;&#x9;[Lastname] [varchar](50) NULL,&#xA;&#x9;[Firstname] [varchar](50) NULL,&#xA;&#x9;[Totalsales] [varchar](20) NULL,&#xA;&#x9;[BICreatedDate] [datetime] NULL,&#xA;&#x9;[Totalsales_converted] [decimal](28, 2) NULL&#xA;) ON [PRIMARY]&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load_Log_Files_Into_Staging_Table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1aa18a5c-b983-4723-b405-aa2908f7252b}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load_Log_Files_Into_Staging_Table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{8a6cc38f-9aed-4f86-b5ad-7ac001e735c3}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="GETDATE()"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="RunDate">
+          <DTS:VariableValue
+            DTS:DataType="7">7/21/2018 10:01:43 AM</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Load_Log_Files_Into_Staging_Table\Add_Info"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Updates column values using expressions"
+              name="Add_Info"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Outputs[Derived Column Output].Columns[PackageName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="38"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Outputs[Derived Column Output].Columns[PackageName]"
+                      name="PackageName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[System::PackageName]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::PackageName]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Outputs[Derived Column Output].Columns[TaskName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="41"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Outputs[Derived Column Output].Columns[TaskName]"
+                      name="TaskName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[System::TaskName]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::TaskName]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Outputs[Derived Column Output].Columns[CreateDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Outputs[Derived Column Output].Columns[CreateDate]"
+                      name="CreateDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::RunDate]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::RunDate]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Convert_Sales_Amount"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount.Inputs[Data Conversion Input].Columns[Totalsales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Totalsales"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Output 0].Columns[Totalsales]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount.Outputs[Data Conversion Output].Columns[Totalsales_converted]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount.Outputs[Data Conversion Output].Columns[Totalsales_converted]"
+                      name="Totalsales_converted"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Output 0].Columns[Totalsales]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              localeId="1033"
+              name="Input Load Errors"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[bpcInputErrors]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">ROWS_PER_BATCH = 2000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Connections[OleDbConnection]"
+                  connectionManagerID="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Inputs[OLE DB Destination Input].Columns[TaskName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="TaskName"
+                      externalMetadataColumnId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Inputs[OLE DB Destination Input].ExternalColumns[TaskName]"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Errors].Columns[TaskName]" />
+                    <inputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Inputs[OLE DB Destination Input].Columns[Data]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="Data"
+                      externalMetadataColumnId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Errors].Columns[Data]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Inputs[OLE DB Destination Input].ExternalColumns[TaskName]"
+                      dataType="wstr"
+                      length="41"
+                      name="TaskName" />
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Inputs[OLE DB Destination Input].ExternalColumns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Flat File Source Error Output Column" />
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Inputs[OLE DB Destination Input].ExternalColumns[PackageName]"
+                      dataType="wstr"
+                      length="38"
+                      name="PackageName" />
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Inputs[OLE DB Destination Input].ExternalColumns[CreateDate]"
+                      dataType="dbTimeStamp"
+                      name="CreateDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Input_Errors"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[bpcInputErrors]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">ROWS_PER_BATCH = 2000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Connections[OleDbConnection]"
+                  connectionManagerID="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].Columns[Flat File Source Error Output Column]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Flat File Source Error Output Column"
+                      externalMetadataColumnId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].ExternalColumns[Flat File Source Error Output Column]"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]" />
+                    <inputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]" />
+                    <inputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].Columns[PackageName]"
+                      cachedDataType="wstr"
+                      cachedLength="38"
+                      cachedName="PackageName"
+                      externalMetadataColumnId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].ExternalColumns[PackageName]"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Outputs[Derived Column Output].Columns[PackageName]" />
+                    <inputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].Columns[TaskName]"
+                      cachedDataType="wstr"
+                      cachedLength="41"
+                      cachedName="TaskName"
+                      externalMetadataColumnId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].ExternalColumns[TaskName]"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Outputs[Derived Column Output].Columns[TaskName]" />
+                    <inputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].Columns[CreateDate]"
+                      cachedDataType="date"
+                      cachedName="CreateDate"
+                      externalMetadataColumnId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].ExternalColumns[CreateDate]"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Outputs[Derived Column Output].Columns[CreateDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].ExternalColumns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Flat File Source Error Output Column" />
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].ExternalColumns[PackageName]"
+                      dataType="wstr"
+                      length="38"
+                      name="PackageName" />
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].ExternalColumns[TaskName]"
+                      dataType="wstr"
+                      length="41"
+                      name="TaskName" />
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input].ExternalColumns[CreateDate]"
+                      dataType="dbTimeStamp"
+                      name="CreateDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Input_Sales_File"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat_File_In]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat_File_In]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Output].Columns[ETLData]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Output].ExternalColumns[ETLData]"
+                      length="4000"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Output].Columns[ETLData]"
+                      name="ETLData"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Output].ExternalColumns[ETLData]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4000"
+                      name="ETLData" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Executes a custom script.;Microsoft Corporation; Microsoft SqlServer v10; © 2007 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Executes a custom script."
+              localeId="1033"
+              name="ParseInputFile"
+              version="11">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\AssemblyInfo.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Imports System
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+
+' General Information about an assembly is controlled through the following 
+' set of attributes. Change these attribute values to modify the information
+' associated with an assembly.
+
+' Review the values of the assembly attributes
+
+<Assembly: AssemblyTitle("SC_3bb9e0f3dd2c4a0dbda3e2f81626eaff.vbproj")> 
+<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyCompany("Microsoft")> 
+<Assembly: AssemblyProduct("SC_3bb9e0f3dd2c4a0dbda3e2f81626eaff.vbproj")> 
+<Assembly: AssemblyCopyright("Copyright @ Microsoft 2011")> 
+<Assembly: AssemblyTrademark("")> 
+<Assembly: CLSCompliant(True)> 
+
+<Assembly: ComVisible(False)> 
+
+'The following GUID is for the ID of the typelib if this project is exposed to COM
+<Assembly: Guid("1e8a0915-94d2-459c-8fad-ee9551080fad")> 
+
+' Version information for an assembly consists of the following four values:
+'
+'      Major Version
+'      Minor Version 
+'      Build Number
+'      Revision
+'
+' You can specify all the values or you can default the Build and Revision Numbers 
+' by using the '*' as shown below:
+' <Assembly: AssemblyVersion("1.0.*")>
+
+<Assembly: AssemblyVersion("1.0.0.0")> 
+<Assembly: AssemblyFileVersion("1.0.0.0")> 
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+' Microsoft SQL Server Integration Services component wrapper
+' This module defines the base class for your component
+' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+
+Imports System
+Imports System.Data
+Imports Microsoft.SqlServer.Dts.Pipeline
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
+
+<CLSCompliant(False)> _
+Public Class UserComponent
+    Inherits ScriptComponent
+
+    Public Connections As New Connections(Me)
+    Public Variables As New Variables(Me)
+
+    Public Output0Buffer As Output0Buffer
+
+    Public ErrorsBuffer As ErrorsBuffer
+
+    Dim InputsFinished As Integer = 0
+
+    Public Overrides Sub ProcessInput(ByVal InputID As Integer, ByVal InputName As String, ByVal Buffer As PipelineBuffer, ByVal OutputMap As OutputNameMap)
+
+        If InputName.Equals("Input 0", StringComparison.Ordinal) Then
+            Input0_ProcessInput(New Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap))
+        End If
+
+        If Buffer.EndOfRowset Then
+            InputsFinished = InputsFinished + 1
+            If InputsFinished = 1 Then
+                FinishOutputs()
+                MarkOutputsFinished()
+            End If
+        End If
+
+    End Sub
+
+    Public Overridable Sub FinishOutputs()
+    End Sub
+
+    Private Sub MarkOutputsFinished()
+
+        If Output0Buffer IsNot Nothing Then
+            Output0Buffer.SetEndOfRowset
+            Output0Buffer = Nothing
+        End If
+
+        If ErrorsBuffer IsNot Nothing Then
+            ErrorsBuffer.SetEndOfRowset
+            ErrorsBuffer = Nothing
+        End If
+
+    End Sub
+
+    Public Overrides Sub PrimeOutput(ByVal Outputs As Integer, ByVal OutputIDs() As Integer, ByVal Buffers() As PipelineBuffer, ByVal OutputMap As OutputNameMap)
+
+        For I As Integer = 0 To Outputs - 1
+            If OutputIDs(I) = GetOutputID(OutputMap, "Output 0") Then
+                Output0Buffer = New Output0Buffer(Buffers(I), GetColumnIndexes(OutputIDs(I)), OutputMap)
+            End If
+            If OutputIDs(I) = GetOutputID(OutputMap, "Errors") Then
+                ErrorsBuffer = New ErrorsBuffer(Buffers(I), GetColumnIndexes(OutputIDs(I)), OutputMap)
+            End If
+        Next
+
+        CreateNewOutputRows()
+
+    End Sub
+
+    Public Overridable Sub CreateNewOutputRows()
+    End Sub
+
+    Public Overridable Sub Input0_ProcessInput(ByVal Buffer As Input0Buffer)
+
+        While Buffer.NextRow()
+            Input0_ProcessInputRow(Buffer)
+        End While
+
+    End Sub
+
+    Public Overridable Sub Input0_ProcessInputRow(ByVal Row As Input0Buffer)
+
+    End Sub
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Connections
+
+    Dim ParentComponent As ScriptComponent
+
+    <CLSCompliant(False)> _
+    Public Sub New(ByVal Component As ScriptComponent)
+        ParentComponent = Component
+    End Sub
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Variables
+
+    Dim ParentComponent As ScriptComponent
+
+    <CLSCompliant(False)> _
+    Public Sub New(ByVal Component As ScriptComponent)
+        ParentComponent = Component
+    End Sub
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+' Microsoft SQL Server Integration Services buffer wrappers
+' This module defines classes for accessing data flow buffers
+' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+
+
+Option Strict Off   ' This allows usage of PipelineBuffer typed accessors.
+
+Imports System
+Imports System.Data
+Imports Microsoft.SqlServer.Dts.Pipeline
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+
+<CLSCompliant(False)> _
+Public Class Input0Buffer
+    Inherits ScriptBuffer
+
+    Public Sub New(ByVal Buffer As PipelineBuffer, ByVal BufferColumnIndexes As Integer(), ByVal OutputMap As OutputNameMap)
+        MyBase.New(Buffer, BufferColumnIndexes, OutputMap)
+    End Sub
+
+    Public ReadOnly Property [ETLData]() As String
+        Get
+            Return Buffer.GetString(Me.BufferColumnIndexes(0))
+        End Get
+    End Property
+    Public ReadOnly Property [ETLData_IsNull] As Boolean
+        Get
+            Return IsNull(0)
+        End Get
+    End Property
+
+    Public Overloads Function NextRow() As Boolean
+        NextRow = MyBase.NextRow()
+    End Function
+
+    Public Overloads Function EndOfRowset() As Boolean
+        EndOfRowset = MyBase.EndOfRowset
+    End Function
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Output0Buffer
+    Inherits ScriptBuffer
+
+    Public Sub New(ByVal Buffer As PipelineBuffer, ByVal BufferColumnIndexes As Integer(), ByVal OutputMap As OutputNameMap)
+        MyBase.New(Buffer, BufferColumnIndexes, OutputMap)
+    End Sub
+
+    Public WriteOnly Property [Salespersonid]() As String
+        Set
+            Me(0) = Value
+        End Set
+    End Property
+    Public WriteOnly Property [Salespersonid_IsNull] As Boolean
+        Set
+            If (value)
+                SetNull(0)
+            Else
+                Throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.")
+            End If
+        End Set
+    End Property
+
+    Public WriteOnly Property [Lastname]() As String
+        Set
+            Me(1) = Value
+        End Set
+    End Property
+    Public WriteOnly Property [Lastname_IsNull] As Boolean
+        Set
+            If (value)
+                SetNull(1)
+            Else
+                Throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.")
+            End If
+        End Set
+    End Property
+
+    Public WriteOnly Property [Firstname]() As String
+        Set
+            Me(2) = Value
+        End Set
+    End Property
+    Public WriteOnly Property [Firstname_IsNull] As Boolean
+        Set
+            If (value)
+                SetNull(2)
+            Else
+                Throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.")
+            End If
+        End Set
+    End Property
+
+    Public WriteOnly Property [Totalsales]() As String
+        Set
+            Me(3) = Value
+        End Set
+    End Property
+    Public WriteOnly Property [Totalsales_IsNull] As Boolean
+        Set
+            If (value)
+                SetNull(3)
+            Else
+                Throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.")
+            End If
+        End Set
+    End Property
+
+    Public Overloads Sub AddRow()
+        MyBase.AddRow()
+    End Sub
+
+    Public Overloads Sub SetEndOfRowset()
+        MyBase.SetEndOfRowset()
+    End Sub
+
+    Public Overloads Function EndOfRowset() As Boolean
+        EndOfRowset = MyBase.EndOfRowset
+    End Function
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class ErrorsBuffer
+    Inherits ScriptBuffer
+
+    Public Sub New(ByVal Buffer As PipelineBuffer, ByVal BufferColumnIndexes As Integer(), ByVal OutputMap As OutputNameMap)
+        MyBase.New(Buffer, BufferColumnIndexes, OutputMap)
+    End Sub
+
+    Public WriteOnly Property [TaskName]() As String
+        Set
+            Me(0) = Value
+        End Set
+    End Property
+    Public WriteOnly Property [TaskName_IsNull] As Boolean
+        Set
+            If (value)
+                SetNull(0)
+            Else
+                Throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.")
+            End If
+        End Set
+    End Property
+
+    Public WriteOnly Property [Data]() As String
+        Set
+            Me(1) = Value
+        End Set
+    End Property
+    Public WriteOnly Property [Data_IsNull] As Boolean
+        Set
+            If (value)
+                SetNull(1)
+            Else
+                Throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.")
+            End If
+        End Set
+    End Property
+
+    Public Overloads Sub AddRow()
+        MyBase.AddRow()
+    End Sub
+
+    Public Overloads Sub SetEndOfRowset()
+        MyBase.SetEndOfRowset()
+    End Sub
+
+    Public Overloads Function EndOfRowset() As Boolean
+        EndOfRowset = MyBase.EndOfRowset
+    End Function
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="MySettings">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[' Microsoft SQL Server Integration Services Script Component
+' Write scripts using Microsoft Visual Basic 2008.
+' ScriptMain is the entry point class of the script.
+
+
+Imports System
+Imports System.Data
+Imports System.Math
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
+Imports System.Text.RegularExpressions
+
+
+<Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute> _
+<CLSCompliant(False)> _
+Public Class ScriptMain
+    Inherits UserComponent
+
+    Public Overrides Sub PreExecute()
+        MyBase.PreExecute()
+        '
+        ' Add your code here for preprocessing or remove if not needed
+        '
+    End Sub
+
+    Public Overrides Sub PostExecute()
+        MyBase.PostExecute()
+        '
+        ' Add your code here for postprocessing or remove if not needed
+        ' You can set read/write variables here, for example:
+        ' Me.Variables.MyIntVar = 100
+        '
+    End Sub
+
+    Public Overrides Sub Input0_ProcessInputRow(ByVal Row As Input0Buffer)
+        '
+        ' Add your code here
+        Dim columns As String()
+        Dim vsalespersonid As String
+        Dim vlastname As String
+        Dim vfirstname As String
+        Dim vtotalsales As String
+        Dim str_DoubleQuote As String
+
+
+        str_DoubleQuote = Chr(34)
+
+        Dim etl_stuff As String = Row.ETLData
+
+        columns = Regex.Split(etl_stuff, "\t")
+
+        ' check for the last row
+        If IsNumeric(columns(0)) <> True Then
+            Return
+        End If
+
+        '  Note:  If the code below is activated, add a test for each column(x) length > 0.  Otherwise you raise an error.
+        'For vLoopCounter = 0 To 23
+        '    If columns.Length > vLoopCounter Then
+        '        columns(vLoopCounter) = Replace(columns(vLoopCounter), str_DoubleQuote, "")
+        '        columns(vLoopCounter) = Replace(columns(vLoopCounter), ",", "")
+        '    End If
+        'Next vLoopCounter
+
+        Try
+
+            If columns(0).Length > 30 Then
+                vsalespersonid = Trim(columns(0).Substring(0, 30))
+            Else
+                If Trim(columns(0)) = "" Then
+                    vsalespersonid = ""
+                Else
+                    vsalespersonid = Trim(columns(0))
+                End If
+            End If
+            ' MessageBox.Show("vsalespersonid: " + vsalespersonid)
+
+            If columns(1).Length > 50 Then
+                vlastname = Trim(columns(1).Substring(0, 50))
+            Else
+                If Trim(columns(1)) = "" Then
+                    vlastname = ""
+                Else
+                    vlastname = Trim(columns(1))
+                End If
+            End If
+            ' MessageBox.Show("vlastname: " + vlastname)
+
+            If columns(2).Length > 50 Then
+                vfirstname = Trim(columns(2).Substring(0, 50))
+            Else
+                If Trim(columns(2)) = "" Then
+                    vfirstname = ""
+                Else
+                    vfirstname = Trim(columns(2))
+                End If
+            End If
+            ' MessageBox.Show("vfirstname: " + vfirstname)
+
+            If columns(3).Length > 15 Then
+                vtotalsales = Trim(columns(3).Substring(0, 15))
+            Else
+                If Trim(columns(3)) = "" Then
+                    vtotalsales = ""
+                Else
+                    vtotalsales = Trim(columns(3))
+                End If
+            End If
+            ' MessageBox.Show("vtotalsales: " + vtotalsales)
+
+
+            With Output0Buffer
+                .AddRow()
+
+                .Salespersonid = vsalespersonid
+                .FirstName = vfirstname
+                .LastName = vlastname
+                .totalsales = vtotalsales
+            End With
+
+        Catch ex As Exception
+
+            With ErrorsBuffer
+                .AddRow()
+
+                .TaskName = "ParseInputFile"
+                .Data = Row.ETLData
+
+            End With
+
+        End Try
+
+    End Sub
+
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:CodeName>sc_3bb9e0f3dd2c4a0dbda3e2f81626eaff</msb:CodeName>
+		<msb:Language>msBuild</msb:Language>
+		<msb:DisplayName>sc_3bb9e0f3dd2c4a0dbda3e2f81626eaff</msb:DisplayName>
+		<msb:ProjectId>{B3DF7CC7-1BAE-42C4-8918-BDBD1081773E}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="sc_3bb9e0f3dd2c4a0dbda3e2f81626eaff.vbproj"/>
+		<msb:File Include="My Project\Settings.Designer.vb"/>
+		<msb:File Include="main.vb"/>
+		<msb:File Include="BufferWrapper.vb"/>
+		<msb:File Include="My Project\Resources.resx"/>
+		<msb:File Include="ComponentWrapper.vb"/>
+		<msb:File Include="My Project\AssemblyInfo.vb"/>
+		<msb:File Include="My Project\Resources.Designer.vb"/>
+		<msb:File Include="My Project\Settings.settings"/>
+	</msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[sc_3bb9e0f3dd2c4a0dbda3e2f81626eaff.vbproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- This section defines project-level properties.
+
+       Configuration - Specifies whether the default configuration is Release or Debug.
+       Platform - Specifies what CPU the output of this project can run on.
+       OutputType - Must be "Library" for VSTA.
+       NoStandardLibraries - Set to "false" for VSTA.
+       RootNamespace - In C#, this specifies the namespace given to new files.
+                       In Visual Basic, all objects are wrapped in this namespace at runtime.
+       AssemblyName - Name of the output assembly.
+  -->
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SC_3bb9e0f3dd2c4a0dbda3e2f81626eaff.vbproj</RootNamespace>
+    <AssemblyName>SC_FADC8E3F80BC4C71816CC487899BFD27</AssemblyName>
+    <StartupObject></StartupObject>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <ProjectGuid>{5BFCE751-977E-4B81-A0CD-10D2F57426D8}</ProjectGuid>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <!-- This section defines properties that are set when the "Debug" configuration is
+       selected.
+
+       DebugSymbols - If true, create symbols (.pdb). If false, do not create symbols.
+       Optimize - If true, optimize the build output. If false, do not optimize.
+       OutputPath - Output path of the project relative to the project file.
+       EnableUnmanagedDebugging - If true, starting the debugger will attach both managed and unmanaged debuggers.
+       DefineConstants - Constants defined for the preprocessor.
+       Warning Level - Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DefineConstants></DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355,42353,42354,42355,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <!-- This section defines properties that are set when the "Release" configuration is
+       selected.
+
+       DebugSymbols - If true, create symbols (.pdb). If false, do not create symbols.
+       Optimize - If true, optimize the build output. If false, do not optimize.
+       OutputPath - Output path of the project relative to the project file.
+       EnableUnmanagedDebugging - If true, starting the debugger will attach both managed and unmanaged debuggers.
+       DefineConstants - Constants defined for the preprocessor.
+       Warning Level - Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DefineConstants></DefineConstants>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <NoWarn>42016,42017,42018,42019,42032,42353,42354,42355,42353,42354,42355,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <!-- This section enables pre- and post-build steps. However,
+       it is recommended that MSBuild tasks be used instead of these properties.
+  -->
+  <PropertyGroup>
+    <PreBuildEvent></PreBuildEvent>
+    <PostBuildEvent></PostBuildEvent>
+  </PropertyGroup>
+  <!-- This sections specifies references for the project. -->
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=14.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=14.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=14.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=14.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <!-- Visual Basic supports Importing namespaces (equivalent to using statements in C#).-->
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <!-- This section defines the user source files that are part of the
+       project.
+
+       Compile - Specifies a source file to compile.
+       EmbeddedResource - Specifies a .resx file for embedded resources.
+       None - Specifies a file that is not to be passed to the compiler (for instance,
+              a text file or XML file).
+       AppDesigner - Specifies the directory where the application properties files can
+                     be found.
+  -->
+  <ItemGroup>
+    <AppDesigner Include="My Project\" />
+    <Compile Include="BufferWrapper.vb" />
+    <Compile Include="ComponentWrapper.vb" />
+    <Compile Include="main.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <!-- Include the default configuration information and metadata files for the add-in.
+         These files are copied to the build output directory when the project is
+         built, and the path to the configuration file is passed to add-in on the command
+         line when debugging.
+    -->
+  </ItemGroup>
+  <!-- Include the build rules for a VB project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="vb" TemplatesPath="" />
+        <Host Name="SSIS_ScriptComponent" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC140</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Settings.Designer.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+
+Partial Friend NotInheritable Class MySettings
+    Inherits System.Configuration.ApplicationSettingsBase
+
+    Private Shared m_Value As MySettings
+
+    Private Shared m_SyncObject As Object = New Object
+
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Public Shared ReadOnly Property Value() As MySettings
+        Get
+            If (MySettings.m_Value Is Nothing) Then
+                System.Threading.Monitor.Enter(MySettings.m_SyncObject)
+                If (MySettings.m_Value Is Nothing) Then
+                    Try
+                        MySettings.m_Value = New MySettings
+                    Finally
+                        System.Threading.Monitor.Exit(MySettings.m_SyncObject)
+                    End Try
+                End If
+            End If
+            Return MySettings.m_Value
+        End Get
+    End Property
+End Class
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[My Project\Resources.Designer.vb]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+Namespace My.Resources
+    
+    '''<summary>
+    '''   A strongly-typed resource class, for looking up localized strings, etc.
+    '''</summary>
+    'This class was auto-generated by the Strongly Typed Resource Builder
+    'class via a tool like ResGen or Visual Studio.NET.
+    'To add or remove a member, edit your .ResX file then rerun ResGen
+    'with the /str option, or rebuild your VS project.
+    Class MyResources
+        
+        Private Shared _resMgr As System.Resources.ResourceManager
+        
+        Private Shared _resCulture As System.Globalization.CultureInfo
+        
+        Friend Sub New()
+            MyBase.New
+        End Sub
+        
+        '''<summary>
+        '''   Returns the cached ResourceManager instance used by this class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared ReadOnly Property ResourceManager() As System.Resources.ResourceManager
+            Get
+                If (_resMgr Is Nothing) Then
+                    Dim temp As System.Resources.ResourceManager = New System.Resources.ResourceManager("My.Resources.MyResources", GetType(MyResources).Assembly)
+                    _resMgr = temp
+                End If
+                Return _resMgr
+            End Get
+        End Property
+        
+        '''<summary>
+        '''   Overrides the current thread's CurrentUICulture property for all
+        '''   resource lookups using this strongly typed resource class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared Property Culture() As System.Globalization.CultureInfo
+            Get
+                Return _resCulture
+            End Get
+            Set
+                _resCulture = value
+            End Set
+        End Property
+    End Class
+End Namespace
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_FADC8E3F80BC4C71816CC487899BFD27.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAEk1U1sAAAAAAAAAAOAAIiALAVAAACgAAAAIAAAAAAAA9kYA
+AAAgAAAAYAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACgAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAKRGAABPAAAAAGAAAIwEAAAAAAAAAAAAAAAAAAAA
+AAAAAIAAAAwAAABsRQAAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA/CYAAAAgAAAAKAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAIwEAAAAYAAAAAYAAAAqAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAIAAAAACAAAAMAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAADY
+RgAAAAAAAEgAAAACAAUAmCYAABweAAABAAAAAAAAALREAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBgAAAoqHgIoGQAACiqmcxoAAAqAAQAABHMbAAAKgAIA
+AARzHAAACoADAAAEcx0AAAqABAAABCoufgEAAARvHgAACioufgIAAARvHwAACioufgMAAARvIAAA
+CioufgQAAARvIQAACioeAigiAAAKKq5+BQAABC0ecgEAAHDQBQAAAigjAAAKbyQAAApzJQAACoAF
+AAAEfgUAAAQqGn4GAAAEKh4CgAYAAAQqKgIDBAUoJgAACipSAnsnAAAKAnsoAAAKFpRvKQAACioi
+AhYoKgAACioAABMwAQAJAAAAAQAAEQIoKwAACgoGKgAAABMwAQAJAAAAAQAAEQIoLAAACgoGKiYC
+FgMoLQAACipaAywIAhYoLgAACipyMwAAcHMvAAAKeiYCFwMoLQAACipaAywIAhcoLgAACipyMwAA
+cHMvAAAKeiYCGAMoLQAACipaAywIAhgoLgAACipyMwAAcHMvAAAKeiYCGQMoLQAACipaAywIAhko
+LgAACipyMwAAcHMvAAAKeh4CKDAAAAoqHgIoMQAACioAAAATMAEACQAAAAEAABECKCwAAAoKBipa
+AywIAhYoLgAACipyMwAAcHMvAAAKeloDLAgCFyguAAAKKnIzAABwcy8AAAp6ABMwAQAJAAAAAQAA
+EQIoLAAACgoGKpoCKDIAAAoCAnMtAAAGfQcAAAQCAnMuAAAGfQgAAAQCFn0LAAAEKhMwBABPAAAA
+AAAAAARy0AAAcBpvMwAACiwVAgUCAyg0AAAKDgRzDAAABm8rAAAGBW81AAAKLCMCAnsLAAAEF9Z9
+CwAABAJ7CwAABBczDAJvJwAABgIoKAAABioGKtYCewkAAAQsEgJ7CQAABG8bAAAGAhR9CQAABAJ7
+CgAABCwSAnsKAAAEbyMAAAYCFH0KAAAEKgATMAUAawAAAAIAABEDF9oKFgsrWAQHlA4EcuAAAHAo
+NgAACjMZAgUHmgIEB5QoNAAACg4EcxEAAAZ9CQAABAQHlA4EcvIAAHAoNgAACjMZAgUHmgIEB5Qo
+NAAACg4Ecx0AAAZ9CgAABAcX1gsHBjGkAm8qAAAGKkorBwIDbywAAAYDbw8AAAYt8So6AigiAAAK
+AgN9DAAABCo6AigiAAAKAgN9DQAABCoeAiglAAAGKh4CKDcAAAoqHgIoOAAACiobMAMAlgEAAAMA
+ABEDbw0AAAZyAAEAcCg5AAAKCgYWmig6AAAKOXcBAAAABhaabzsAAAofHjETBhaaFh8ebzwAAAoo
+PQAACgsrJgYWmig9AAAKcgYBAHAWKD4AAAotCHIGAQBwCysJBhaaKD0AAAoLBheabzsAAAofMjET
+BheaFh8ybzwAAAooPQAACgwrJgYXmig9AAAKcgYBAHAWKD4AAAotCHIGAQBwDCsJBheaKD0AAAoM
+BhiabzsAAAofMjETBhiaFh8ybzwAAAooPQAACg0rJgYYmig9AAAKcgYBAHAWKD4AAAotCHIGAQBw
+DSsJBhiaKD0AAAoNBhmabzsAAAofDzEUBhmaFh8PbzwAAAooPQAAChMEKygGGZooPQAACnIGAQBw
+Fig+AAAKLQlyBgEAcBMEKwoGGZooPQAAChMEAnsJAAAEJW8aAAAGJQdvEgAABiUJbxYAAAYlCG8U
+AAAGEQRvGAAABhQm3jMlKD8AAAoTBQJ7CgAABCVvIgAABiVyCAEAcG8eAAAGA28NAAAGbyAAAAYU
+JihAAAAK3gAqAABBHAAAAAAAAB8AAABDAQAAYgEAADMAAAAmAAABQnMiAAAKKEEAAAqADwAABCoe
+AihCAAAKKgAAABswAQA/AAAAAAAAAH4OAAAELTJ+DwAABChBAAAKKEMAAAp+DgAABC0cczQAAAaA
+DgAABN4Qfg8AAAQoQQAACihEAAAK3H4OAAAEKgABEAAAAgAdAAwpABAAAAAANgIDKEEAAAooRQAA
+CioeAihGAAAKKi7QDgAAAigjAAAKKh4CKEcAAAoqAAATMAEAFAAAAAQAABECjAUAABstCCgBAAAr
+CisCAgoGKiID/hUFAAAbKgAAABMwAgAoAAAABQAAEQJ7SQAACm9KAAAKCgaMCAAAGy0SKAIAACsK
+AntJAAAKBm9LAAAKBipKAigiAAAKAnNMAAAKfUkAAAoqAEJTSkIBAAEAAAAAAAwAAAB2NC4wLjMw
+MzE5AAAAAAUAbAAAAFwMAAAjfgAAyAwAAAQMAAAjU3RyaW5ncwAAAADMGAAAKAEAACNVUwD0GQAA
+EAAAACNHVUlEAAAABBoAABgEAAAjQmxvYgAAAAAAAAACAAABVxWiCQkPAAAA+gEzABYAAAEAAAA1
+AAAADwAAABAAAAA+AAAAJgAAAEwAAAA/AAAABQAAAAcAAAAWAAAAFwAAAAgAAAABAAAABQAAAAEA
+AAACAAAAAwAAAAIAAAAAAI0FAQAAAAAABgCyAzsJBgBcBDsJBgCJAnwIDwDvCQAABgDKAtEGBgCV
+A9EGBgBDBNEGBgDSA9EGBgDrA9EGBgARA9EGBgAGBFUGBgC2AvUIBgAyAvUIBgBdA9EGBgAsA80E
+CgBVAuoHCgAdAncFCgCdAncFDgD1AcsIDgAgCI8IBgBFA3wIDgDhAhQJDgD5AskABgDKClUGDgAG
+CMsIDgB6A8kABgDMAVUGDgABAE0FCgBAAmEGBgDaB1sJBgAOB7wGEgDJB6gBFgCtB6gBEgAaB6gB
+EgAjC6gBEgAcBKgBBgASBVUGBgDzBlUGCgAFAqcGBgBsAnwIBgBSAVUGBgD5C9EGBgDjBlUGBgAB
+BVUGBgD9BlUGCgDBC1YKDgACARQJDgA8CskADgCYChQJDgCqABQJBgCJCjsJBgBqCLwEBgBTCFUG
+AAAAAE8AAAAAAAEAAQAAAAAAmQbHC00AAQABAAAAAAAeCMcLUQABAAIAAAEQANEKxwthAAEAAwAA
+AAAApAlsCWEABQAIAAEAAACSByIFgQAHAAwAAQAAAJ8HIgWBAAcAEQABAAAAvAciBYEABwAdAAEA
+AAAFCyIFjQAHACUAAQAAAHUKIgVhAAwALQABAAAADQoiBWEADQAuAAEAAAB+BiIFJAAOAC8AAAEQ
+AEQKIgWdAA4AMwAFAQAAvQgAAGEAEAA2AAUBAAAQAAAAYQAQAD0AMQBbB1ABMQAyB1gBMQBGB2AB
+MQB0B2gBEQApCHABEQDpAXQBBgB1CngBBgANCnwBBgCfB4ABBgC8B4QBAQDfAIgBAQATC4sBAQAT
+C4sBEQCRBJABEQDECpQBIQCRCxgBUCAAAAAABhhdCAYAAQBYIAAAAAAGGF0IBgABAGAgAAAAABEY
+YwjiAAEAiiAAAAAAEwgRCJcBAQCWIAAAAAATCIkGnAEBAKIgAAAAABMIAgihAQEAriAAAAAAEwit
+CKYBAQC6IAAAAAADGF0IBgABAMIgAAAAABYI1gerAQEA7iAAAAAAFgjRAbABAQD1IAAAAAAWCN0B
+tQEBAP0gAAAAAAYYXQhlAAIACCEAAAAABgiVAPUABQAdIQAAAAAGCLUFiAAFACghAAAAAIYAuQuI
+AAUAQCEAAAAAhgDuCogABQD9IAAAAAAGGF0IZQAFAFUhAAAAAAYIDAEQAAgAXyEAAAAABgjYBRUA
+CQB2IQAAAAAGCI0BEAAKAIAhAAAAAAYIBQYVAAsAlyEAAAAABgiaARAADAChIQAAAAAGCBkGFQAN
+ALghAAAAAAYI/gkQAA4AwiEAAAAABgguBhUADwDZIQAAAACGAJsLBgAQAOEhAAAAAIYA6woGABAA
+7CEAAAAAhgDuCogAEAD9IAAAAAAGGF0IZQAQAFUhAAAAAAYIdgEQABMAASIAAAAABgjxBRUAFAB2
+IQAAAAAGCKEAEAAVABgiAAAAAAYIyAUVABYA2SEAAAAAhgCbCwYAFwDhIQAAAACGAOsKBgAXADAi
+AAAAAIYA7gqIABcARSIAAAAABhhdCAYAFwBsIgAAAADGAngLuwEXAMciAAAAAEYDogoGABsAySIA
+AAAAAQDuAAYAGwAAIwAAAADGAoULxwEbAMciAAAAAEYDsAoGAB8AdyMAAAAARgNxC9UBHwDHIgAA
+AABGA6IL1QEgAIojAAAAAAYYXQjbASEAmSMAAAAABhhdCNsBIgCoIwAAAAAGGF0IBgAjALAjAAAA
+AMYCegQGACMAuCMAAAAAxgKFBAYAIwDAIwAAAADGAqIL1QEjAIAlAAAAABEYYwjiACQAkSUAAAAA
+BhhdCAYAJACcJQAAAAAWCJkE4gEkAPglAAAAAMYCTwrwACQABiYAAAAAxgJGAcUAJQAOJgAAAACD
+AMkB5wElABomAAAAAMYC9QT1ACUAJCYAAAAAEQCCAOwBJQBEJgAAAAABAG4A9AEmALogAAAAAAYY
+XQgGACcAUCYAAAAAAwgtAUoAJwCEJgAAAAAGGF0IBgAnAAAAAQC2BAAAAQDPBwAAAgAXCgAAAwAo
+BwAAAQDPBwAAAgAXCgAAAwAoBwAAAQC2BAAAAQC2BAAAAQC2BAAAAQC2BAAAAQC2BAAAAQC2BAAA
+AQC2BAAAAQC2BAAAAQDPBwAAAgAXCgAAAwAoBwAAAQC2BAAAAQC2BAAAAQC2BAAAAQC2BAAAAQBY
+AAAAAgCDAQAAAwDPBwAABAAoBwAAAQCoCgAAAgByCAAAAwCBCgAABAAoBwAAAQDPBwAAAQC9CwAA
+AQApCwAAAQApCwAAAQC9CwAAAQAYBwAAAQA9AQAAAQA9AQkAXQgBABEAXQgGABkAXQgKACkAXQgQ
+ADEAXQgQADkAXQgQAEEAXQgQAEkAXQgQAFEAXQgQAFkAXQgVAGEAXQgVAGkAXQgQAHEAXQgQAHkA
+XQgQAIEAXQgaAJEAXQggAKkAXQgGALEAXQgGALkAXQgGANEAXQgmAOkAXQgQACEBXQgGAEEBXQgG
+AJkAXQgGAKEAXQgGAAwAXQgGABQAXQgGABwAXQgGACQAXQgGAAwALQFKABQALQFKABwALQFKACQA
+LQFKAMEAXQgGANkAZAFPANkA9QtXAPEAXQhdAAEBXQhlAAEBzwdxAAEBFwp2AAkB/gR6AAEBPQZ/
+AAEBuQuIAAEB7gqIAAEBTAaMAAEBRAYBAFkBXQgQAAEBmwsGAAEB6woGABkBXQgGAGEBTwqSABkB
+KwqaAAkB2wqIABkBYAClABkBegQGABkBhQQGAHEB+gq5AHkBvwDAAGEBFwXFAGEBCAXJAIEBXAbP
+AIkB5wTUAJEBQwjbAJEBMQjiAJkBrQTmADkBXQgGAKEBCwjrAKEBAAvrAMEATwrwAMEARgHFAMEA
+9QT1AKkBHgEBATQAkQsYATwAmQRKADwAowQvATwAXQgGACkAqwDSAy4ACwAsAi4AEwA1Ai4AGwBU
+Ai4AIwBdAi4AKwCNAi4AMwCTAi4AOwBdAi4AQwCiAi4ASwCNAi4AUwDCAi4AWwCNAi4AYwDIAi4A
+awDyAi4AcwD/AkAAiwBJA0AAgwBOA0MAewBXA0MAgwBOA0kAqwDjA2MAewBXA2MAgwBOA2kAqwD3
+A4AAiwBJA4MAkwBJA4MAmwBJA4MAewBXA4kAqwAEBKAAiwBJA6kAgwBUAsAAiwBJA8MAUwCNAskA
+gwBUAuAAiwBJA+MAUwCNAgMBUwCNAiMBUwCNAkMBUwCNAmMBUwCNAoMBswBJA4MBUwCNAsMBgwBO
+A8MBowBwA+MBgwBOA+MBWwCNAqkCuwBJA6AFUwCNAsAFUwCNAsAGgwBOA8AGiwBJA+AGgwBOA+AG
+iwBJAwAHgwBOAwAHiwBJAyAHgwBOAyAHiwBJA0AHiwBJA2AHiwBJA4AHiwBJA4AHgwBOA6AHiwBJ
+A8AHiwBJA8AHgwBOA4QAoACtAPkADAEEAAEABQAFAAYABwAHAAkACAARAA0AFQAPABYAAAAgCPwB
+AACbBgECAAAGCAYCAAC/CAsCAADaBxACAADtARUCAACZABoCAAC5BR4CAAAQARoCAADcBR4CAACR
+ARoCAAAJBh4CAACeARoCAAAdBh4CAAACChoCAAAyBh4CAAB6ARoCAAD1BR4CAACxABoCAADMBR4C
+AAC2BCICAAAxAScCAgAEAAMAAgAFAAUAAgAGAAcAAgAHAAkAAgAJAAsAAgAKAA0AAQALAA0AAgAN
+AA8AAgAOABEAAQASABMAAQATABUAAQAUABcAAQAVABkAAQAWABsAAQAXAB0AAQAYAB8AAQAZACEA
+AQAeACMAAQAfACUAAQAgACcAAQAhACkAAgA1ACsAAgA9AC0ALgA1ADwAQwD+ABEBIAEnAQSAAAAB
+AAAAAAAAAAAAAAAAACsAAAAEAAAAAAAAAAAAAAA1AbYAAAAAAAQAAAAAAAAAAAAAADUBVQYAAAAA
+CgAAAAAAAAAAAAAAPgHJAAAAAAAOAAAAAAAAAAAAAABHATMLAAAAAA4AAAAAAAAAAAAAAEcBUAsA
+AAAAAAAAAAEAAACwCQAADgAEAA8ABAAAABAAHgBsAAAAEAB1AGwAAAAAAHcAbACRAAcBkQAqAQAA
+AENvbnRleHRWYWx1ZWAxAFRocmVhZFNhZmVPYmplY3RQcm92aWRlcmAxAFNDX0ZBREM4RTNGODBC
+QzRDNzE4MTZDQzQ4Nzg5OUJGRDI3ADxNb2R1bGU+AElucHV0SUQAR2V0T3V0cHV0SUQAVABEaXNw
+b3NlX19JbnN0YW5jZV9fAENyZWF0ZV9fSW5zdGFuY2VfXwBnZXRfRVRMRGF0YQBzZXRfRGF0YQBQ
+cm9qZWN0RGF0YQBtc2NvcmxpYgBJc051bWVyaWMATWljcm9zb2Z0LlZpc3VhbEJhc2ljAElucHV0
+c0ZpbmlzaGVkAE1hcmtPdXRwdXRzRmluaXNoZWQAVmVyc2lvbmVkAHNldF9TYWxlc3BlcnNvbmlk
+AENyZWF0ZUluc3RhbmNlAGdldF9HZXRJbnN0YW5jZQBpbnN0YW5jZQBHZXRIYXNoQ29kZQBSdW50
+aW1lVHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhhbmRsZQBzZXRfVGFza05hbWUASW5wdXROYW1lAHNl
+dF9MYXN0bmFtZQBzZXRfRmlyc3RuYW1lAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlBpcGVsaW5l
+AEdldFR5cGUAZ2V0X0N1bHR1cmUAc2V0X0N1bHR1cmUAX3Jlc0N1bHR1cmUAQXBwbGljYXRpb25C
+YXNlAEFwcGxpY2F0aW9uU2V0dGluZ3NCYXNlAEVkaXRvckJyb3dzYWJsZVN0YXRlAEd1aWRBdHRy
+aWJ1dGUASGVscEtleXdvcmRBdHRyaWJ1dGUAR2VuZXJhdGVkQ29kZUF0dHJpYnV0ZQBEZWJ1Z2dl
+ck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxl
+QXR0cmlidXRlAENvbVZpc2libGVBdHRyaWJ1dGUAQXNzZW1ibHlUaXRsZUF0dHJpYnV0ZQBTdGFu
+ZGFyZE1vZHVsZUF0dHJpYnV0ZQBIaWRlTW9kdWxlTmFtZUF0dHJpYnV0ZQBBc3NlbWJseVRyYWRl
+bWFya0F0dHJpYnV0ZQBUYXJnZXRGcmFtZXdvcmtBdHRyaWJ1dGUARGVidWdnZXJIaWRkZW5BdHRy
+aWJ1dGUAQXNzZW1ibHlGaWxlVmVyc2lvbkF0dHJpYnV0ZQBNeUdyb3VwQ29sbGVjdGlvbkF0dHJp
+YnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNB
+dHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmli
+dXRlAENMU0NvbXBsaWFudEF0dHJpYnV0ZQBTU0lTU2NyaXB0Q29tcG9uZW50RW50cnlQb2ludEF0
+dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRy
+aWJ1dGUAUHJlRXhlY3V0ZQBQb3N0RXhlY3V0ZQBtX1ZhbHVlAGdldF9WYWx1ZQBzZXRfVmFsdWUA
+R2V0T2JqZWN0VmFsdWUAU3lzdGVtLlRocmVhZGluZwBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5n
+AENvbXBhcmVTdHJpbmcAVG9TdHJpbmcAR2V0U3RyaW5nAFN1YnN0cmluZwBNYXRoAGdldF9MZW5n
+dGgAU0NfM2JiOWUwZjNkZDJjNGEwZGJkYTNlMmY4MTYyNmVhZmYudmJwcm9qAE1pY3Jvc29mdC5W
+aXN1YWxCYXNpYy5NeVNlcnZpY2VzLkludGVybmFsAFN5c3RlbS5Db21wb25lbnRNb2RlbABTQ19G
+QURDOEUzRjgwQkM0QzcxODE2Q0M0ODc4OTlCRkQyNy5kbGwAZ2V0X0VUTERhdGFfSXNOdWxsAHNl
+dF9EYXRhX0lzTnVsbABzZXRfU2FsZXNwZXJzb25pZF9Jc051bGwAc2V0X1Rhc2tOYW1lX0lzTnVs
+bABzZXRfTGFzdG5hbWVfSXNOdWxsAHNldF9GaXJzdG5hbWVfSXNOdWxsAHNldF9Ub3RhbHNhbGVz
+X0lzTnVsbABTZXROdWxsAHNldF9JdGVtAFN5c3RlbQBUcmltAFN5c3RlbS5Db21wb25lbnRNb2Rl
+bC5EZXNpZ24AU2NyaXB0TWFpbgBnZXRfQXBwbGljYXRpb24ATXlBcHBsaWNhdGlvbgBTeXN0ZW0u
+Q29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBTeXN0ZW0uUmVmbGVjdGlvbgBJbnZh
+bGlkT3BlcmF0aW9uRXhjZXB0aW9uAFN0cmluZ0NvbXBhcmlzb24AQ3VsdHVyZUluZm8AT3V0cHV0
+TmFtZU1hcABPdXRwdXRNYXAAbV9BcHBPYmplY3RQcm92aWRlcgBtX1VzZXJPYmplY3RQcm92aWRl
+cgBtX0NvbXB1dGVyT2JqZWN0UHJvdmlkZXIAbV9NeVdlYlNlcnZpY2VzT2JqZWN0UHJvdmlkZXIA
+SW5wdXQwQnVmZmVyAE91dHB1dDBCdWZmZXIAUGlwZWxpbmVCdWZmZXIARXJyb3JzQnVmZmVyAFNj
+cmlwdEJ1ZmZlcgBnZXRfUmVzb3VyY2VNYW5hZ2VyAFN5c3RlbS5Db2RlRG9tLkNvbXBpbGVyAGdl
+dF9Vc2VyAEVudGVyAGdldF9Db21wdXRlcgBNeUNvbXB1dGVyAF9yZXNNZ3IAQ2xlYXJQcm9qZWN0
+RXJyb3IAU2V0UHJvamVjdEVycm9yAEFjdGl2YXRvcgAuY3RvcgAuY2N0b3IATW9uaXRvcgBPdXRw
+dXRJRHMAU3lzdGVtLkRpYWdub3N0aWNzAE1pY3Jvc29mdC5WaXN1YWxCYXNpYy5EZXZpY2VzAGdl
+dF9XZWJTZXJ2aWNlcwBNeVdlYlNlcnZpY2VzAE1pY3Jvc29mdC5WaXN1YWxCYXNpYy5BcHBsaWNh
+dGlvblNlcnZpY2VzAFN5c3RlbS5SdW50aW1lLkludGVyb3BTZXJ2aWNlcwBNaWNyb3NvZnQuVmlz
+dWFsQmFzaWMuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2Vz
+AFN5c3RlbS5SZXNvdXJjZXMAU0NfM2JiOWUwZjNkZDJjNGEwZGJkYTNlMmY4MTYyNmVhZmYudmJw
+cm9qLk15LlJlc291cmNlcwBNeVJlc291cmNlcwBTQ18zYmI5ZTBmM2RkMmM0YTBkYmRhM2UyZjgx
+NjI2ZWFmZi52YnByb2ouUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBzZXRfVG90
+YWxzYWxlcwBWYXJpYWJsZXMAQnVmZmVyQ29sdW1uSW5kZXhlcwBHZXRDb2x1bW5JbmRleGVzAFN0
+cmluZ3MATXlTZXR0aW5ncwBFcXVhbHMAU3lzdGVtLlRleHQuUmVndWxhckV4cHJlc3Npb25zAENv
+bm5lY3Rpb25zAEJ1ZmZlcnMAUnVudGltZUhlbHBlcnMAT3BlcmF0b3JzAEZpbmlzaE91dHB1dHMA
+Q3JlYXRlTmV3T3V0cHV0Um93cwBtX1N5bmNPYmplY3QATXlQcm9qZWN0AGdldF9FbmRPZlJvd3Nl
+dABTZXRFbmRPZlJvd3NldABTcGxpdABFeGl0AFVzZXJDb21wb25lbnQAUGFyZW50Q29tcG9uZW50
+AFNjcmlwdENvbXBvbmVudABNaWNyb3NvZnQuU3FsU2VydmVyLlR4U2NyaXB0AE1pY3Jvc29mdC5T
+cWxTZXJ2ZXIuUGlwZWxpbmVIb3N0AElucHV0MF9Qcm9jZXNzSW5wdXQAUHJpbWVPdXRwdXQAbV9D
+b250ZXh0AEFkZFJvdwBJbnB1dDBfUHJvY2Vzc0lucHV0Um93AE5leHRSb3cAUmVnZXgAU0NfM2Ji
+OWUwZjNkZDJjNGEwZGJkYTNlMmY4MTYyNmVhZmYudmJwcm9qLk15AGdldF9Bc3NlbWJseQAAAAAx
+TQB5AC4AUgBlAHMAbwB1AHIAYwBlAHMALgBNAHkAUgBlAHMAbwB1AHIAYwBlAHMAAICbSQBzAE4A
+dQBsAGwAIABwAHIAbwBwAGUAcgB0AHkAIABjAGEAbgBuAG8AdAAgAGIAZQAgAHMAZQB0ACAAdABv
+ACAARgBhAGwAcwBlAC4AIABBAHMAcwBpAGcAbgAgAGEAIAB2AGEAbAB1AGUAIAB0AG8AIAB0AGgA
+ZQAgAGMAbwBsAHUAbQBuACAAaQBuAHMAdABlAGEAZAAuAAAPSQBuAHAAdQB0ACAAMAAAEU8AdQB0
+AHAAdQB0ACAAMAAADUUAcgByAG8AcgBzAAAFXAB0AAABAB1QAGEAcgBzAGUASQBuAHAAdQB0AEYA
+aQBsAGUAAAAAAx7lFy72E0e4gyww2WGfiQAEIAEBCAMgAAEFIAEBEREEIAEBDgQgAQECBSACAQ4O
+BSABARFFByAEAQ4ODg4GFRI8ARIMBhUSPAESCAYVEjwBEmUGFRI8ARI4BCAAEwAHAAESbRGApQUg
+ABKAqQcgAgEOEoCpCyADARKAhR0IEoCJBAYSgIUDBh0IBCABDggEIAECCAMHAQIDIAACBSACAQgc
+ByACAg4RgLUFIAEdCAgEBwIICAcAAggSgIkOCwcGHQ4ODg4OEoCZBgACHQ4ODgQAAQIcAyAACAUg
+Ag4ICAQAAQ4OBgADCA4OAgYAAQESgJkDAAABBAABHBwEAAEBHAQgAQIcAyAADgQHAR4AAh4ABRAB
+AB4ABAoBHgAEBwETAAYVEjwBEwAHBhUScQETAAYVEnEBEwACEwAECgETAAUgAQETAAi3elxWGTTg
+iQiwP19/EdUKOgiJhF3NgIDMkQcGFRI8ARIMBwYVEjwBEggHBhUSPAESZQcGFRI8ARI4AwYSeQMG
+En0DBhIoAwYSLAMGEhwDBhIgAgYIBAYSgI0DBhI0AgYcBAAAEgwEAAASCAQAABJlBAAAEjgEAAAS
+eQQAABJ9BQABARJ9CyAEAQgOEoCFEoCJDSAEAQgdCB0SgIUSgIkFIAEBEhgGIAEBEoCNBAAAEjQE
+IAASbQcQAQEeAB4ABzABAQEQHgAECAASDAQIABIIBAgAEmUECAASOAQIABJ5BAgAEn0DKAAOAygA
+AgQIABI0BCgAEwAIAQAIAAAAAAAeAQABAFQCFldyYXBOb25FeGNlcHRpb25UaHJvd3MBCAEAAgAA
+AAAALwEAKlNDXzNiYjllMGYzZGQyYzRhMGRiZGEzZTJmODE2MjZlYWZmLnZicHJvagAABQEAAAAA
+DgEACU1pY3Jvc29mdAAAHwEAGkNvcHlyaWdodCBAIE1pY3Jvc29mdCAyMDExAAAFAQABAAApAQAk
+MWU4YTA5MTUtOTRkMi00NTljLThmYWQtZWU5NTUxMDgwZmFkAAAMAQAHMS4wLjAuMAAASQEAGi5O
+RVRGcmFtZXdvcmssVmVyc2lvbj12NC41AQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFtZRIuTkVUIEZy
+YW1ld29yayA0LjUEAQAAAAgBAAEAAAAAABgBAApNeVRlbXBsYXRlCDExLjAuMC4wAABhAQA0U3lz
+dGVtLldlYi5TZXJ2aWNlcy5Qcm90b2NvbHMuU29hcEh0dHBDbGllbnRQcm90b2NvbBJDcmVhdGVf
+X0luc3RhbmNlX18TRGlzcG9zZV9fSW5zdGFuY2VfXwAAABABAAtNeS5Db21wdXRlcgAAEwEADk15
+LkFwcGxpY2F0aW9uAAAMAQAHTXkuVXNlcgAAEwEADk15LldlYlNlcnZpY2VzAAC0AAAAzsrvvgEA
+AACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9u
+PTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4
+OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0
+AAAAAAAAAAAAAAAAAAAAAgAAABwBAACIRQAAiCcAAFJTRFMAAAAAAAAAAAAAAAAAAAAAAQAAAEM6
+XFVzZXJzXEJyeWFuXEFwcERhdGFcTG9jYWxcVGVtcFx2c3RhXGViMzM5NDY1MjQ0ZjQ3ODViMDdl
+YmIwZjcwN2E1ZDdhXG9ialxSZWxlYXNlXFNDX0ZBREM4RTNGODBCQzRDNzE4MTZDQzQ4Nzg5OUJG
+RDI3LnBkYgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzEYAAAAAAAAAAAAA5kYAAAAgAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAANhGAAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8l
+ACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABAAAAAY
+AACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAAAABIAAAAWGAAADAE
+AAAAAAAAAAAAADAENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBPAAAAAAC9BO/+AAAB
+AAAAAQAAAAAAAAABAAAAAAA/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAARAAAAAEAVgBhAHIA
+RgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBvAG4AAAAAAAAAsASQ
+AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABsAwAAAQAwADAAMAAwADAANABiADAA
+AAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAANAAKAAEAQwBvAG0AcABhAG4AeQBOAGEAbQBl
+AAAAAABNAGkAYwByAG8AcwBvAGYAdAAAAH4AKwABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkA
+bwBuAAAAAABTAEMAXwAzAGIAYgA5AGUAMABmADMAZABkADIAYwA0AGEAMABkAGIAZABhADMAZQAy
+AGYAOAAxADYAMgA2AGUAYQBmAGYALgB2AGIAcAByAG8AagAAAAAAMAAIAAEARgBpAGwAZQBWAGUA
+cgBzAGkAbwBuAAAAAAAxAC4AMAAuADAALgAwAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBt
+AGUAAABTAEMAXwBGAEEARABDADgARQAzAEYAOAAwAEIAQwA0AEMANwAxADgAMQA2AEMAQwA0ADgA
+NwA4ADkAOQBCAEYARAAyADcALgBkAGwAbAAAAFoAGwABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBn
+AGgAdAAAAEMAbwBwAHkAcgBpAGcAaAB0ACAAQAAgAE0AaQBjAHIAbwBzAG8AZgB0ACAAMgAwADEA
+MQAAAAAAKgABAAEATABlAGcAYQBsAFQAcgBhAGQAZQBtAGEAcgBrAHMAAAAAAAAAAAB4ACgAAQBP
+AHIAaQBnAGkAbgBhAGwARgBpAGwAZQBuAGEAbQBlAAAAUwBDAF8ARgBBAEQAQwA4AEUAMwBGADgA
+MABCAEMANABDADcAMQA4ADEANgBDAEMANAA4ADcAOAA5ADkAQgBGAEQAMgA3AC4AZABsAGwAAAB2
+ACsAAQBQAHIAbwBkAHUAYwB0AE4AYQBtAGUAAAAAAFMAQwBfADMAYgBiADkAZQAwAGYAMwBkAGQA
+MgBjADQAYQAwAGQAYgBkAGEAMwBlADIAZgA4ADEANgAyADYAZQBhAGYAZgAuAHYAYgBwAHIAbwBq
+AAAAAAA0AAgAAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADAALgAwAAAA
+OAAIAAEAQQBzAHMAZQBtAGIAbAB5ACAAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAwAAAD4NgAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_fadc8e3f80bc4c71816cc487899bfd27</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">VisualBasic</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum140"
+                  typeConverter="NOTBROWSABLE">D5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Inputs[Input 0]"
+                  hasSideEffects="true"
+                  name="Input 0">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Inputs[Input 0].Columns[ETLData]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4000"
+                      cachedName="ETLData"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Output].Columns[ETLData]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Output 0]"
+                  hasSideEffects="true"
+                  name="Output 0">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Output 0].Columns[Salespersonid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Output 0].Columns[Salespersonid]"
+                      name="Salespersonid" />
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Output 0].Columns[Lastname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Output 0].Columns[Lastname]"
+                      name="Lastname" />
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Output 0].Columns[Firstname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Output 0].Columns[Firstname]"
+                      name="Firstname" />
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Output 0].Columns[Totalsales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Output 0].Columns[Totalsales]"
+                      name="Totalsales" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Errors]"
+                  hasSideEffects="true"
+                  name="Errors">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Errors].Columns[TaskName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Errors].Columns[TaskName]"
+                      name="TaskName" />
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Errors].Columns[Data]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Errors].Columns[Data]"
+                      name="Data" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Sales_Data"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[bpcSales_Data]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">100000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Connections[OleDbConnection]"
+                  connectionManagerID="{C2D0AD87-6935-4460-B8CA-0BFEA3583FDF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].Columns[Salespersonid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Salespersonid"
+                      externalMetadataColumnId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].ExternalColumns[Salespersonid]"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Output 0].Columns[Salespersonid]" />
+                    <inputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].Columns[Lastname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Lastname"
+                      externalMetadataColumnId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].ExternalColumns[Lastname]"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Output 0].Columns[Lastname]" />
+                    <inputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].Columns[Firstname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Firstname"
+                      externalMetadataColumnId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].ExternalColumns[Firstname]"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Output 0].Columns[Firstname]" />
+                    <inputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].Columns[Totalsales]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Totalsales"
+                      externalMetadataColumnId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].ExternalColumns[Totalsales]"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Output 0].Columns[Totalsales]" />
+                    <inputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].Columns[BICreatedDate]"
+                      cachedDataType="date"
+                      cachedName="BICreatedDate"
+                      externalMetadataColumnId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].ExternalColumns[BICreatedDate]"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Set_Created_Date.Outputs[Derived Column Output].Columns[BICreatedDate]" />
+                    <inputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].Columns[Totalsales_converted]"
+                      cachedDataType="decimal"
+                      cachedName="Totalsales_converted"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].ExternalColumns[Totalsales_converted]"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount.Outputs[Data Conversion Output].Columns[Totalsales_converted]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].ExternalColumns[Salespersonid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Salespersonid" />
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].ExternalColumns[Lastname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Lastname" />
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].ExternalColumns[Firstname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Firstname" />
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].ExternalColumns[Totalsales]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Totalsales" />
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].ExternalColumns[BICreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="BICreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input].ExternalColumns[Totalsales_converted]"
+                      dataType="numeric"
+                      name="Totalsales_converted"
+                      precision="28"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_Log_Files_Into_Staging_Table\Set_Created_Date"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Updates column values using expressions"
+              name="Set_Created_Date"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Set_Created_Date.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Set_Created_Date.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load_Log_Files_Into_Staging_Table\Set_Created_Date.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Set_Created_Date.Outputs[Derived Column Output].Columns[BICreatedDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Set_Created_Date.Outputs[Derived Column Output].Columns[BICreatedDate]"
+                      name="BICreatedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::RunDate]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::RunDate]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_Log_Files_Into_Staging_Table\Set_Created_Date.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load_Log_Files_Into_Staging_Table\Set_Created_Date.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Set_Created_Date.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Set_Created_Date.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_Log_Files_Into_Staging_Table\Set_Created_Date.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_Log_Files_Into_Staging_Table\Set_Created_Date.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load_Log_Files_Into_Staging_Table.Paths[Data Conversion Output]"
+              endId="Package\Load_Log_Files_Into_Staging_Table\Sales_Data.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Load_Log_Files_Into_Staging_Table.Paths[Derived Column Output]"
+              endId="Package\Load_Log_Files_Into_Staging_Table\Input_Errors.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load_Log_Files_Into_Staging_Table.Paths[Derived Column Output1]"
+              endId="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Load_Log_Files_Into_Staging_Table\Set_Created_Date.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load_Log_Files_Into_Staging_Table.Paths[Errors]"
+              endId="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors.Inputs[OLE DB Destination Input]"
+              name="Errors"
+              startId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Errors]" />
+            <path
+              refId="Package\Load_Log_Files_Into_Staging_Table.Paths[Flat File Source Error Output]"
+              endId="Package\Load_Log_Files_Into_Staging_Table\Add_Info.Inputs[Derived Column Input]"
+              name="Flat File Source Error Output"
+              startId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Error Output]" />
+            <path
+              refId="Package\Load_Log_Files_Into_Staging_Table.Paths[Flat File Source Output]"
+              endId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Inputs[Input 0]"
+              name="Flat File Source Output"
+              startId="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Load_Log_Files_Into_Staging_Table.Paths[Output 0]"
+              endId="Package\Load_Log_Files_Into_Staging_Table\Set_Created_Date.Inputs[Derived Column Input]"
+              name="Output 0"
+              startId="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile.Outputs[Output 0]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{6EDD59BF-5500-4F06-965A-48B7E9888E28}"
+      DTS:From="Package\CreateStagingTableIfNotExist"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load_Log_Files_Into_Staging_Table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="217,42"
+          Id="Package\CreateStagingTableIfNotExist"
+          TopLeft="143,194" />
+        <NodeLayout
+          Size="342,42"
+          Id="Package\Load_Log_Files_Into_Staging_Table"
+          TopLeft="87,332" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="254.75,236">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,96"
+              Start="0,0"
+              End="0,88.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,88.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Example pakcage with Script Component in the Data Flow."
+          ParentId="Package"
+          Size="553,48"
+          Id="0a4f332e-11f5-4806-b99a-13a99309d4ec"
+          TopLeft="28,68">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="20.25"
+              Color="#FFFF0000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load_Log_Files_Into_Staging_Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="208,44"
+          Id="Package\Load_Log_Files_Into_Staging_Table\Input_Sales_File"
+          TopLeft="142.443396226415,96.1415094339623" />
+        <NodeLayout
+          Size="174,44"
+          Id="Package\Load_Log_Files_Into_Staging_Table\Sales_Data"
+          TopLeft="396.103773584906,484.745283018868" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Load_Log_Files_Into_Staging_Table\Input_Errors"
+          TopLeft="8.06603773584906,450.933962264151" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Load_Log_Files_Into_Staging_Table\ParseInputFile"
+          TopLeft="417.839622641509,186.254716981132" />
+        <NodeLayout
+          Size="191,44"
+          Id="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors"
+          TopLeft="583.61320754717,312.028301886792" />
+        <NodeLayout
+          Size="153,44"
+          Id="Package\Load_Log_Files_Into_Staging_Table\Set_Created_Date"
+          TopLeft="386.669811320755,296.066037735849" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Load_Log_Files_Into_Staging_Table\Add_Info"
+          TopLeft="5.5,297.047169811321" />
+        <NodeLayout
+          Size="203,44"
+          Id="Package\Load_Log_Files_Into_Staging_Table\Convert_Sales_Amount"
+          TopLeft="265.235849056604,366.933962264151" />
+        <EdgeLayout
+          Id="Package\Load_Log_Files_Into_Staging_Table.Paths[Flat File Source Error Output]"
+          TopLeft="204.745283018868,140.066037735849">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-131.358490566038,156.981132075472"
+              Start="0,0"
+              End="-131.358490566038,149.481132075472">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,78.4905660377358" />
+                  <mssgle:LineSegment
+                    End="-131.358490566038,78.4905660377358" />
+                  <mssgle:LineSegment
+                    End="-131.358490566038,149.481132075472" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-129.305632001769,83.4905660377358,127.2527734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_Log_Files_Into_Staging_Table.Paths[Errors]"
+          TopLeft="513.839622641509,228.254716981132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="165.273584905661,83.77358490566"
+              Start="0,0"
+              End="165.273584905661,76.27358490566">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.0543028071789" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.0543028071789"
+                    Point2="0,34.0543028071789"
+                    Point3="4,34.0543028071789" />
+                  <mssgle:LineSegment
+                    End="161.273584905661,34.0543028071789" />
+                  <mssgle:CubicBezierSegment
+                    Point1="161.273584905661,34.0543028071789"
+                    Point2="165.273584905661,34.0543028071789"
+                    Point3="165.273584905661,38.0543028071789" />
+                  <mssgle:LineSegment
+                    End="165.273584905661,76.27358490566" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="68.9492143278305,39.0543028071789,27.37515625,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_Log_Files_Into_Staging_Table.Paths[Derived Column Output1]"
+          TopLeft="463.047169811321,339.990566037736">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-96.4905660377358,26.9433962264151"
+              Start="0,0"
+              End="-96.4905660377358,19.4433962264151">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.4716981132076" />
+                  <mssgle:LineSegment
+                    End="-96.4905660377358,13.4716981132076" />
+                  <mssgle:LineSegment
+                    End="-96.4905660377358,19.4433962264151" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_Log_Files_Into_Staging_Table.Paths[Derived Column Output]"
+          TopLeft="73.3867924528302,340.971698113208">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="2.56603773584905,109.962264150943"
+              Start="0,0"
+              End="2.56603773584905,102.462264150943">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.9811320754717" />
+                  <mssgle:LineSegment
+                    End="2.56603773584905,54.9811320754717" />
+                  <mssgle:LineSegment
+                    End="2.56603773584905,102.462264150943" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_Log_Files_Into_Staging_Table.Paths[Data Conversion Output]"
+          TopLeft="366.556603773585,410.858490566038">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="116.415094339623,73.8867924528302"
+              Start="0,0"
+              End="116.415094339623,66.3867924528302">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.9433962264151" />
+                  <mssgle:LineSegment
+                    End="116.415094339623,36.9433962264151" />
+                  <mssgle:LineSegment
+                    End="116.415094339623,66.3867924528302" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_Log_Files_Into_Staging_Table.Paths[Output 0]"
+          TopLeft="465.504716981132,228.254716981132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,67.811320754717"
+              Start="0,0"
+              End="0,60.311320754717">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.311320754717" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-20.15572265625,24.4388635023585,40.3114453125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_Log_Files_Into_Staging_Table.Paths[Flat File Source Output]"
+          TopLeft="279.776729559748,140.141509433962">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="211.062893081761,46.1132075471697"
+              Start="0,0"
+              End="211.062893081761,38.6132075471697">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.6564885496183" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.6564885496183"
+                    Point2="0,18.6564885496183"
+                    Point3="4,18.6564885496183" />
+                  <mssgle:LineSegment
+                    End="207.062893081761,18.6564885496183" />
+                  <mssgle:CubicBezierSegment
+                    Point1="207.062893081761,18.6564885496183"
+                    Point2="211.062893081761,18.6564885496183"
+                    Point3="211.062893081761,22.6564885496183" />
+                  <mssgle:LineSegment
+                    End="211.062893081761,38.6132075471697" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Load the external sales data into the staging table&#xA;so it can be merged into the master sales table."
+          ParentId="Package\Load_Log_Files_Into_Staging_Table"
+          Size="366,60"
+          Id="103e7474-a5d9-42ef-92d2-6a3137118d3e"
+          TopLeft="109.160377358491,5.5">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="15"
+              Color="#FF000080"
+              Style="Italic">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_Log_Files_Into_Staging_Table\Sales_Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_Log_Files_Into_Staging_Table\Input_Errors">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_Log_Files_Into_Staging_Table\Input Load Errors">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
