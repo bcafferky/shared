@@ -52,16 +52,16 @@ param (
 
 <#
 
-New-AzureRmResourceGroup -Name 'rggab' -Location 'East US 2' -Verbose
+New-AzureRmResourceGroup -Name 'rg_bcafferkybpc2' -Location 'East US 2' -Verbose
 
 Get-AzureRMSubscription
 
-New-udfAzureBlob -ResourceGroupName    "rggab" `
-                 -StorageAccountName   "bcafferky123xxy2" `
+New-udfAzureBlob -ResourceGroupName    "rg_bcafferkybpc2" `
+                 -StorageAccountName   "bcafferkybpc1" `
                  -Location             "eastus" `
                  -SubscriptionName     "Microsoft Azure Internal Consumption" `
-                 -ContainerName        "bcafferkycontainter222" `
-                 -SkuName              Standard_LRS -Verbose
+                 -ContainerName        "bcafferkycontainterbpc1" `
+                 -SkuName              Standard_LRS -Verbose 
 #>
                  
-New-udfAzureBlob -SkuName 
+

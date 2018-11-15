@@ -1,9 +1,9 @@
 ﻿
-Import-Module AzureRM
+Import-Module AzureRM -Verbose
 
 Add-AzureRmAccount | Select-Object Environment  # Log In
 
-Get-AzureRMVM | Select -ExpandProperty NetworkAdapters | Select VMName, IPAddresses, Status
+Get-AzureRmVM | Format-Table Name,ResourceGroupName,Location -AutoSize
 
 Get-VM | ?{$_.ReplicationMode -ne “Replica”} | Select -ExpandProperty NetworkAdapters | Select VMName, IPAddresses, Status
 
@@ -17,7 +17,6 @@ Select-AzureRmSubscription -SubscriptionName "Microsoft"
 
 Get-AzureRmContext | Select-Object Environment
 
-Get-AzureRmVM | Format-Table Name,ResourceGroupName,Location -AutoSize
 
 # Note:  ExcludeProperty only works when Property is used.  
 
