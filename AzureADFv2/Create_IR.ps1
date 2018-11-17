@@ -36,7 +36,7 @@ Get-Command -Module AzureRM.DataFactoryV2
 # Log into your Azure account...
 Add-AzureRmAccount 
 
-$resourceprefix = "adfv2c"
+$resourceprefix = "bpcadfv2a"
 
 #  Set variables...
 $SubscriptionName = "Visual Studio Enterprise"
