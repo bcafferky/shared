@@ -19,9 +19,9 @@
 
 }
 
+# Remove-Module "sqlps"
+
 <#
-Get-ChildItem | Select-Object -Property name, LastWriteTime  | 
-ConvertTo-HTML -Head (Out-udfHTML "lightblue" -AlternateRows) -Pre "<h1>File List</h1>" -Post ("<h1>As of " + (Get-Date) + "</h1>") | 
-Out-File MyReport.HTML
+Get-ChildItem | Select-Object -Property name, LastWriteTime  | ConvertTo-HTML -Head (Out-udfHTML "lightblue" -AlternateRows) -Pre "<h1>File List</h1>" -Post ("<h1>As of " + (Get-Date) + "</h1>") | Out-File MyReport.HTML
 Invoke-Item  MyReport.HTML 
 #>
