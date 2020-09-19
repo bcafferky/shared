@@ -1,0 +1,656 @@
+﻿GeographyKey,City,StateProvinceCode,StateProvinceName,CountryRegionCode,EnglishCountryRegionName,SpanishCountryRegionName,FrenchCountryRegionName,PostalCode,SalesTerritoryKey,IpAddressLocator
+1,Alexandria,NSW,New South Wales,AU,Australia,Australia,Australie,2015,9,198.51.100.2
+2,Coffs Harbour,NSW,New South Wales,AU,Australia,Australia,Australie,2450,9,198.51.100.3
+3,Darlinghurst,NSW,New South Wales,AU,Australia,Australia,Australie,2010,9,198.51.100.4
+4,Goulburn,NSW,New South Wales,AU,Australia,Australia,Australie,2580,9,198.51.100.5
+5,Lane Cove,NSW,New South Wales,AU,Australia,Australia,Australie,1597,9,198.51.100.6
+6,Lavender Bay,NSW,New South Wales,AU,Australia,Australia,Australie,2060,9,198.51.100.7
+7,Malabar,NSW,New South Wales,AU,Australia,Australia,Australie,2036,9,198.51.100.8
+8,Matraville,NSW,New South Wales,AU,Australia,Australia,Australie,2036,9,198.51.100.9
+9,Milsons Point,NSW,New South Wales,AU,Australia,Australia,Australie,2061,9,198.51.100.10
+10,Newcastle,NSW,New South Wales,AU,Australia,Australia,Australie,2300,9,198.51.100.11
+11,North Ryde,NSW,New South Wales,AU,Australia,Australia,Australie,2113,9,198.51.100.12
+12,North Sydney,NSW,New South Wales,AU,Australia,Australia,Australie,2055,9,198.51.100.13
+13,Port Macquarie,NSW,New South Wales,AU,Australia,Australia,Australie,2444,9,198.51.100.14
+14,Rhodes,NSW,New South Wales,AU,Australia,Australia,Australie,2138,9,198.51.100.15
+15,Silverwater,NSW,New South Wales,AU,Australia,Australia,Australie,2264,9,198.51.100.16
+16,Springwood,NSW,New South Wales,AU,Australia,Australia,Australie,2777,9,198.51.100.17
+17,St. Leonards,NSW,New South Wales,AU,Australia,Australia,Australie,2065,9,198.51.100.18
+18,Sydney,NSW,New South Wales,AU,Australia,Australia,Australie,1002,9,198.51.100.19
+19,Wollongong,NSW,New South Wales,AU,Australia,Australia,Australie,2500,9,198.51.100.20
+20,Brisbane,QLD,Queensland,AU,Australia,Australia,Australie,4000,9,198.51.100.21
+21,Caloundra,QLD,Queensland,AU,Australia,Australia,Australie,4551,9,198.51.100.22
+22,East Brisbane,QLD,Queensland,AU,Australia,Australia,Australie,4169,9,198.51.100.23
+23,Gold Coast,QLD,Queensland,AU,Australia,Australia,Australie,4217,9,198.51.100.24
+24,Hawthorne,QLD,Queensland,AU,Australia,Australia,Australie,4171,9,198.51.100.25
+25,Hervey Bay,QLD,Queensland,AU,Australia,Australia,Australie,4655,9,198.51.100.26
+26,Rockhampton,QLD,Queensland,AU,Australia,Australia,Australie,4700,9,198.51.100.27
+27,Townsville,QLD,Queensland,AU,Australia,Australia,Australie,4810,9,198.51.100.28
+28,Cloverdale,SA,South Australia,AU,Australia,Australia,Australie,6105,9,198.51.100.29
+29,Findon,SA,South Australia,AU,Australia,Australia,Australie,5023,9,198.51.100.30
+30,Perth,SA,South Australia,AU,Australia,Australia,Australie,6006,9,198.51.100.31
+31,Hobart,TAS,Tasmania,AU,Australia,Australia,Australie,7001,9,198.51.100.32
+32,Bendigo,VIC,Victoria,AU,Australia,Australia,Australie,3550,9,198.51.100.33
+33,Cranbourne,VIC,Victoria,AU,Australia,Australia,Australie,3977,9,198.51.100.34
+34,Geelong,VIC,Victoria,AU,Australia,Australia,Australie,3220,9,198.51.100.35
+35,Melbourne,VIC,Victoria,AU,Australia,Australia,Australie,3000,9,198.51.100.36
+36,Melton,VIC,Victoria,AU,Australia,Australia,Australie,3337,9,198.51.100.37
+37,Seaford,VIC,Victoria,AU,Australia,Australia,Australie,3198,9,198.51.100.38
+38,South Melbourne,VIC,Victoria,AU,Australia,Australia,Australie,3205,9,198.51.100.39
+39,Sunbury,VIC,Victoria,AU,Australia,Australia,Australie,3429,9,198.51.100.40
+40,Warrnambool,VIC,Victoria,AU,Australia,Australia,Australie,3280,9,198.51.100.41
+41,Calgary,AB,Alberta,CA,Canada,Canada,Canada,T2P 2G8,6,198.51.100.42
+42,Edmonton,AB,Alberta,CA,Canada,Canada,Canada,T5,6,198.51.100.43
+43,Burnaby,BC,British Columbia,CA,Canada,Canada,Canada,V3J 6Z3,6,198.51.100.44
+44,Burnaby,BC,British Columbia,CA,Canada,Canada,Canada,V5A 3A6,6,198.51.100.45
+45,Burnaby,BC,British Columbia,CA,Canada,Canada,Canada,V5A 4X1,6,198.51.100.46
+46,Burnaby,BC,British Columbia,CA,Canada,Canada,Canada,V5G 4S4,6,198.51.100.47
+47,Burnaby,BC,British Columbia,CA,Canada,Canada,Canada,V5G 4W1,6,198.51.100.48
+48,Burnaby,BC,British Columbia,CA,Canada,Canada,Canada,V5H 3Z7,6,198.51.100.49
+49,Cliffside,BC,British Columbia,CA,Canada,Canada,Canada,V8Y 1L1,6,198.51.100.50
+50,Haney,BC,British Columbia,CA,Canada,Canada,Canada,V2W 1W2,6,198.51.100.51
+51,Langford,BC,British Columbia,CA,Canada,Canada,Canada,V9,6,198.51.100.52
+52,Langley,BC,British Columbia,CA,Canada,Canada,Canada,V3A 4R2,6,198.51.100.53
+53,Metchosin,BC,British Columbia,CA,Canada,Canada,Canada,V9,6,198.51.100.54
+54,N. Vancouver,BC,British Columbia,CA,Canada,Canada,Canada,V7L 4J4,6,198.51.100.55
+55,Newton,BC,British Columbia,CA,Canada,Canada,Canada,V2L3W8,6,198.51.100.56
+56,Newton,BC,British Columbia,CA,Canada,Canada,Canada,V2M1N7,6,198.51.100.57
+57,Newton,BC,British Columbia,CA,Canada,Canada,Canada,V2M1P1,6,198.51.100.58
+58,Newton,BC,British Columbia,CA,Canada,Canada,Canada,V2M1S6,6,198.51.100.59
+59,Oak Bay,BC,British Columbia,CA,Canada,Canada,Canada,V8P,6,198.51.100.60
+60,Port Hammond,BC,British Columbia,CA,Canada,Canada,Canada,V6B 3P7,6,198.51.100.61
+61,Richmond,BC,British Columbia,CA,Canada,Canada,Canada,V6B 3P7,6,198.51.100.62
+62,Royal Oak,BC,British Columbia,CA,Canada,Canada,Canada,V8X,6,198.51.100.63
+63,Shawnee,BC,British Columbia,CA,Canada,Canada,Canada,V8Z 4N5,6,198.51.100.64
+64,Shawnee,BC,British Columbia,CA,Canada,Canada,Canada,V9B 2C3,6,198.51.100.65
+65,Shawnee,BC,British Columbia,CA,Canada,Canada,Canada,V9B 5T2,6,198.51.100.66
+66,Sooke,BC,British Columbia,CA,Canada,Canada,Canada,V0,6,198.51.100.67
+67,Surrey,BC,British Columbia,CA,Canada,Canada,Canada,V3T 4W3,6,198.51.100.68
+68,Vancouver,BC,British Columbia,CA,Canada,Canada,Canada,V7L 4J4,6,198.51.100.69
+69,Victoria,BC,British Columbia,CA,Canada,Canada,Canada,V8V,6,198.51.100.70
+70,Westminster,BC,British Columbia,CA,Canada,Canada,Canada,V3L 1E7,6,198.51.100.71
+71,Westminster,BC,British Columbia,CA,Canada,Canada,Canada,V3L 1H4,6,198.51.100.72
+72,Winnipeg,MB,Manitoba,CA,Canada,Canada,Canada,R3,6,198.51.100.73
+73,Saint John,NB,Brunswick,CA,Canada,Canada,Canada,E2P 1E3,6,198.51.100.74
+74,Aurora,ON,Ontario,CA,Canada,Canada,Canada,L4G 7N6,6,198.51.100.75
+75,Barrie,ON,Ontario,CA,Canada,Canada,Canada,L4N,6,198.51.100.76
+76,Brampton,ON,Ontario,CA,Canada,Canada,Canada,L6W 2T7,6,198.51.100.77
+77,Chalk Riber,ON,Ontario,CA,Canada,Canada,Canada,K0J 1J0,6,198.51.100.78
+78,Etobicoke,ON,Ontario,CA,Canada,Canada,Canada,M9W 3P3,6,198.51.100.79
+79,Kanata,ON,Ontario,CA,Canada,Canada,Canada,K2L 1H5,6,198.51.100.80
+80,Kingston,ON,Ontario,CA,Canada,Canada,Canada,7L,6,198.51.100.81
+81,Markham,ON,Ontario,CA,Canada,Canada,Canada,L3S 3K2,6,198.51.100.82
+82,Mississauga,ON,Ontario,CA,Canada,Canada,Canada,L4W 5J3,6,198.51.100.83
+83,Mississauga,ON,Ontario,CA,Canada,Canada,Canada,L5A 1H6,6,198.51.100.84
+84,Mississauga,ON,Ontario,CA,Canada,Canada,Canada,L5B 3V4,6,198.51.100.85
+85,Nepean,ON,Ontario,CA,Canada,Canada,Canada,K2J 2W5,6,198.51.100.86
+86,North York,ON,Ontario,CA,Canada,Canada,Canada,M4C 4K6,6,198.51.100.87
+87,Ottawa,ON,Ontario,CA,Canada,Canada,Canada,K4B 1S1,6,198.51.100.88
+88,Ottawa,ON,Ontario,CA,Canada,Canada,Canada,K4B 1S2,6,198.51.100.89
+89,Ottawa,ON,Ontario,CA,Canada,Canada,Canada,K4B 1S3,6,198.51.100.90
+90,Ottawa,ON,Ontario,CA,Canada,Canada,Canada,K4B 1T7,6,198.51.100.91
+91,Richmond Hill,ON,Ontario,CA,Canada,Canada,Canada,L4E 3M5,6,198.51.100.92
+92,Scarborough,ON,Ontario,CA,Canada,Canada,Canada,M1V 4M2,6,198.51.100.93
+93,Toronto,ON,Ontario,CA,Canada,Canada,Canada,M4B 1V4,6,198.51.100.94
+94,Toronto,ON,Ontario,CA,Canada,Canada,Canada,M4B 1V5,6,198.51.100.95
+95,Toronto,ON,Ontario,CA,Canada,Canada,Canada,M4B 1V6,6,198.51.100.96
+96,Toronto,ON,Ontario,CA,Canada,Canada,Canada,M4B 1V7,6,198.51.100.97
+97,Vancouver,ON,Ontario,CA,Canada,Canada,Canada,V5T 1Y9,6,198.51.100.98
+98,Waterloo,ON,Ontario,CA,Canada,Canada,Canada,N2V,6,198.51.100.99
+99,Weston,ON,Ontario,CA,Canada,Canada,Canada,M9V 4W3,6,198.51.100.100
+100,Brossard,QC,Quebec,CA,Canada,Canada,Canada,J4Z 1C5,6,198.51.100.101
+101,Brossard,QC,Quebec,CA,Canada,Canada,Canada,J4Z 1R4,6,198.51.100.102
+102,Dorval,QC,Quebec,CA,Canada,Canada,Canada,H9P 1H1,6,198.51.100.103
+103,Hull,QC,Quebec,CA,Canada,Canada,Canada,8Y,6,198.51.100.104
+104,Montreal,QC,Quebec,CA,Canada,Canada,Canada,H1Y 2H3,6,198.51.100.105
+105,Montreal,QC,Quebec,CA,Canada,Canada,Canada,H1Y 2H5,6,198.51.100.106
+106,Montreal,QC,Quebec,CA,Canada,Canada,Canada,H1Y 2H7,6,198.51.100.107
+107,Montreal,QC,Quebec,CA,Canada,Canada,Canada,H1Y 2H8,6,198.51.100.108
+108,Outremont,QC,Quebec,CA,Canada,Canada,Canada,H1Y 2G5,6,198.51.100.109
+109,Pnot-Rouge,QC,Quebec,CA,Canada,Canada,Canada,J1E 2T7,6,198.51.100.110
+110,Quebec,QC,Quebec,CA,Canada,Canada,Canada,G1R,6,198.51.100.111
+111,Sainte-Foy,QC,Quebec,CA,Canada,Canada,Canada,G1W,6,198.51.100.112
+112,Sillery,QC,Quebec,CA,Canada,Canada,Canada,G1T,6,198.51.100.113
+113,Ville De'anjou,QC,Quebec,CA,Canada,Canada,Canada,J1G 2R3,6,198.51.100.114
+114,Berlin,BB,Brandenburg,DE,Germany,Alemania,Allemagne,14197,8,198.51.100.115
+115,Eilenburg,BB,Brandenburg,DE,Germany,Alemania,Allemagne,04838,8,198.51.100.116
+116,Augsburg,BY,Bayern,DE,Germany,Alemania,Allemagne,86150,8,198.51.100.117
+117,Erlangen,BY,Bayern,DE,Germany,Alemania,Allemagne,91054,8,198.51.100.118
+118,Frankfurt,BY,Bayern,DE,Germany,Alemania,Allemagne,91480,8,198.51.100.119
+119,Grevenbroich,BY,Bayern,DE,Germany,Alemania,Allemagne,41485,8,198.51.100.120
+120,Hof,BY,Bayern,DE,Germany,Alemania,Allemagne,95010,8,198.51.100.121
+121,Ingolstadt,BY,Bayern,DE,Germany,Alemania,Allemagne,85049,8,198.51.100.122
+122,Bad Soden,HE,Hessen,DE,Germany,Alemania,Allemagne,65800,8,198.51.100.123
+123,Berlin,HE,Hessen,DE,Germany,Alemania,Allemagne,12171,8,198.51.100.124
+124,Berlin,HE,Hessen,DE,Germany,Alemania,Allemagne,13441,8,198.51.100.125
+125,Berlin,HE,Hessen,DE,Germany,Alemania,Allemagne,14111,8,198.51.100.126
+126,Berlin,HE,Hessen,DE,Germany,Alemania,Allemagne,14129,8,198.51.100.127
+127,Darmstadt,HE,Hessen,DE,Germany,Alemania,Allemagne,64283,8,198.51.100.128
+128,Dresden,HE,Hessen,DE,Germany,Alemania,Allemagne,01071,8,198.51.100.129
+129,Duesseldorf,HE,Hessen,DE,Germany,Alemania,Allemagne,40434,8,198.51.100.130
+130,Duesseldorf,HE,Hessen,DE,Germany,Alemania,Allemagne,40605,8,198.51.100.131
+131,Frankfurt,HE,Hessen,DE,Germany,Alemania,Allemagne,60323,8,198.51.100.132
+132,Hamburg,HE,Hessen,DE,Germany,Alemania,Allemagne,22001,8,198.51.100.133
+133,Kassel,HE,Hessen,DE,Germany,Alemania,Allemagne,34117,8,198.51.100.134
+134,München,HE,Hessen,DE,Germany,Alemania,Allemagne,80074,8,198.51.100.135
+135,Salzgitter,HE,Hessen,DE,Germany,Alemania,Allemagne,38231,8,198.51.100.136
+136,Ascheim,HH,Hamburg,DE,Germany,Alemania,Allemagne,86171,8,198.51.100.137
+137,Augsburg,HH,Hamburg,DE,Germany,Alemania,Allemagne,86171,8,198.51.100.138
+138,Berlin,HH,Hamburg,DE,Germany,Alemania,Allemagne,10210,8,198.51.100.139
+139,Berlin,HH,Hamburg,DE,Germany,Alemania,Allemagne,10791,8,198.51.100.140
+140,Berlin,HH,Hamburg,DE,Germany,Alemania,Allemagne,12311,8,198.51.100.141
+141,Berlin,HH,Hamburg,DE,Germany,Alemania,Allemagne,14111,8,198.51.100.142
+142,Bonn,HH,Hamburg,DE,Germany,Alemania,Allemagne,53001,8,198.51.100.143
+143,Bonn,HH,Hamburg,DE,Germany,Alemania,Allemagne,53131,8,198.51.100.144
+144,Essen,HH,Hamburg,DE,Germany,Alemania,Allemagne,45001,8,198.51.100.145
+145,Frankfurt am Main,HH,Hamburg,DE,Germany,Alemania,Allemagne,60082,8,198.51.100.146
+146,Frankfurt am Main,HH,Hamburg,DE,Germany,Alemania,Allemagne,60355,8,198.51.100.147
+147,Hamburg,HH,Hamburg,DE,Germany,Alemania,Allemagne,20354,8,198.51.100.148
+148,Muehlheim,HH,Hamburg,DE,Germany,Alemania,Allemagne,63151,8,198.51.100.149
+149,Mühlheim,HH,Hamburg,DE,Germany,Alemania,Allemagne,63151,8,198.51.100.150
+150,München,HH,Hamburg,DE,Germany,Alemania,Allemagne,80074,8,198.51.100.151
+151,Paderborn,HH,Hamburg,DE,Germany,Alemania,Allemagne,33041,8,198.51.100.152
+152,Berlin,NW,Nordrhein-Westfalen,DE,Germany,Alemania,Allemagne,10501,8,198.51.100.153
+153,Berlin,NW,Nordrhein-Westfalen,DE,Germany,Alemania,Allemagne,14197,8,198.51.100.154
+154,Bonn,NW,Nordrhein-Westfalen,DE,Germany,Alemania,Allemagne,53131,8,198.51.100.155
+155,Bottrop,NW,Nordrhein-Westfalen,DE,Germany,Alemania,Allemagne,46236,8,198.51.100.156
+156,Braunschweig,NW,Nordrhein-Westfalen,DE,Germany,Alemania,Allemagne,38001,8,198.51.100.157
+157,Hannover,NW,Nordrhein-Westfalen,DE,Germany,Alemania,Allemagne,30601,8,198.51.100.158
+158,Leipzig,NW,Nordrhein-Westfalen,DE,Germany,Alemania,Allemagne,04139,8,198.51.100.159
+159,München,NW,Nordrhein-Westfalen,DE,Germany,Alemania,Allemagne,80074,8,198.51.100.160
+160,Paderborn,NW,Nordrhein-Westfalen,DE,Germany,Alemania,Allemagne,33098,8,198.51.100.161
+161,Solingen,NW,Nordrhein-Westfalen,DE,Germany,Alemania,Allemagne,42651,8,198.51.100.162
+162,Werne,NW,Nordrhein-Westfalen,DE,Germany,Alemania,Allemagne,59368,8,198.51.100.163
+163,Berlin,SL,Saarland,DE,Germany,Alemania,Allemagne,12171,8,198.51.100.164
+164,Berlin,SL,Saarland,DE,Germany,Alemania,Allemagne,12311,8,198.51.100.165
+165,Berlin,SL,Saarland,DE,Germany,Alemania,Allemagne,14197,8,198.51.100.166
+166,Frankfurt am Main,SL,Saarland,DE,Germany,Alemania,Allemagne,60061,8,198.51.100.167
+167,Frankfurt am Main,SL,Saarland,DE,Germany,Alemania,Allemagne,60075,8,198.51.100.168
+168,Kiel,SL,Saarland,DE,Germany,Alemania,Allemagne,24044,8,198.51.100.169
+169,München,SL,Saarland,DE,Germany,Alemania,Allemagne,48001,8,198.51.100.170
+170,Münster,SL,Saarland,DE,Germany,Alemania,Allemagne,48001,8,198.51.100.171
+171,Neunkirchen,SL,Saarland,DE,Germany,Alemania,Allemagne,66578,8,198.51.100.172
+172,Offenbach,SL,Saarland,DE,Germany,Alemania,Allemagne,63009,8,198.51.100.173
+173,Poing,SL,Saarland,DE,Germany,Alemania,Allemagne,66041,8,198.51.100.174
+174,Saarbrücken,SL,Saarland,DE,Germany,Alemania,Allemagne,66001,8,198.51.100.175
+175,Saarlouis,SL,Saarland,DE,Germany,Alemania,Allemagne,66740,8,198.51.100.176
+176,Stuttgart,SL,Saarland,DE,Germany,Alemania,Allemagne,70452,8,198.51.100.177
+177,Stuttgart,SL,Saarland,DE,Germany,Alemania,Allemagne,70511,8,198.51.100.178
+178,Sulzbach Taunus,SL,Saarland,DE,Germany,Alemania,Allemagne,66272,8,198.51.100.179
+179,Saint Ouen,17,Charente-Maritime,FR,France,Francia,France,17490,7,198.51.100.180
+180,Colomiers,31,Garonne (Haute),FR,France,Francia,France,31770,7,198.51.100.181
+181,Aujan Mournede,32,Gers,FR,France,Francia,France,32300,7,198.51.100.182
+182,Saint Ouen,41,Loir et Cher,FR,France,Francia,France,41100,7,198.51.100.183
+183,Orleans,45,Loiret,FR,France,Francia,France,45000,7,198.51.100.184
+184,Metz,57,Moselle,FR,France,Francia,France,57000,7,198.51.100.185
+185,Croix,59,Nord,FR,France,Francia,France,59170,7,198.51.100.186
+186,Dunkerque,59,Nord,FR,France,Francia,France,59140,7,198.51.100.187
+187,Lille,59,Nord,FR,France,Francia,France,59000,7,198.51.100.188
+188,Roncq,59,Nord,FR,France,Francia,France,59223,7,198.51.100.189
+189,Roubaix,59,Nord,FR,France,Francia,France,59100,7,198.51.100.190
+190,Villeneuve-d'Ascq,59,Nord,FR,France,Francia,France,59491,7,198.51.100.191
+191,Boulogne-sur-Mer,62,Pas de Calais,FR,France,Francia,France,62200,7,198.51.100.192
+192,Paris,75,Seine (Paris),FR,France,Francia,France,75002,7,198.51.100.193
+193,Paris,75,Seine (Paris),FR,France,Francia,France,75003,7,198.51.100.194
+194,Paris,75,Seine (Paris),FR,France,Francia,France,75005,7,198.51.100.195
+195,Paris,75,Seine (Paris),FR,France,Francia,France,75006,7,198.51.100.196
+196,Paris,75,Seine (Paris),FR,France,Francia,France,75007,7,198.51.100.197
+197,Paris,75,Seine (Paris),FR,France,Francia,France,75008,7,198.51.100.198
+198,Paris,75,Seine (Paris),FR,France,Francia,France,75009,7,198.51.100.199
+199,Paris,75,Seine (Paris),FR,France,Francia,France,75010,7,198.51.100.200
+200,Paris,75,Seine (Paris),FR,France,Francia,France,75012,7,198.51.100.201
+201,Paris,75,Seine (Paris),FR,France,Francia,France,75013,7,198.51.100.202
+202,Paris,75,Seine (Paris),FR,France,Francia,France,75016,7,198.51.100.203
+203,Paris,75,Seine (Paris),FR,France,Francia,France,75017,7,198.51.100.204
+204,Paris,75,Seine (Paris),FR,France,Francia,France,75019,7,198.51.100.205
+205,Lieusaint,77,Seine et Marne,FR,France,Francia,France,77127,7,198.51.100.206
+206,Roissy en Brie,77,Seine et Marne,FR,France,Francia,France,77680,7,198.51.100.207
+207,Chatou,78,Yveline,FR,France,Francia,France,78400,7,198.51.100.208
+208,Saint Germain en Laye,78,Yveline,FR,France,Francia,France,78100,7,198.51.100.209
+209,Versailles,78,Yveline,FR,France,Francia,France,78000,7,198.51.100.210
+210,Saint Ouen,80,Somme,FR,France,Francia,France,80610,7,198.51.100.211
+211,Les Ulis,91,Essonne,FR,France,Francia,France,91940,7,198.51.100.212
+212,Morangis,91,Essonne,FR,France,Francia,France,91420,7,198.51.100.213
+213,Verrieres Le Buisson,91,Essonne,FR,France,Francia,France,91370,7,198.51.100.214
+214,Boulogne-Billancourt,92,Hauts de Seine,FR,France,Francia,France,92100,7,198.51.100.215
+215,Colombes,92,Hauts de Seine,FR,France,Francia,France,92700,7,198.51.100.216
+216,Courbevoie,92,Hauts de Seine,FR,France,Francia,France,92400,7,198.51.100.217
+217,Paris La Defense,92,Hauts de Seine,FR,France,Francia,France,92081,7,198.51.100.218
+218,Sèvres,92,Hauts de Seine,FR,France,Francia,France,92310,7,198.51.100.219
+219,Suresnes,92,Hauts de Seine,FR,France,Francia,France,92150,7,198.51.100.220
+220,Bobigny,93,Seine Saint Denis,FR,France,Francia,France,93000,7,198.51.100.221
+221,Drancy,93,Seine Saint Denis,FR,France,Francia,France,93700,7,198.51.100.222
+222,Pantin,93,Seine Saint Denis,FR,France,Francia,France,93500,7,198.51.100.223
+223,Saint-Denis,93,Seine Saint Denis,FR,France,Francia,France,93400,7,198.51.100.224
+224,Tremblay-en-France,93,Seine Saint Denis,FR,France,Francia,France,93290,7,198.51.100.225
+225,Orly,94,Val de Marne,FR,France,Francia,France,94310,7,198.51.100.226
+226,Cergy,95,Val d'Oise,FR,France,Francia,France,95000,7,198.51.100.227
+227,Abingdon,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,OX14 4SE,10,198.51.100.228
+228,Basingstoke Hants,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,RG24 8PL,10,198.51.100.229
+229,Berks,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,SL4 1RH,10,198.51.100.230
+230,Berkshire,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,RG11 5TP,10,198.51.100.231
+231,Billericay,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,CM11,10,198.51.100.232
+232,Birmingham,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,B29 6SL,10,198.51.100.233
+233,Bracknell,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,RG12 8TB,10,198.51.100.234
+234,Bury,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,PE17,10,198.51.100.235
+235,Cambridge,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,CB4 4BZ,10,198.51.100.236
+236,Cheltenham,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,GL50,10,198.51.100.237
+237,Esher-Molesey,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,EM15,10,198.51.100.238
+238,Gateshead,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,GA10,10,198.51.100.239
+239,Gloucestershire,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,GL7 1RY,10,198.51.100.240
+240,High Wycombe,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,HP10 9QY,10,198.51.100.241
+241,Kirkby,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,KB9,10,198.51.100.242
+242,Lancaster,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,LA1 1LN,10,198.51.100.243
+243,Leeds,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,LE18,10,198.51.100.244
+244,London,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,C2H 7AU,10,198.51.100.245
+245,London,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,E17 6JF,10,198.51.100.246
+246,London,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,EC1R 0DU,10,198.51.100.247
+247,London,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,SE1 8HL,10,198.51.100.248
+248,London,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,SW19 3RU,10,198.51.100.249
+249,London,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,SW1P 2NU,10,198.51.100.250
+250,London,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,SW6 SBY,10,198.51.100.251
+251,London,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,SW8 1XD,10,198.51.100.252
+252,London,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,SW8 4BG,10,198.51.100.253
+253,London,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,W10 6BL,10,198.51.100.254
+254,London,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,W1N 9FA,10,192.0.2.1
+255,London,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,W1V 5RN,10,192.0.2.2
+256,London,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,W1X3SE,10,192.0.2.3
+257,London,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,W1Y 3RA,10,192.0.2.4
+258,Maidenhead,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,SL67RJ,10,192.0.2.5
+259,Milton Keynes,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,MK8 8DF,10,192.0.2.6
+260,Milton Keynes,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,MK8 8ZD,10,192.0.2.7
+261,Newcastle upon Tyne,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,NT20,10,192.0.2.8
+262,Oxford,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,OX1,10,192.0.2.9
+263,Oxford,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,OX14 4SE,10,192.0.2.10
+264,Oxon,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,OX16 8RS,10,192.0.2.11
+265,Peterborough,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,PB12,10,192.0.2.12
+266,Reading,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,RG7 5H7,10,192.0.2.13
+267,Runcorn,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,TY31,10,192.0.2.14
+268,Liverpool,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,L4 4HB,10,192.0.2.15
+269,Stoke-on-Trent,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,AS23,10,192.0.2.16
+270,W. York,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,BD1 4SJ,10,192.0.2.17
+271,Warrington,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,WA1,10,192.0.2.18
+272,Warrington,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,WA3 7BH,10,192.0.2.19
+273,Watford,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,WA3,10,192.0.2.20
+274,West Sussex,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,RH15 9UD,10,192.0.2.21
+275,Wokingham,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,RG41 1QW,10,192.0.2.22
+276,Woolston,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,WA1 4SY,10,192.0.2.23
+277,York,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,Y024 1GF,10,192.0.2.24
+278,York,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,Y03 4TN,10,192.0.2.25
+279,York,ENG,England,GB,United Kingdom,Reino Unido,Royaume-Uni,YO15,10,192.0.2.26
+280,Birmingham,AL,Alabama,US,United States,Estados Unidos,États-Unis,35203,5,192.0.2.27
+281,Florence,AL,Alabama,US,United States,Estados Unidos,États-Unis,35630,5,192.0.2.28
+282,Huntsville,AL,Alabama,US,United States,Estados Unidos,États-Unis,35801,5,192.0.2.29
+283,Mobile,AL,Alabama,US,United States,Estados Unidos,États-Unis,36602,5,192.0.2.30
+284,Montgomery,AL,Alabama,US,United States,Estados Unidos,États-Unis,36104,5,192.0.2.31
+285,Chandler,AZ,Arizona,US,United States,Estados Unidos,États-Unis,85225,4,192.0.2.32
+286,Gilbert,AZ,Arizona,US,United States,Estados Unidos,États-Unis,85233,4,192.0.2.33
+287,Mesa,AZ,Arizona,US,United States,Estados Unidos,États-Unis,85201,4,192.0.2.34
+288,Phoenix,AZ,Arizona,US,United States,Estados Unidos,États-Unis,85004,4,192.0.2.35
+289,Scottsdale,AZ,Arizona,US,United States,Estados Unidos,États-Unis,85257,4,192.0.2.36
+290,Surprise,AZ,Arizona,US,United States,Estados Unidos,États-Unis,85374,4,192.0.2.37
+291,Tucson,AZ,Arizona,US,United States,Estados Unidos,États-Unis,85701,4,192.0.2.38
+292,Alhambra,CA,California,US,United States,Estados Unidos,États-Unis,91801,4,192.0.2.39
+293,Alpine,CA,California,US,United States,Estados Unidos,États-Unis,91901,4,192.0.2.40
+294,Auburn,CA,California,US,United States,Estados Unidos,États-Unis,95603,4,192.0.2.41
+295,Baldwin Park,CA,California,US,United States,Estados Unidos,États-Unis,91706,4,192.0.2.42
+296,Barstow,CA,California,US,United States,Estados Unidos,États-Unis,92311,4,192.0.2.43
+297,Bell Gardens,CA,California,US,United States,Estados Unidos,États-Unis,90201,4,192.0.2.44
+298,Bellflower,CA,California,US,United States,Estados Unidos,États-Unis,90706,4,192.0.2.45
+299,Berkeley,CA,California,US,United States,Estados Unidos,États-Unis,94704,4,192.0.2.46
+300,Beverly Hills,CA,California,US,United States,Estados Unidos,États-Unis,90210,4,192.0.2.47
+301,Burbank,CA,California,US,United States,Estados Unidos,États-Unis,91502,4,192.0.2.48
+302,Burlingame,CA,California,US,United States,Estados Unidos,États-Unis,94010,4,192.0.2.49
+303,Camarillo,CA,California,US,United States,Estados Unidos,États-Unis,93010,4,192.0.2.50
+304,Canoga Park,CA,California,US,United States,Estados Unidos,États-Unis,91303,4,192.0.2.51
+305,Carson,CA,California,US,United States,Estados Unidos,États-Unis,90746,4,192.0.2.52
+306,Cerritos,CA,California,US,United States,Estados Unidos,États-Unis,90703,4,192.0.2.53
+307,Chula Vista,CA,California,US,United States,Estados Unidos,États-Unis,91910,4,192.0.2.54
+308,Citrus Heights,CA,California,US,United States,Estados Unidos,États-Unis,95610,4,192.0.2.55
+309,City Of Commerce,CA,California,US,United States,Estados Unidos,États-Unis,90040,4,192.0.2.56
+310,Colma,CA,California,US,United States,Estados Unidos,États-Unis,94014,4,192.0.2.57
+311,Concord,CA,California,US,United States,Estados Unidos,États-Unis,94519,4,192.0.2.58
+312,Coronado,CA,California,US,United States,Estados Unidos,États-Unis,92118,4,192.0.2.59
+313,Culver City,CA,California,US,United States,Estados Unidos,États-Unis,90232,4,192.0.2.60
+314,Daly City,CA,California,US,United States,Estados Unidos,États-Unis,94015,4,192.0.2.61
+315,Downey,CA,California,US,United States,Estados Unidos,États-Unis,90241,4,192.0.2.62
+316,El Cajon,CA,California,US,United States,Estados Unidos,États-Unis,92020,4,192.0.2.63
+317,El Segundo,CA,California,US,United States,Estados Unidos,États-Unis,90245,4,192.0.2.64
+318,Elk Grove,CA,California,US,United States,Estados Unidos,États-Unis,95624,4,192.0.2.65
+319,Escondido,CA,California,US,United States,Estados Unidos,États-Unis,92025,4,192.0.2.66
+320,Eureka,CA,California,US,United States,Estados Unidos,États-Unis,95501,4,192.0.2.67
+321,Fontana,CA,California,US,United States,Estados Unidos,États-Unis,92335,4,192.0.2.68
+322,Fremont,CA,California,US,United States,Estados Unidos,États-Unis,94536,4,192.0.2.69
+323,Fullerton,CA,California,US,United States,Estados Unidos,États-Unis,92831,4,192.0.2.70
+324,Gilroy,CA,California,US,United States,Estados Unidos,États-Unis,95020,4,192.0.2.71
+325,Glendale,CA,California,US,United States,Estados Unidos,États-Unis,91203,4,192.0.2.72
+326,Grossmont,CA,California,US,United States,Estados Unidos,États-Unis,91941,4,192.0.2.73
+327,Hanford,CA,California,US,United States,Estados Unidos,États-Unis,93230,4,192.0.2.74
+328,Hayward,CA,California,US,United States,Estados Unidos,États-Unis,94541,4,192.0.2.75
+329,Imperial Beach,CA,California,US,United States,Estados Unidos,États-Unis,91932,4,192.0.2.76
+330,Irvine,CA,California,US,United States,Estados Unidos,États-Unis,92614,4,192.0.2.77
+331,La Jolla,CA,California,US,United States,Estados Unidos,États-Unis,92806,4,192.0.2.78
+332,La Mesa,CA,California,US,United States,Estados Unidos,États-Unis,91941,4,192.0.2.79
+333,Lake Elsinore,CA,California,US,United States,Estados Unidos,États-Unis,92530,4,192.0.2.80
+334,Lakewood,CA,California,US,United States,Estados Unidos,États-Unis,90712,4,192.0.2.81
+335,Lemon Grove,CA,California,US,United States,Estados Unidos,États-Unis,91945,4,192.0.2.82
+336,Lincoln Acres,CA,California,US,United States,Estados Unidos,États-Unis,91950,4,192.0.2.83
+337,Long Beach,CA,California,US,United States,Estados Unidos,États-Unis,90802,4,192.0.2.84
+338,Los Angeles,CA,California,US,United States,Estados Unidos,États-Unis,90012,4,192.0.2.85
+339,Mill Valley,CA,California,US,United States,Estados Unidos,États-Unis,94941,4,192.0.2.86
+340,Milpitas,CA,California,US,United States,Estados Unidos,États-Unis,95035,4,192.0.2.87
+341,Modesto,CA,California,US,United States,Estados Unidos,États-Unis,95354,4,192.0.2.88
+342,Monrovia,CA,California,US,United States,Estados Unidos,États-Unis,91016,4,192.0.2.89
+343,National City,CA,California,US,United States,Estados Unidos,États-Unis,91950,4,192.0.2.90
+344,Newark,CA,California,US,United States,Estados Unidos,États-Unis,94560,4,192.0.2.91
+345,Newport Beach,CA,California,US,United States,Estados Unidos,États-Unis,92625,4,192.0.2.92
+346,Norwalk,CA,California,US,United States,Estados Unidos,États-Unis,90650,4,192.0.2.93
+347,Novato,CA,California,US,United States,Estados Unidos,États-Unis,94947,4,192.0.2.94
+348,Oakland,CA,California,US,United States,Estados Unidos,États-Unis,94611,4,192.0.2.95
+349,Ontario,CA,California,US,United States,Estados Unidos,États-Unis,91764,4,192.0.2.96
+350,Orange,CA,California,US,United States,Estados Unidos,États-Unis,92867,4,192.0.2.97
+351,Oxnard,CA,California,US,United States,Estados Unidos,États-Unis,93030,4,192.0.2.98
+352,Palo Alto,CA,California,US,United States,Estados Unidos,États-Unis,94303,4,192.0.2.99
+353,Pleasanton,CA,California,US,United States,Estados Unidos,États-Unis,94566,4,192.0.2.100
+354,Redlands,CA,California,US,United States,Estados Unidos,États-Unis,92373,4,192.0.2.101
+355,Redwood City,CA,California,US,United States,Estados Unidos,États-Unis,94063,4,192.0.2.102
+356,Sacramento,CA,California,US,United States,Estados Unidos,États-Unis,95814,4,192.0.2.103
+357,San Bruno,CA,California,US,United States,Estados Unidos,États-Unis,94066,4,192.0.2.104
+358,San Carlos,CA,California,US,United States,Estados Unidos,États-Unis,94070,4,192.0.2.105
+359,San Diego,CA,California,US,United States,Estados Unidos,États-Unis,92102,4,192.0.2.106
+360,San Francisco,CA,California,US,United States,Estados Unidos,États-Unis,94109,4,192.0.2.107
+361,San Gabriel,CA,California,US,United States,Estados Unidos,États-Unis,91776,4,192.0.2.108
+362,San Jose,CA,California,US,United States,Estados Unidos,États-Unis,95112,4,192.0.2.109
+363,San Mateo,CA,California,US,United States,Estados Unidos,États-Unis,94404,4,192.0.2.110
+364,San Ramon,CA,California,US,United States,Estados Unidos,États-Unis,94583,4,192.0.2.111
+365,San Ysidro,CA,California,US,United States,Estados Unidos,États-Unis,92173,4,192.0.2.112
+366,Sand City,CA,California,US,United States,Estados Unidos,États-Unis,93955,4,192.0.2.113
+367,Santa Ana,CA,California,US,United States,Estados Unidos,États-Unis,92701,4,192.0.2.114
+368,Santa Cruz,CA,California,US,United States,Estados Unidos,États-Unis,95062,4,192.0.2.115
+369,Santa Monica,CA,California,US,United States,Estados Unidos,États-Unis,90401,4,192.0.2.116
+370,Sherman Oaks,CA,California,US,United States,Estados Unidos,États-Unis,91403,4,192.0.2.117
+371,Simi Valley,CA,California,US,United States,Estados Unidos,États-Unis,93065,4,192.0.2.118
+372,Spring Valley,CA,California,US,United States,Estados Unidos,États-Unis,91977,4,192.0.2.119
+373,Stockton,CA,California,US,United States,Estados Unidos,États-Unis,95202,4,192.0.2.120
+374,Torrance,CA,California,US,United States,Estados Unidos,États-Unis,90505,4,192.0.2.121
+375,Trabuco Canyon,CA,California,US,United States,Estados Unidos,États-Unis,92679,4,192.0.2.122
+376,Union City,CA,California,US,United States,Estados Unidos,États-Unis,94587,4,192.0.2.123
+377,Upland,CA,California,US,United States,Estados Unidos,États-Unis,91786,4,192.0.2.124
+378,Vacaville,CA,California,US,United States,Estados Unidos,États-Unis,95688,4,192.0.2.125
+379,Van Nuys,CA,California,US,United States,Estados Unidos,États-Unis,91411,4,192.0.2.126
+380,Visalia,CA,California,US,United States,Estados Unidos,États-Unis,93291,4,192.0.2.127
+381,Vista,CA,California,US,United States,Estados Unidos,États-Unis,92084,4,192.0.2.128
+382,Walnut Creek,CA,California,US,United States,Estados Unidos,États-Unis,94596,4,192.0.2.129
+383,West Covina,CA,California,US,United States,Estados Unidos,États-Unis,91791,4,192.0.2.130
+384,Whittier,CA,California,US,United States,Estados Unidos,États-Unis,90605,4,192.0.2.131
+385,Woodland Hills,CA,California,US,United States,Estados Unidos,États-Unis,91364,4,192.0.2.132
+386,Denver,CO,Colorado,US,United States,Estados Unidos,États-Unis,80203,3,192.0.2.133
+387,Englewood,CO,Colorado,US,United States,Estados Unidos,États-Unis,80110,3,192.0.2.134
+388,Greeley,CO,Colorado,US,United States,Estados Unidos,États-Unis,80631,3,192.0.2.135
+389,Longmont,CO,Colorado,US,United States,Estados Unidos,États-Unis,80501,3,192.0.2.136
+390,Loveland,CO,Colorado,US,United States,Estados Unidos,États-Unis,80537,3,192.0.2.137
+391,Parker,CO,Colorado,US,United States,Estados Unidos,États-Unis,80138,3,192.0.2.138
+392,Westminster,CO,Colorado,US,United States,Estados Unidos,États-Unis,80030,3,192.0.2.139
+393,East Haven,CT,Connecticut,US,United States,Estados Unidos,États-Unis,06512,2,192.0.2.140
+394,Farmington,CT,Connecticut,US,United States,Estados Unidos,États-Unis,06032,2,192.0.2.141
+395,Hamden,CT,Connecticut,US,United States,Estados Unidos,États-Unis,06518,2,192.0.2.142
+396,Milford,CT,Connecticut,US,United States,Estados Unidos,États-Unis,06460,2,192.0.2.143
+397,New Haven,CT,Connecticut,US,United States,Estados Unidos,États-Unis,06510,2,192.0.2.144
+398,Stamford,CT,Connecticut,US,United States,Estados Unidos,États-Unis,06901,2,192.0.2.145
+399,Waterbury,CT,Connecticut,US,United States,Estados Unidos,États-Unis,06710,2,192.0.2.146
+400,Westport,CT,Connecticut,US,United States,Estados Unidos,États-Unis,06880,2,192.0.2.147
+401,Altamonte Springs,FL,Florida,US,United States,Estados Unidos,États-Unis,32701,5,192.0.2.148
+402,Bradenton,FL,Florida,US,United States,Estados Unidos,États-Unis,34205,5,192.0.2.149
+403,Clearwater,FL,Florida,US,United States,Estados Unidos,États-Unis,33755,5,192.0.2.150
+404,Destin,FL,Florida,US,United States,Estados Unidos,États-Unis,32541,5,192.0.2.151
+405,Hollywood,FL,Florida,US,United States,Estados Unidos,États-Unis,33021,5,192.0.2.152
+406,Kendall,FL,Florida,US,United States,Estados Unidos,États-Unis,33143,5,192.0.2.153
+407,Lakeland,FL,Florida,US,United States,Estados Unidos,États-Unis,33801,5,192.0.2.154
+408,Merritt Island,FL,Florida,US,United States,Estados Unidos,États-Unis,32952,5,192.0.2.155
+409,Miami,FL,Florida,US,United States,Estados Unidos,États-Unis,33127,5,192.0.2.156
+410,North Miami Beach,FL,Florida,US,United States,Estados Unidos,États-Unis,33162,5,192.0.2.157
+411,Orlando,FL,Florida,US,United States,Estados Unidos,États-Unis,32804,5,192.0.2.158
+412,Sarasota,FL,Florida,US,United States,Estados Unidos,États-Unis,34236,5,192.0.2.159
+413,Sunrise,FL,Florida,US,United States,Estados Unidos,États-Unis,33322,5,192.0.2.160
+414,Tampa,FL,Florida,US,United States,Estados Unidos,États-Unis,33602,5,192.0.2.161
+415,Vero Beach,FL,Florida,US,United States,Estados Unidos,États-Unis,32960,5,192.0.2.162
+416,Atlanta,GA,Georgia,US,United States,Estados Unidos,États-Unis,30308,5,192.0.2.163
+417,Augusta,GA,Georgia,US,United States,Estados Unidos,États-Unis,30901,5,192.0.2.164
+418,Austell,GA,Georgia,US,United States,Estados Unidos,États-Unis,30106,5,192.0.2.165
+419,Byron,GA,Georgia,US,United States,Estados Unidos,États-Unis,31008,5,192.0.2.166
+420,Clarkston,GA,Georgia,US,United States,Estados Unidos,États-Unis,30021,5,192.0.2.167
+421,Columbus,GA,Georgia,US,United States,Estados Unidos,États-Unis,31901,5,192.0.2.168
+422,Decatur,GA,Georgia,US,United States,Estados Unidos,États-Unis,30030,5,192.0.2.169
+423,La Grange,GA,Georgia,US,United States,Estados Unidos,États-Unis,30240,5,192.0.2.170
+424,Marietta,GA,Georgia,US,United States,Estados Unidos,États-Unis,30060,5,192.0.2.171
+425,Mcdonough,GA,Georgia,US,United States,Estados Unidos,États-Unis,30253,5,192.0.2.172
+426,Savannah,GA,Georgia,US,United States,Estados Unidos,États-Unis,31401,5,192.0.2.173
+427,Suwanee,GA,Georgia,US,United States,Estados Unidos,États-Unis,30024,5,192.0.2.174
+428,Idaho Falls,ID,Idaho,US,United States,Estados Unidos,États-Unis,83402,1,192.0.2.175
+429,Lewiston,ID,Idaho,US,United States,Estados Unidos,États-Unis,83501,1,192.0.2.176
+430,Sandpoint,ID,Idaho,US,United States,Estados Unidos,États-Unis,83864,1,192.0.2.177
+431,Carol Stream,IL,Illinois,US,United States,Estados Unidos,États-Unis,60188,3,192.0.2.178
+432,Chicago,IL,Illinois,US,United States,Estados Unidos,États-Unis,60610,3,192.0.2.179
+433,Elgin,IL,Illinois,US,United States,Estados Unidos,États-Unis,60120,3,192.0.2.180
+434,Joliet,IL,Illinois,US,United States,Estados Unidos,États-Unis,60433,3,192.0.2.181
+435,Moline,IL,Illinois,US,United States,Estados Unidos,États-Unis,61265,3,192.0.2.182
+436,Norridge,IL,Illinois,US,United States,Estados Unidos,États-Unis,60706,3,192.0.2.183
+437,Peoria,IL,Illinois,US,United States,Estados Unidos,États-Unis,61606,3,192.0.2.184
+438,Tuscola,IL,Illinois,US,United States,Estados Unidos,États-Unis,61953,3,192.0.2.185
+439,West Chicago,IL,Illinois,US,United States,Estados Unidos,États-Unis,60185,3,192.0.2.186
+440,Wood Dale,IL,Illinois,US,United States,Estados Unidos,États-Unis,60191,3,192.0.2.187
+441,Daleville,IN,Indiana,US,United States,Estados Unidos,États-Unis,47334,2,192.0.2.188
+442,Fort Wayne,IN,Indiana,US,United States,Estados Unidos,États-Unis,46807,2,192.0.2.189
+443,Indianapolis,IN,Indiana,US,United States,Estados Unidos,États-Unis,46204,2,192.0.2.190
+444,Logansport,IN,Indiana,US,United States,Estados Unidos,États-Unis,46947,2,192.0.2.191
+445,Michigan City,IN,Indiana,US,United States,Estados Unidos,États-Unis,46360,2,192.0.2.192
+446,New Castle,IN,Indiana,US,United States,Estados Unidos,États-Unis,47362,2,192.0.2.193
+447,South Bend,IN,Indiana,US,United States,Estados Unidos,États-Unis,46601,2,192.0.2.194
+448,Campbellsville,KY,Kentucky,US,United States,Estados Unidos,États-Unis,42718,5,192.0.2.195
+449,Florence,KY,Kentucky,US,United States,Estados Unidos,États-Unis,41042,5,192.0.2.196
+450,Newport,KY,Kentucky,US,United States,Estados Unidos,États-Unis,41071,5,192.0.2.197
+451,Saint Matthews,KY,Kentucky,US,United States,Estados Unidos,États-Unis,40207,5,192.0.2.198
+452,Somerset,KY,Kentucky,US,United States,Estados Unidos,États-Unis,42501,5,192.0.2.199
+453,Braintree,MA,Massachusetts,US,United States,Estados Unidos,États-Unis,02184,2,192.0.2.200
+454,Norwood,MA,Massachusetts,US,United States,Estados Unidos,États-Unis,02062,2,192.0.2.201
+455,Randolph,MA,Massachusetts,US,United States,Estados Unidos,États-Unis,02368,2,192.0.2.202
+456,Saugus,MA,Massachusetts,US,United States,Estados Unidos,États-Unis,01906,2,192.0.2.203
+457,Wrentham,MA,Massachusetts,US,United States,Estados Unidos,États-Unis,02093,2,192.0.2.204
+458,Baltimore,MD,Maryland,US,United States,Estados Unidos,États-Unis,21201,2,192.0.2.205
+459,Kittery,ME,Maine,US,United States,Estados Unidos,États-Unis,03904,2,192.0.2.206
+460,Detroit,MI,Michigan,US,United States,Estados Unidos,États-Unis,48226,3,192.0.2.207
+461,Holland,MI,Michigan,US,United States,Estados Unidos,États-Unis,49423,3,192.0.2.208
+462,Howell,MI,Michigan,US,United States,Estados Unidos,États-Unis,48843,3,192.0.2.209
+463,Madison Heights,MI,Michigan,US,United States,Estados Unidos,États-Unis,48071,3,192.0.2.210
+464,Midland,MI,Michigan,US,United States,Estados Unidos,États-Unis,48640,3,192.0.2.211
+465,Monroe,MI,Michigan,US,United States,Estados Unidos,États-Unis,98272,3,192.0.2.212
+466,Novi,MI,Michigan,US,United States,Estados Unidos,États-Unis,48375,3,192.0.2.213
+467,Pontiac,MI,Michigan,US,United States,Estados Unidos,États-Unis,48342,3,192.0.2.214
+468,Port Huron,MI,Michigan,US,United States,Estados Unidos,États-Unis,48060,3,192.0.2.215
+469,Redford,MI,Michigan,US,United States,Estados Unidos,États-Unis,48239,3,192.0.2.216
+470,Saginaw,MI,Michigan,US,United States,Estados Unidos,États-Unis,48601,3,192.0.2.217
+471,Southfield,MI,Michigan,US,United States,Estados Unidos,États-Unis,48034,3,192.0.2.218
+472,Southgate,MI,Michigan,US,United States,Estados Unidos,États-Unis,48195,3,192.0.2.219
+473,Westland,MI,Michigan,US,United States,Estados Unidos,États-Unis,48185,3,192.0.2.220
+474,Zeeland,MI,Michigan,US,United States,Estados Unidos,États-Unis,49464,3,192.0.2.221
+475,Branch,MN,Minnesota,US,United States,Estados Unidos,États-Unis,55056,3,192.0.2.222
+476,Duluth,MN,Minnesota,US,United States,Estados Unidos,États-Unis,55802,3,192.0.2.223
+477,Edina,MN,Minnesota,US,United States,Estados Unidos,États-Unis,55436,3,192.0.2.224
+478,Medford,MN,Minnesota,US,United States,Estados Unidos,États-Unis,55049,3,192.0.2.225
+479,Minneapolis,MN,Minnesota,US,United States,Estados Unidos,États-Unis,55402,3,192.0.2.226
+480,Woodbury,MN,Minnesota,US,United States,Estados Unidos,États-Unis,55125,3,192.0.2.227
+481,Branson,MO,Missouri,US,United States,Estados Unidos,États-Unis,65616,3,192.0.2.228
+482,Ferguson,MO,Missouri,US,United States,Estados Unidos,États-Unis,63135,3,192.0.2.229
+483,Jefferson City,MO,Missouri,US,United States,Estados Unidos,États-Unis,65101,3,192.0.2.230
+484,Kansas City,MO,Missouri,US,United States,Estados Unidos,États-Unis,64106,3,192.0.2.231
+485,Odessa,MO,Missouri,US,United States,Estados Unidos,États-Unis,64076,3,192.0.2.232
+486,Saint Ann,MO,Missouri,US,United States,Estados Unidos,États-Unis,63074,3,192.0.2.233
+487,Saint Louis,MO,Missouri,US,United States,Estados Unidos,États-Unis,63103,3,192.0.2.234
+488,Biloxi,MS,Mississippi,US,United States,Estados Unidos,États-Unis,39530,5,192.0.2.235
+489,Gulfport,MS,Mississippi,US,United States,Estados Unidos,États-Unis,39501,5,192.0.2.236
+490,Tupelo,MS,Mississippi,US,United States,Estados Unidos,États-Unis,38804,5,192.0.2.237
+491,Billings,MT,Montana,US,United States,Estados Unidos,États-Unis,59101,1,192.0.2.238
+492,Great Falls,MT,Montana,US,United States,Estados Unidos,États-Unis,59401,1,192.0.2.239
+493,Missoula,MT,Montana,US,United States,Estados Unidos,États-Unis,59801,1,192.0.2.240
+494,Charlotte,NC,North Carolina,US,United States,Estados Unidos,États-Unis,28202,5,192.0.2.241
+495,Greensboro,NC,North Carolina,US,United States,Estados Unidos,États-Unis,27412,5,192.0.2.242
+496,Kannapolis,NC,North Carolina,US,United States,Estados Unidos,États-Unis,28081,5,192.0.2.243
+497,Raleigh,NC,North Carolina,US,United States,Estados Unidos,États-Unis,27603,5,192.0.2.244
+498,Rocky Mount,NC,North Carolina,US,United States,Estados Unidos,États-Unis,27803,5,192.0.2.245
+499,Smithfield,NC,North Carolina,US,United States,Estados Unidos,États-Unis,27577,5,192.0.2.246
+500,Winston-Salem,NC,North Carolina,US,United States,Estados Unidos,États-Unis,27104,5,192.0.2.247
+501,Hooksett,NH,New Hampshire,US,United States,Estados Unidos,États-Unis,03106,2,192.0.2.248
+502,Nashua,NH,New Hampshire,US,United States,Estados Unidos,États-Unis,03064,2,192.0.2.249
+503,Plaistow,NH,New Hampshire,US,United States,Estados Unidos,États-Unis,03865,2,192.0.2.250
+504,Tilton,NH,New Hampshire,US,United States,Estados Unidos,États-Unis,03276,2,192.0.2.251
+505,Las Cruces,NM,New Mexico,US,United States,Estados Unidos,États-Unis,88001,4,192.0.2.252
+506,Rio Rancho,NM,New Mexico,US,United States,Estados Unidos,États-Unis,87124,4,192.0.2.253
+507,Santa Fe,NM,New Mexico,US,United States,Estados Unidos,États-Unis,87501,4,192.0.2.254
+508,Fernley,NV,Nevada,US,United States,Estados Unidos,États-Unis,89408,1,203.0.113.1
+509,Las Vegas,NV,Nevada,US,United States,Estados Unidos,États-Unis,89106,1,203.0.113.2
+510,North Las Vegas,NV,Nevada,US,United States,Estados Unidos,États-Unis,89030,1,203.0.113.3
+511,Reno,NV,Nevada,US,United States,Estados Unidos,États-Unis,89502,1,203.0.113.4
+512,Sparks,NV,Nevada,US,United States,Estados Unidos,États-Unis,89431,1,203.0.113.5
+513,Central Valley,NY,New York,US,United States,Estados Unidos,États-Unis,10917,2,203.0.113.6
+514,Cheektowaga,NY,New York,US,United States,Estados Unidos,États-Unis,14227,2,203.0.113.7
+515,Clay,NY,New York,US,United States,Estados Unidos,États-Unis,13041,2,203.0.113.8
+516,De Witt,NY,New York,US,United States,Estados Unidos,États-Unis,13214,2,203.0.113.9
+517,Endicott,NY,New York,US,United States,Estados Unidos,États-Unis,13760,2,203.0.113.10
+518,Ithaca,NY,New York,US,United States,Estados Unidos,États-Unis,14850,2,203.0.113.11
+519,Lake George,NY,New York,US,United States,Estados Unidos,États-Unis,12845,2,203.0.113.12
+520,Melville,NY,New York,US,United States,Estados Unidos,États-Unis,11747,2,203.0.113.13
+521,New Hartford,NY,New York,US,United States,Estados Unidos,États-Unis,13413,2,203.0.113.14
+522,New York,NY,New York,US,United States,Estados Unidos,États-Unis,10007,2,203.0.113.15
+523,Valley Stream,NY,New York,US,United States,Estados Unidos,États-Unis,11580,2,203.0.113.16
+524,Burbank,OH,Ohio,US,United States,Estados Unidos,États-Unis,44214,2,203.0.113.17
+525,Cincinnati,OH,Ohio,US,United States,Estados Unidos,États-Unis,45202,2,203.0.113.18
+526,Columbus,OH,Ohio,US,United States,Estados Unidos,États-Unis,43215,2,203.0.113.19
+527,Euclid,OH,Ohio,US,United States,Estados Unidos,États-Unis,44119,2,203.0.113.20
+528,Heath,OH,Ohio,US,United States,Estados Unidos,États-Unis,43056,2,203.0.113.21
+529,Holland,OH,Ohio,US,United States,Estados Unidos,États-Unis,43528,2,203.0.113.22
+530,Mansfield,OH,Ohio,US,United States,Estados Unidos,États-Unis,44903,2,203.0.113.23
+531,Mentor,OH,Ohio,US,United States,Estados Unidos,États-Unis,44060,2,203.0.113.24
+532,North Randall,OH,Ohio,US,United States,Estados Unidos,États-Unis,44128,2,203.0.113.25
+533,Oberlin,OH,Ohio,US,United States,Estados Unidos,États-Unis,44074,2,203.0.113.26
+534,Springdale,OH,Ohio,US,United States,Estados Unidos,États-Unis,45246,2,203.0.113.27
+535,Albany,OR,Oregon,US,United States,Estados Unidos,États-Unis,97321,1,203.0.113.28
+536,Beaverton,OR,Oregon,US,United States,Estados Unidos,États-Unis,97005,1,203.0.113.29
+537,Clackamas,OR,Oregon,US,United States,Estados Unidos,États-Unis,97015,1,203.0.113.30
+538,Clackamas,OR,Oregon,US,United States,Estados Unidos,États-Unis,97015-6403,1,203.0.113.31
+539,Corvallis,OR,Oregon,US,United States,Estados Unidos,États-Unis,97330,1,203.0.113.32
+540,Hillsboro,OR,Oregon,US,United States,Estados Unidos,États-Unis,97123,1,203.0.113.33
+541,Klamath Falls,OR,Oregon,US,United States,Estados Unidos,États-Unis,97601,1,203.0.113.34
+542,Lake Oswego,OR,Oregon,US,United States,Estados Unidos,États-Unis,97034,1,203.0.113.35
+543,Lebanon,OR,Oregon,US,United States,Estados Unidos,États-Unis,97355,1,203.0.113.36
+544,Medford,OR,Oregon,US,United States,Estados Unidos,États-Unis,97504,1,203.0.113.37
+545,Milwaukie,OR,Oregon,US,United States,Estados Unidos,États-Unis,97222,1,203.0.113.38
+546,Oregon City,OR,Oregon,US,United States,Estados Unidos,États-Unis,97045,1,203.0.113.39
+547,Portland,OR,Oregon,US,United States,Estados Unidos,États-Unis,97205,1,203.0.113.40
+548,Salem,OR,Oregon,US,United States,Estados Unidos,États-Unis,97301,1,203.0.113.41
+549,Springfield,OR,Oregon,US,United States,Estados Unidos,États-Unis,97477,1,203.0.113.42
+550,Tigard,OR,Oregon,US,United States,Estados Unidos,États-Unis,97223,1,203.0.113.43
+551,Troutdale,OR,Oregon,US,United States,Estados Unidos,États-Unis,97060,1,203.0.113.44
+552,W. Linn,OR,Oregon,US,United States,Estados Unidos,États-Unis,97068,1,203.0.113.45
+553,Woodburn,OR,Oregon,US,United States,Estados Unidos,États-Unis,97071,1,203.0.113.46
+554,Warwick,RI,Rhode Island,US,United States,Estados Unidos,États-Unis,02889,2,203.0.113.47
+555,West Kingston,RI,Rhode Island,US,United States,Estados Unidos,États-Unis,02892,2,203.0.113.48
+556,Woonsocket,RI,Rhode Island,US,United States,Estados Unidos,États-Unis,02895,2,203.0.113.49
+557,Bluffton,SC,South Carolina,US,United States,Estados Unidos,États-Unis,29910,5,203.0.113.50
+558,Gaffney,SC,South Carolina,US,United States,Estados Unidos,États-Unis,29340,5,203.0.113.51
+559,Myrtle Beach,SC,South Carolina,US,United States,Estados Unidos,États-Unis,29577,5,203.0.113.52
+560,Denby,SD,South Dakota,US,United States,Estados Unidos,États-Unis,57716,3,203.0.113.53
+561,North Sioux City,SD,South Dakota,US,United States,Estados Unidos,États-Unis,57049,3,203.0.113.54
+562,Crossville,TN,Tennessee,US,United States,Estados Unidos,États-Unis,38555,5,203.0.113.55
+563,Hixson,TN,Tennessee,US,United States,Estados Unidos,États-Unis,37343,5,203.0.113.56
+564,Kingsport,TN,Tennessee,US,United States,Estados Unidos,États-Unis,37660,5,203.0.113.57
+565,La Vergne,TN,Tennessee,US,United States,Estados Unidos,États-Unis,37086,5,203.0.113.58
+566,Maryville,TN,Tennessee,US,United States,Estados Unidos,États-Unis,37801,5,203.0.113.59
+567,Memphis,TN,Tennessee,US,United States,Estados Unidos,États-Unis,38103,5,203.0.113.60
+568,Millington,TN,Tennessee,US,United States,Estados Unidos,États-Unis,38054,5,203.0.113.61
+569,Nashville,TN,Tennessee,US,United States,Estados Unidos,États-Unis,37203,5,203.0.113.62
+570,Pigeon Forge,TN,Tennessee,US,United States,Estados Unidos,États-Unis,37863,5,203.0.113.63
+571,Arlington,TX,Texas,US,United States,Estados Unidos,États-Unis,76010,4,203.0.113.64
+572,Austin,TX,Texas,US,United States,Estados Unidos,États-Unis,78701,4,203.0.113.65
+573,Baytown,TX,Texas,US,United States,Estados Unidos,États-Unis,77520,4,203.0.113.66
+574,Carrollton,TX,Texas,US,United States,Estados Unidos,États-Unis,75006,4,203.0.113.67
+575,Cedar Park,TX,Texas,US,United States,Estados Unidos,États-Unis,78613,4,203.0.113.68
+576,College Station,TX,Texas,US,United States,Estados Unidos,États-Unis,77840,4,203.0.113.69
+577,Corpus Christi,TX,Texas,US,United States,Estados Unidos,États-Unis,78404,4,203.0.113.70
+578,Dallas,TX,Texas,US,United States,Estados Unidos,États-Unis,75201,4,203.0.113.71
+579,Fort Worth,TX,Texas,US,United States,Estados Unidos,États-Unis,76102,4,203.0.113.72
+580,Garland,TX,Texas,US,United States,Estados Unidos,États-Unis,75040,4,203.0.113.73
+581,Hillsboro,TX,Texas,US,United States,Estados Unidos,États-Unis,76645,4,203.0.113.74
+582,Houston,TX,Texas,US,United States,Estados Unidos,États-Unis,77003,4,203.0.113.75
+583,Humble,TX,Texas,US,United States,Estados Unidos,États-Unis,77338,4,203.0.113.76
+584,Irving,TX,Texas,US,United States,Estados Unidos,États-Unis,75061,4,203.0.113.77
+585,Killeen,TX,Texas,US,United States,Estados Unidos,États-Unis,76541,4,203.0.113.78
+586,La Marque,TX,Texas,US,United States,Estados Unidos,États-Unis,77568,4,203.0.113.79
+587,Laredo,TX,Texas,US,United States,Estados Unidos,États-Unis,78040,4,203.0.113.80
+588,Mesquite,TX,Texas,US,United States,Estados Unidos,États-Unis,75149,4,203.0.113.81
+589,Plano,TX,Texas,US,United States,Estados Unidos,États-Unis,75074,4,203.0.113.82
+590,Round Rock,TX,Texas,US,United States,Estados Unidos,États-Unis,78664,4,203.0.113.83
+591,San Antonio,TX,Texas,US,United States,Estados Unidos,États-Unis,78204,4,203.0.113.84
+592,Stafford,TX,Texas,US,United States,Estados Unidos,États-Unis,77477,4,203.0.113.85
+593,Sugar Land,TX,Texas,US,United States,Estados Unidos,États-Unis,77478,4,203.0.113.86
+594,Bountiful,UT,Utah,US,United States,Estados Unidos,États-Unis,84010,1,203.0.113.87
+595,Cedar City,UT,Utah,US,United States,Estados Unidos,États-Unis,84720,1,203.0.113.88
+596,Ogden,UT,Utah,US,United States,Estados Unidos,États-Unis,84401,1,203.0.113.89
+597,Park City,UT,Utah,US,United States,Estados Unidos,États-Unis,84098,1,203.0.113.90
+598,Riverton,UT,Utah,US,United States,Estados Unidos,États-Unis,84065,1,203.0.113.91
+599,Salt Lake City,UT,Utah,US,United States,Estados Unidos,États-Unis,84101,1,203.0.113.92
+600,Sandy,UT,Utah,US,United States,Estados Unidos,États-Unis,84070,1,203.0.113.93
+601,Tooele,UT,Utah,US,United States,Estados Unidos,États-Unis,84074,1,203.0.113.94
+602,Chantilly,VA,Virginia,US,United States,Estados Unidos,États-Unis,20151,5,203.0.113.95
+603,Falls Church,VA,Virginia,US,United States,Estados Unidos,États-Unis,22046,5,203.0.113.96
+604,Leesburg,VA,Virginia,US,United States,Estados Unidos,États-Unis,20176,5,203.0.113.97
+605,Newport News,VA,Virginia,US,United States,Estados Unidos,États-Unis,23607,5,203.0.113.98
+606,Virginia Beach,VA,Virginia,US,United States,Estados Unidos,États-Unis,23451,5,203.0.113.99
+607,Ballard,WA,Washington,US,United States,Estados Unidos,États-Unis,98107,1,203.0.113.100
+608,Bellevue,WA,Washington,US,United States,Estados Unidos,États-Unis,98004,1,203.0.113.101
+609,Bellingham,WA,Washington,US,United States,Estados Unidos,États-Unis,98225,1,203.0.113.102
+610,Bothell,WA,Washington,US,United States,Estados Unidos,États-Unis,98011,1,203.0.113.103
+611,Bremerton,WA,Washington,US,United States,Estados Unidos,États-Unis,98312,1,203.0.113.104
+612,Burien,WA,Washington,US,United States,Estados Unidos,États-Unis,98168,1,203.0.113.105
+613,Chehalis,WA,Washington,US,United States,Estados Unidos,États-Unis,98532,1,203.0.113.106
+614,Edmonds,WA,Washington,US,United States,Estados Unidos,États-Unis,98020,1,203.0.113.107
+615,Ellensburg,WA,Washington,US,United States,Estados Unidos,États-Unis,98926,1,203.0.113.108
+616,Everett,WA,Washington,US,United States,Estados Unidos,États-Unis,98201,1,203.0.113.109
+617,Federal Way,WA,Washington,US,United States,Estados Unidos,États-Unis,98003,1,203.0.113.110
+618,Issaquah,WA,Washington,US,United States,Estados Unidos,États-Unis,98027,1,203.0.113.111
+619,Kelso,WA,Washington,US,United States,Estados Unidos,États-Unis,98626,1,203.0.113.112
+620,Kenmore,WA,Washington,US,United States,Estados Unidos,États-Unis,98028,1,203.0.113.113
+621,Kennewick,WA,Washington,US,United States,Estados Unidos,États-Unis,99337,1,203.0.113.114
+622,Kent,WA,Washington,US,United States,Estados Unidos,États-Unis,98031,1,203.0.113.115
+623,Kirkland,WA,Washington,US,United States,Estados Unidos,États-Unis,98033,1,203.0.113.116
+624,Lacey,WA,Washington,US,United States,Estados Unidos,États-Unis,98503,1,203.0.113.117
+625,Longview,WA,Washington,US,United States,Estados Unidos,États-Unis,98632,1,203.0.113.118
+626,Lynnwood,WA,Washington,US,United States,Estados Unidos,États-Unis,98036,1,203.0.113.119
+627,Marysville,WA,Washington,US,United States,Estados Unidos,États-Unis,98270,1,203.0.113.120
+628,Monroe,WA,Washington,US,United States,Estados Unidos,États-Unis,98272,1,203.0.113.121
+629,Newport Hills,WA,Washington,US,United States,Estados Unidos,États-Unis,98006,1,203.0.113.122
+630,North Bend,WA,Washington,US,United States,Estados Unidos,États-Unis,98045,1,203.0.113.123
+631,Olympia,WA,Washington,US,United States,Estados Unidos,États-Unis,98501,1,203.0.113.124
+632,Port Orchard,WA,Washington,US,United States,Estados Unidos,États-Unis,98366,1,203.0.113.125
+633,Puyallup,WA,Washington,US,United States,Estados Unidos,États-Unis,98371,1,203.0.113.126
+634,Redmond,WA,Washington,US,United States,Estados Unidos,États-Unis,98052,1,203.0.113.127
+635,Renton,WA,Washington,US,United States,Estados Unidos,États-Unis,98055,1,203.0.113.128
+636,Sammamish,WA,Washington,US,United States,Estados Unidos,États-Unis,98074,1,203.0.113.129
+637,Seattle,WA,Washington,US,United States,Estados Unidos,États-Unis,98104,1,203.0.113.130
+638,Sedro Woolley,WA,Washington,US,United States,Estados Unidos,États-Unis,98284,1,203.0.113.131
+639,Sequim,WA,Washington,US,United States,Estados Unidos,États-Unis,98382,1,203.0.113.132
+640,Shelton,WA,Washington,US,United States,Estados Unidos,États-Unis,98584,1,203.0.113.133
+641,Spokane,WA,Washington,US,United States,Estados Unidos,États-Unis,99202,1,203.0.113.134
+642,Tacoma,WA,Washington,US,United States,Estados Unidos,États-Unis,98403,1,203.0.113.135
+643,Union Gap,WA,Washington,US,United States,Estados Unidos,États-Unis,98903,1,203.0.113.136
+644,Walla Walla,WA,Washington,US,United States,Estados Unidos,États-Unis,99362,1,203.0.113.137
+645,Washougal,WA,Washington,US,United States,Estados Unidos,États-Unis,98671,1,203.0.113.138
+646,Wenatchee,WA,Washington,US,United States,Estados Unidos,États-Unis,98801,1,203.0.113.139
+647,Woodinville,WA,Washington,US,United States,Estados Unidos,États-Unis,98072,1,203.0.113.140
+648,Yakima,WA,Washington,US,United States,Estados Unidos,États-Unis,98901,1,203.0.113.141
+649,Johnson Creek,WI,Wisconsin,US,United States,Estados Unidos,États-Unis,53038,3,203.0.113.142
+650,Milwaukee,WI,Wisconsin,US,United States,Estados Unidos,États-Unis,53202,3,203.0.113.143
+651,Mosinee,WI,Wisconsin,US,United States,Estados Unidos,États-Unis,54455,3,203.0.113.144
+652,Racine,WI,Wisconsin,US,United States,Estados Unidos,États-Unis,53182,3,203.0.113.145
+653,Casper,WY,Wyoming,US,United States,Estados Unidos,États-Unis,82601,1,203.0.113.146
+654,Cheyenne,WY,Wyoming,US,United States,Estados Unidos,États-Unis,82001,1,203.0.113.147
+655,Rock Springs,WY,Wyoming,US,United States,Estados Unidos,États-Unis,82901,1,203.0.113.148
