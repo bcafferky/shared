@@ -1,0 +1,38 @@
+﻿ProductSubcategoryKey,ProductSubcategoryAlternateKey,EnglishProductSubcategoryName,SpanishProductSubcategoryName,FrenchProductSubcategoryName,ProductCategoryKey
+1,1,Mountain Bikes,Bicicleta de montaña,VTT,1
+2,2,Road Bikes,Bicicleta de carretera,Vélo de route,1
+3,3,Touring Bikes,Bicicleta de paseo,Vélo de randonnée,1
+4,4,Handlebars,Barra,Barre d'appui,2
+5,5,Bottom Brackets,Eje de pedalier,Axe de pédalier,2
+6,6,Brakes,Frenos,Freins,2
+7,7,Chains,Cadena,Chaîne,2
+8,8,Cranksets,Bielas,Pédalier,2
+9,9,Derailleurs,Desviador,Dérailleur,2
+10,10,Forks,Horquilla,Fourche,2
+11,11,Headsets,Dirección,Jeu de direction,2
+12,12,Mountain Frames,Cuadro de montaña,Cadre de VTT,2
+13,13,Pedals,Pedal,Pédale,2
+14,14,Road Frames,Cuadro de carretera,Cadre de vélo de route,2
+15,15,Saddles,Sillín,Selle,2
+16,16,Touring Frames,Cuadro de paseo,Cadre de vélo de randonnée,2
+17,17,Wheels,Rueda,Roue,2
+18,18,Bib-Shorts,Culote corto,Cuissards avec bretelles,3
+19,19,Caps,Gorra,Casquette,3
+20,20,Gloves,Guantes,Gants,3
+21,21,Jerseys,Jersey,Maillot,3
+22,22,Shorts,Pantalones cortos,Cuissards,3
+23,23,Socks,Calcetines,Chaussettes,3
+24,24,Tights,Mallas,Collants,3
+25,25,Vests,Camiseta,Veste,3
+26,26,Bike Racks,Portabicicletas,Porte-vélo,4
+27,27,Bike Stands,Soporte para bicicletas,Range-vélo,4
+28,28,Bottles and Cages,Portabotellas y botella,Bidon et porte-bidon,4
+29,29,Cleaners,Limpiador,Nettoyant,4
+30,30,Fenders,Guardabarros,Garde-boue,4
+31,31,Helmets,Casco,Casque,4
+32,32,Hydration Packs,Sistema de hidratación,Sac d'hydratation,4
+33,33,Lights,Luz,Éclairage,4
+34,34,Locks,Candado,Antivol,4
+35,35,Panniers,Cesta,Sacoche,4
+36,36,Pumps,Bomba,Pompe,4
+37,37,Tires and Tubes,Cubierta y cámara,Pneu et chambre à air,4
