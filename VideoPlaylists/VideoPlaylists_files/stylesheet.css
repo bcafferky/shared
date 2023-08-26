@@ -1,0 +1,105 @@
+tr
+	{mso-height-source:auto;}
+col
+	{mso-width-source:auto;}
+br
+	{mso-data-placement:same-cell;}
+.style16
+	{color:#0563C1;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:underline;
+	text-underline-style:single;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-style-name:Hyperlink;
+	mso-style-id:8;}
+a:link
+	{color:#0563C1;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:underline;
+	text-underline-style:single;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+a:visited
+	{color:#954F72;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:underline;
+	text-underline-style:single;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;}
+.style0
+	{mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	white-space:nowrap;
+	mso-rotate:0;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	border:none;
+	mso-protection:locked visible;
+	mso-style-name:Normal;
+	mso-style-id:0;}
+td
+	{mso-style-parent:style0;
+	padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	mso-protection:locked visible;
+	white-space:nowrap;
+	mso-rotate:0;}
+.xl65
+	{mso-style-parent:style0;
+	color:#0D0D0D;
+	font-size:10.0pt;
+	font-family:Roboto;
+	mso-generic-font-family:auto;
+	mso-font-charset:0;
+	vertical-align:middle;}
+.xl66
+	{mso-style-parent:style0;
+	color:#0D0D0D;
+	font-family:Roboto;
+	mso-generic-font-family:auto;
+	mso-font-charset:0;}
+.xl67
+	{mso-style-parent:style16;
+	color:#0563C1;
+	text-decoration:underline;
+	text-underline-style:single;}
+.xl68
+	{mso-style-parent:style0;
+	font-weight:700;}
+.xl69
+	{mso-style-parent:style0;
+	color:#002060;
+	font-size:16.0pt;
+	font-family:Arial, sans-serif;
+	mso-font-charset:0;
+	text-align:left;}
